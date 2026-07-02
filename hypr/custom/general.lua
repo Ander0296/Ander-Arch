@@ -18,6 +18,13 @@ hl.config({
 			scroll_factor = 0.3, -- scroll más lento con dos dedos
 		},
 	},
+
+	decoration = {
+		blur = {
+			enabled = false, -- apagado total del blur, para la prueba
+			xray = false,
+		},
+	},
 })
 
 hl.workspace_rule({

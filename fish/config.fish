@@ -16,6 +16,14 @@ if status is-interactive
     if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
         cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
     end
+    # Fastfetch con logo random, disparado en el primer prompt (no durante la carga del rc)
+    # para evitar la carrera con la negociación del protocolo gráfico de kitty
+    function __fastfetch_on_first_prompt --on-event fish_prompt
+        functions -e __fastfetch_on_first_prompt  # se autoelimina: solo corre una vez por sesión
+        if test "$TERM" = xterm-kitty
+            fastfetch-random
+        end
+    end
 
     # Aliases
     # Personales
