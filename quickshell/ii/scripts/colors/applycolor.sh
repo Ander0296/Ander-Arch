@@ -74,7 +74,13 @@ apply_anyterm() {
 }
 
 apply_term() {
-  apply_anyterm &
+  # apply_anyterm desactivado: escribe secuencias de escape directo en /dev/pts/*
+  # de TODAS las terminales abiertas, sin importar qué estén haciendo en ese momento.
+  # Eso bloqueaba el input de las terminales en cada cambio de wallpaper. Solo hace
+  # falta para terminales sin recarga nativa de config (foot, alacritty, xterm) —
+  # kitty ya se recolorea solo y seguro vía apply_kitty (SIGUSR1 + kitty-theme.conf
+  # incluido en kitty.conf), así que no perdemos nada al sacarlo.
+  # apply_anyterm &
   apply_kitty &
 }
 

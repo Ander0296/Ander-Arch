@@ -9,3 +9,9 @@ hl.window_rule({
 	opacity = "0.9 0.75",
 	no_blur = false,
 })
+
+-- Popup flotante para "m e" en yazi (explicación de archivo con Claude Code):
+-- se identifica por su --class propio, no toca ninguna ventana kitty normal
+hl.window_rule({ match = { class = "ai-explain-popup" }, float = true })
+hl.window_rule({ match = { class = "ai-explain-popup" }, center = true })
+hl.window_rule({ match = { class = "ai-explain-popup" }, size = { "(monitor_w*0.5)", "(monitor_h*0.5)" } })

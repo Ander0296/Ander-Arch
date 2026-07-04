@@ -1,7 +1,8 @@
 # Commands to run in interactive sessions can go here
 if status is-interactive
-    # No greeting
-    set fish_greeting
+
+    set fish_greeting # No greeting
+    zoxide init fish | source # Zoxide: reemplaza/complementa cd con salto inteligente basado en frecuencia+recencia
 
     # Use starship
     function starship_transient_prompt_func
@@ -19,7 +20,7 @@ if status is-interactive
     # Fastfetch con logo random, disparado en el primer prompt (no durante la carga del rc)
     # para evitar la carrera con la negociación del protocolo gráfico de kitty
     function __fastfetch_on_first_prompt --on-event fish_prompt
-        functions -e __fastfetch_on_first_prompt  # se autoelimina: solo corre una vez por sesión
+        functions -e __fastfetch_on_first_prompt # se autoelimina: solo corre una vez por sesión
         if test "$TERM" = xterm-kitty
             fastfetch-random
         end
@@ -27,7 +28,9 @@ if status is-interactive
 
     # Aliases
     # Personales
+    alias cd z # Alias opcional: usar "cd" normal para navegar a rutas conocidas por zoxide
     alias trad 'trans -b :es' # sintaxis nativa de fish, sin "="
+    alias v nvim
     # kitty doesn't clear properly so we need to do this weird printing
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
     alias celar "printf '\033[2J\033[3J\033[1;1H'"
