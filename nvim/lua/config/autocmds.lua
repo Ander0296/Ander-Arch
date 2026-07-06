@@ -13,3 +13,25 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = false
   end,
 })
+
+-- Java se indenta convencionalmente con 4 espacios, no los 2 que LazyVim
+-- usa por default para el resto de los lenguajes. Como el formateo
+-- automático al guardar usa este valor, arregla el problema de raíz.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+  end,
+})
+
+-- Al abrir CUALQUIER terminal (la del debugger de Java, :terminal, la
+-- flotante de <leader>ft, etc.) entra directo en modo inserción — sin esto
+-- hay que apretar "a" o "i" a mano cada vez antes de poder escribir.
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.cmd("startinsert")
+  end,
+})

@@ -1,0 +1,13 @@
+{
+  "Clase con main": {
+    "prefix": "cmain",
+    "body": [
+      "public class ${TM_FILENAME_BASE} {",
+      "    public static void main(String[] args) {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Clase pública con main(), nombre igual al archivo"
+  }
+}

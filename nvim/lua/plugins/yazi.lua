@@ -7,12 +7,6 @@ return {
   },
   keys = {
     {
-      "<leader>-",
-      mode = { "n", "v" },
-      "<cmd>Yazi<cr>",
-      desc = "Abrir yazi en el archivo actual",
-    },
-    {
       "<c-up>",
       "<cmd>Yazi toggle<cr>",
       desc = "Reanudar la última sesión de yazi",

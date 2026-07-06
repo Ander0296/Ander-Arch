@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.spell = false
 vim.opt.wrap = false
+vim.opt.mouse = "" -- Desactivar el mouse
+vim.opt.scrolloff = 999 -- Mantener foco en el centro
