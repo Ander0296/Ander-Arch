@@ -32,3 +32,13 @@ hl.workspace_rule({
 	on_created_empty = "[float; size 900 550; center] kitty --app-id scratch_term", -- abre kitty flotante y centrada cuando está vacío
 	persistent = false, -- se destruye cuando cerrás la terminal, así la próxima vez spawnea de nuevo
 })
+
+hl.workspace_rule({
+	workspace = "9", -- workspace 9 (tecla SUPER+9)
+	layout = "dwindle", -- layout apilado clásico de Hyprland, reemplaza el "scrolling" global solo acá
+})
+
+hl.workspace_rule({
+	workspace = "10", -- workspace 10 (tecla SUPER+0, porque el bucle usa i % 10)
+	layout = "dwindle",
+})

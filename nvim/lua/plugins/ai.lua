@@ -15,7 +15,9 @@ return {
         "<leader>ag",
         function()
           -- Lista de modelos para rotar, del que más cupo tiene al que menos.
-          local models = { "gemini-3.1-flash-lite", "gemini-2.5-flash", "gemini-3-flash" }
+          -- 3.5-flash comparte el mismo límite que 3-flash (5 RPM / 20 RPD),
+          -- así que va justo al lado en la rotación.
+          local models = { "gemini-3.1-flash-lite", "gemini-2.5-flash", "gemini-3-flash", "gemini-3.5-flash" }
           local config = require("avante.config")
           local current = config.providers.gemini.model
           -- Busca dónde está el modelo actual en la lista y pasa al siguiente
@@ -30,7 +32,7 @@ return {
           config.override({ providers = { gemini = { model = next_model } } })
           vim.notify("Avante/Gemini: cambiado a " .. next_model, vim.log.levels.INFO)
         end,
-        desc = "Rotar modelo Gemini (3.1 Flash Lite -> 2.5 Flash -> 3 Flash)",
+        desc = "Rotar modelo Gemini (3.1 Flash Lite -> 2.5 Flash -> 3 Flash -> 3.5 Flash)",
       },
     },
   },

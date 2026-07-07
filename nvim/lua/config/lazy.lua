@@ -35,6 +35,10 @@ require("lazy").setup({
     -- "copilot"; lo pisamos a Gemini en lua/plugins/ai.lua.
     { import = "lazyvim.plugins.extras.ai.avante" },
     -- import/override with your plugins
+    -- NUEVO: surround (envolver/cambiar/borrar paréntesis, comillas, tags).
+    -- LazyVim remapea sus teclas por default (sa/sd/sr) al prefijo "gs"
+    -- para no chocar con flash.nvim, que ya usa "s"/"S" para saltar.
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "plugins" },
   },
   defaults = {
