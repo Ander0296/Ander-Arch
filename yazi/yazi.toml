@@ -1,0 +1,58 @@
+#:schema https://yazi-rs.github.io/schemas/yazi.json
+# Solo se declaran las claves que cambiamos respecto al default de yazi —
+# yazi mergea esto sobre sus propios defaults, no hace falta repetir el archivo entero.
+
+[mgr]
+# --- Orden de archivos ---
+sort_by        = "natural"  # 1.md < 2.md < 10.md (alfabético haría 1 < 10 < 2, mal para nombres numerados)
+sort_sensitive = false      # ignora mayúsculas/minúsculas al ordenar (orden "humano")
+sort_reverse   = false      # A→Z / más viejo primero; invertir puntual se hace con ", M" al vuelo
+sort_dir_first = true       # carpetas siempre arriba, para ver la estructura de un vistazo
+sort_translit  = true       # normaliza tildes/ñ al ordenar (solo aplica con sort_by = "natural")
+
+# --- Visualización ---
+linemode     = "mtime"  # muestra fecha de modificación a la derecha de cada archivo
+show_hidden  = false    # arranca sin ocultos; toggle puntual con "."
+show_symlink = true     # muestra a dónde apunta un symlink, al lado del nombre
+
+[preview]
+# --- Preview de código ---
+wrap     = "yes"  # ajusta líneas largas en vez de cortarlas, para no scrollear horizontal
+tab_size = 2      # ancho de tab en el preview (coincide con Lua/JSON/YAML/JS, la mayoría de tus configs)
+
+# --- Preview de imágenes ---
+# Valores conservadores a propósito: la iGPU (Intel Iris Plus, Ice Lake) ya mostró
+# ser sensible a carga sostenida de renderizado (ver diagnóstico del lag de blur).
+image_filter = "triangle" # balance calidad/velocidad al reescalar (nearest=rápido/feo, lanczos3=lento/mejor)
+image_quality = 65        # 50-90; hacia el piso: es un preview en terminal, no edición de fotos
+
+[opener]
+edit = [
+    # block=true: nvim es de terminal, yazi le cede toda la pantalla hasta que cierre
+    { run = '$EDITOR %s', block = true, desc = "Editar con nvim" },
+]
+play = [
+    # orphan=true: mpv abre su propia ventana, sigue viva aunque cierres yazi
+    { run = "mpv %s", orphan = true, desc = "Reproducir con mpv" },
+]
+view = [
+    # orphan=true: imv abre su propia ventana, sigue viva aunque cierres yazi
+    { run = "imv %s", orphan = true, desc = "Ver imagen con imv" },
+]
+read = [
+    { run = "zathura %s", orphan = true, desc = "Leer PDF con zathura" },
+]
+
+[open]
+
+prepend_rules = [
+    { mime = "text/*", use = "edit" },   # cualquier archivo de texto -> nvim
+    { mime = "video/*", use = "play" },  # cualquier video -> mpv
+    { mime = "audio/*", use = "play" },  # audio también con mpv
+    { mime = "image/*", use = "view" },  # imv en vez del navegador
+    { mime = "application/pdf", use = "read" },  # PDF -> zathura, en vez del navegador
+]
+
+[which]
+
+sort_by = "key"  # ordena el popup de teclas líder por la tecla, no por la descripción

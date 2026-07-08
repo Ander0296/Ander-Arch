@@ -1,0 +1,43 @@
+#:schema https://yazi-rs.github.io/schemas/keymap.json
+
+[mgr]
+prepend_keymap = [
+    # g -> r: salta directo a la raíz del repo git en el que estás parado
+    { on = ["g", "r"], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Ir a la raíz del repo git" },
+
+    # g -> v: muestra el estado de git (modificado/nuevo/etc.) al lado de cada archivo
+    # (movido de "g c", que es el default de fábrica para ir a ~/.config)
+    { on = ["g", "v"], run = "plugin vcs-files", desc = "Mostrar cambios de git en la lista" },
+
+    # $: abre una shell interactiva en la carpeta actual, sin salir de yazi del todo
+    { on = "$", run = "shell --block $SHELL", desc = "Abrir shell en la carpeta actual" },
+
+    # movido de "g h", que es el default de fábrica para ir a ~ (home)
+    { on = ["g", "p"], run = "cd ~/dots-hyprland", desc = "Ir al repo dots-hyprland" },
+    { on = ["g", "."], run = "cd ~/.config",       desc = "Ir a ~/.config" },
+    { on = ["g", "w"], run = "cd ~/Pictures/Wallpapers", desc = "Ir a Wallpapers" },
+    { on = "R", run = "rename --empty=stem --cursor=start", desc = "Renombrar borrando el nombre, dejando la extensión" },
+
+    # m -> d: abre la carpeta donde estás parado en Dolphin (puente terminal -> GUI)
+    { on = ["m", "d"], run = 'shell --orphan -- dolphin %d', desc = "Abrir carpeta actual en Dolphin" },
+
+    # m -> w: pone la imagen bajo el cursor como wallpaper (dispara matugen: kitty, GTK, yazi, nvim)
+    { on = ["m", "w"], run = 'shell --orphan -- ~/.config/quickshell/ii/scripts/colors/switchwall.sh --image %h', desc = "Poner como wallpaper" },
+
+    # m -> e: le pide a Claude Code que explique el archivo bajo el cursor
+    { on = ["m", "e"], run = """shell -- kitty --class ai-explain-popup -e bash -c 'claude -p --ax-screen-reader "Explicame el archivo %h"; read -n1 -s'""", desc = "Explicar archivo con Claude (ventana flotante)" },
+    # movido de "g f", que es el default de fábrica para seguir un symlink
+    { on = ["g", "t"], run = 'search_do --via=fd --args="-d 3"', desc = "Vista plana: lista TODO el árbol de archivos (3 niveles) de golpe, en vez de navegar carpeta por carpeta" },
+    { on = "y", run = ["""shell -- bash -c 'mime=$(file --mime-type -b "$1"); if [[ "$mime" == image/* ]]; then wl-copy --type "$mime" < "$1"; else shift; for p in "$@"; do echo "file://$p"; done | wl-copy -t text/uri-list; fi' -- %h %s""", "yank"], desc = "Yank + copiar al portapapeles (imagen real si es imagen, rutas si no)" },
+    { on = "T", run = "plugin toggle-pane max-preview", desc = "Maximizar/restaurar el panel de preview" },
+    { on = ["g", "i"], run = "plugin lazygit", desc = "Abrir lazygit acá" },
+    # movido de "m s", que es el default de fábrica para cambiar el linemode a tamaño
+    { on = ["m", "u"], run = "plugin what-size -- '--clipboard'", desc = "Calcular tamaño de la selección/carpeta (y copiarlo al portapapeles)" },
+    { on = "M", run = "plugin mount", desc = "Gestor de discos: montar/desmontar/expulsar" },
+    { on = ["g", "l"], run = "plugin open-git-remote", desc = "Abrir el remoto de git en el navegador" },
+    { on = ["m", "t"], run = "plugin recycle-bin", desc = "Abrir la papelera del sistema" },
+    # movidos de "+"/"-": el "-" de fábrica crea un symlink absoluto de lo yankeado
+    { on = ">", run = "plugin zoom 1", desc = "Acercar imagen" },
+    { on = "<", run = "plugin zoom -1", desc = "Alejar imagen" },
+    { on = ["c", "p"], run = "plugin command", desc = "Paleta de comandos (buscar cualquier acción de yazi)" },
+]
