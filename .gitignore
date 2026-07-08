@@ -1,0 +1,36 @@
+# Ignorar todo por default; solo habilitamos explícitamente lo que gestionamos
+/*
+
+# --- Config gestionado por el instalador de dots-hyprland ---
+!/hypr
+!/kitty
+!/fish
+!/quickshell
+!/fuzzel
+!/mpv
+!/foot
+!/wlogout
+!/matugen
+!/Kvantum
+!/kde-material-you-colors
+!/fontconfig
+!/xdg-desktop-portal
+!/yazi                      # habilita el repo a versionar tu config de yazi
+/yazi/theme.toml            # excepción: este archivo lo regenera matugen en cada cambio de wallpaper, no es tuyo a mano
+
+# --- Tuyo, escrito a mano ---
+!/starship.toml
+!/zshrc.d
+!/nvim
+!/README.md
+
+# --- Secretos: nunca versionar, aunque /fish esté incluido arriba ---
+/fish/conf.d/secrets.fish
+
+# --- Generado por matugen desde el wallpaper: NO versionar (ver Paso 0) ---
+/hypr/hyprland/colors.lua
+/hypr/hyprlock/colors.conf
+
+# --- Layout de monitores específico de esta máquina (si nwg-displays lo crea) ---
+/hypr/workspaces.lua
+/hypr/monitors.lua
