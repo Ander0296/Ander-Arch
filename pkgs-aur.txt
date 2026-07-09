@@ -1,0 +1,10 @@
+# Paquetes AUR (yay) — uno por línea. NVIDIA legacy va en README fase 4.2.
+# Regla: instalaste algo nuevo con yay → agregalo acá y commiteá.
+
+brave-bin
+1password
+ttf-jetbrains-mono-nerd
+onlyoffice-bin
+
+# --- IDE Java (AUR) ---
+eclipse-java-bin

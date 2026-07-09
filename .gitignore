@@ -15,8 +15,8 @@
 !/kde-material-you-colors
 !/fontconfig
 !/xdg-desktop-portal
-!/yazi                      # habilita el repo a versionar tu config de yazi
-/yazi/theme.toml            # excepción: este archivo lo regenera matugen en cada cambio de wallpaper, no es tuyo a mano
+!/yazi
+/yazi/theme.toml
 
 # --- Tuyo, escrito a mano ---
 !/starship.toml
@@ -34,3 +34,9 @@
 # --- Layout de monitores específico de esta máquina (si nwg-displays lo crea) ---
 /hypr/workspaces.lua
 /hypr/monitors.lua
+
+# --- Replicación multi-PC ---
+!/bootstrap.sh
+!/pkgs-pacman.txt
+!/pkgs-aur.txt
+!/illogical-impulse

@@ -1,0 +1,68 @@
+# Paquetes oficiales (pacman) — uno por línea. Los de GPU van en README fase 4.
+# Regla: instalaste algo nuevo con pacman → agregalo acá y commiteá.
+
+# --- CLI base / LazyVim + git ---
+neovim
+git
+ripgrep
+fd
+fzf
+tree-sitter-cli
+gcc
+lazygit
+git-delta
+github-cli
+wl-clipboard
+nodejs
+npm
+
+# --- CLI extras ---
+bat
+sd
+tealdeer
+btop
+
+# --- Yazi + previews / papelera ---
+yazi
+ffmpeg
+7zip
+jq
+poppler
+imagemagick
+trash-cli
+
+# --- Shell / terminal ---
+starship
+zoxide
+fastfetch
+
+# --- Sistema ---
+sddm
+timeshift
+rtkit
+nano
+ntfs-3g
+ntfsprogs
+
+# --- Java + IDEs (repos oficiales) ---
+jdk-openjdk
+maven
+intellij-idea-community-edition
+netbeans
+
+# --- Apps de escritorio ---
+anki
+obs-studio
+mpv
+imv
+kate
+zathura
+zathura-pdf-mupdf
+plasma-browser-integration
+
+# --- Virtualización (VMs con virt-manager) ---
+qemu-full
+libvirt
+virt-manager
+dnsmasq
+edk2-ovmf
