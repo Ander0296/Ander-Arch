@@ -40,3 +40,6 @@
 !/pkgs-pacman.txt
 !/pkgs-aur.txt
 !/illogical-impulse
+
+# --- Claude Code (proyecto raíz) ---
+!/CLAUDE.md
