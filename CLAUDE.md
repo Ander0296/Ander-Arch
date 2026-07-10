@@ -45,7 +45,7 @@ cada cambio versionado impacta en todos.
 - bootstrap.sh + pkgs-*.txt + README.md → sistema de replicación multi-PC.
 
 ### Engram
-- El project es ".config" (basename real de esta carpeta, NO inventar otro
+- El project es "ander-arch" (basename real de esta carpeta, NO inventar otro
   nombre). Guardá ahí el inventario inicial y cada decisión que tomemos.
 
 ### CodeGraph

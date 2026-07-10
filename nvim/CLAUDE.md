@@ -40,9 +40,11 @@
   vía wl-clipboard.
 - LSP vía Mason (se instalan al abrir cada lenguaje). Lenguajes prioritarios:
   Java (aprendiendo; jdk-openjdk + maven instalados) y Lua (config Hyprland).
-- avante.nvim ya configurado (IA in-editor con GEMINI_API_KEY desde
-  fish/conf.d/secrets.fish, fuera de git). Claude Code no lo reemplaza:
-  esta sesión es para configurar y aprender, avante es asistencia al editar.
+- claudecode.nvim configurado como asistente de IA in-editor (extra oficial
+  de LazyVim, lazyvim.plugins.extras.ai.claudecode): puente WebSocket entre
+  Neovim y el CLI `claude` real, no un cliente de API aparte. avante.nvim
+  quedó desactivado (enabled = false en lua/plugins/ai.lua) para no pisar
+  atajos; ver nvim/guia.txt para la guía completa de uso y atajos.
 
 ### Memoria
 - Engram: el project es "nvim" (basename de esta carpeta, NO inventar

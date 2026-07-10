@@ -251,13 +251,8 @@ En la pantalla de login (SDDM) elegir la sesión **Hyprland** (no UWSM) y entrar
    Wizard: `claude-code` · `gentleman` · `Dev Stack + Polish` · TDD `Disable` · `CodeGraph` ✅. Verificar: `gentle-ai doctor`.
 4. **Neovim**: abrir `nvim` (instala los plugins solo) → comando `:Lazy restore` clava las versiones exactas de `lazy-lock.json`. Mason instala los LSP al abrir cada lenguaje.
 5. **Imágenes** (no se versionan por peso): poblar `~/Pictures/Wallpapers` con los botones *Random: Konachan / osu!* de Settings (`Super+I`), y copiar tus PNGs a `~/Pictures/FastfetchLogos`.
-6. **API key de Gemini** — va en dos lugares y ninguno viaja por git:
-   - Quickshell (traducción IA, estilo del reloj Cookie): `Super+A` → `/key` (queda en el keyring del sistema).
-   - avante.nvim (IA dentro de Neovim): crear `~/.config/fish/conf.d/secrets.fish` con:
-     ```fish
-     set -gx GEMINI_API_KEY "<tu-api-key>"
-     ```
-   Tip: guardar la key en 1Password → en cada PC nuevo solo se copia desde la bóveda.
+6. **API key de Gemini** (solo Quickshell — traducción IA, estilo del reloj Cookie): `Super+A` → `/key` (queda en el keyring del sistema, no viaja por git).
+   Tip: guardar la key en 1Password → en cada PC nuevo se copia desde la bóveda.
 7. **Snapshot de seguridad**: `sudo timeshift --create --comments "sistema completo replicado"`.
 
 ## 10. Sincronizar cambios entre todos los PCs
@@ -294,5 +289,6 @@ Por cada archivo modificado: `git checkout -- <archivo>` recupera mi versión, o
 
 - **Blur**: apagado global en `hypr/custom/general.lua` (la iGPU Iris Plus del PC original no daba abasto). Reactivarlo es 1 línea (`decoration.blur.enabled = true`), pero al ser config versionada aplica a todos los PCs.
 - `hypr/monitors.lua` y `workspaces.lua`: por-máquina a propósito (ignorados; los genera `nwg-displays`).
-- **fish viaja completo** con el repo: `config.fish`, `functions/` (`fastfetch-random`, `y` de yazi) y todo `conf.d/` — `1password.fish` (socket SSH del agente), `path.fish` (`~/.local/bin` + npm-global), `editor.fish` (`EDITOR=nvim`) y los dos `fish_frozen_*` (tema y bindings congelados de fish). **Única excepción**: `conf.d/secrets.fish` (ignorado a propósito, contiene la `GEMINI_API_KEY`) — se crea a mano en cada PC nuevo (fase 9.6).
+- **fish viaja completo** con el repo: `config.fish`, `functions/` (`fastfetch-random`, `y` de yazi) y todo `conf.d/` — `1password.fish` (socket SSH del agente), `path.fish` (`~/.local/bin` + npm-global), `editor.fish` (`EDITOR=nvim`) y los dos `fish_frozen_*` (tema y bindings congelados de fish). **Única excepción**: `conf.d/secrets.fish` (ignorado a propósito) — hoy no hace falta crearlo; solo sería necesario si en algún momento reactivás avante.nvim (ver nvim/CLAUDE.md), que es lo único que consumía `GEMINI_API_KEY` ahí.
+- **nvim**: `claudecode.nvim` (Claude Code real, vía CLI `claude`) es el asistente de IA in-editor activo; `avante.nvim` quedó desactivado (`enabled = false`) para no pisar sus atajos. Guía completa de uso en `nvim/guia.txt`.
 - Verificación rápida final: `Super+Enter` (kitty con fastfetch-random) · `Super+/` (cheatsheet) · `z <dir>` (zoxide) · en `yazi`: `m e` (Claude explica el archivo) · `gentle-ai doctor`.

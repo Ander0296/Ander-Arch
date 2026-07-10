@@ -34,6 +34,7 @@ require("lazy").setup({
     -- NUEVO: asistente de IA (avante.nvim). El provider por default es
     -- "copilot"; lo pisamos a Gemini en lua/plugins/ai.lua.
     { import = "lazyvim.plugins.extras.ai.avante" },
+    { import = "lazyvim.plugins.extras.ai.claudecode" },
     -- import/override with your plugins
     -- NUEVO: surround (envolver/cambiar/borrar paréntesis, comillas, tags).
     -- LazyVim remapea sus teclas por default (sa/sd/sr) al prefijo "gs"
