@@ -41,6 +41,7 @@ sddm
 timeshift
 rtkit
 nano
+less
 ntfs-3g
 ntfsprogs
 
