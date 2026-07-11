@@ -171,6 +171,7 @@ git remote add origin https://github.com/Ander0296/Ander-Arch.git  # lo conecta 
 git fetch origin                                                   # descarga todo (aún sin aplicar)
 git reset --hard origin/main                                       # APLICA: pisa lo versionado con mi config
 git branch --set-upstream-to=origin/main main                      # deja "git pull/push" funcionando a futuro
+git config --global pull.rebase false                              # estrategia de pull: merge (evita el error "divergent branches")
 ```
 
 Listo: keybinds, dvorak, yazi, nvim, fish, Quickshell — todo idéntico desde el primer login. Lo ignorado (colores de matugen, `monitors.lua`) lo regenera el sistema solo.
@@ -201,7 +202,7 @@ sudo pacman -S --needed yazi ffmpeg 7zip jq poppler imagemagick trash-cli
 # Shell / terminal
 sudo pacman -S --needed starship zoxide fastfetch
 # Sistema
-sudo pacman -S --needed sddm timeshift rtkit nano ntfs-3g ntfsprogs
+sudo pacman -S --needed sddm timeshift rtkit nano less ntfs-3g ntfsprogs
 # Java + IDEs (repos oficiales)
 sudo pacman -S --needed jdk-openjdk maven intellij-idea-community-edition netbeans
 # Apps de escritorio
@@ -274,6 +275,40 @@ hyprctl reload        # aplica los cambios de Hyprland al instante
 - Cambió `lazy-lock.json` → en nvim: `:Lazy restore`.
 - Agregaste un paquete a `pkgs-*.txt` → `bash bootstrap.sh` en los demás PCs (seguro, no repite nada).
 
+## 11. Conflictos entre PCs — todas las variaciones
+
+Reglas de oro que evitan el 95%: **al terminar** en un PC → commit + push (fase 10). **Al empezar** en otro → pull. El que llega tarde a pushear es el que mezcla. Y una vez por PC: `git config --global pull.rebase false` (ya está en la fase 6).
+
+| Síntoma (mensaje de git) | Qué pasó | Solución |
+|---|---|---|
+| `Your local changes ... would be overwritten by merge` al hacer pull | Hay cambios locales sin commitear que el pull pisaría. Casi siempre es el archivo vivo `illogical-impulse/config.json` (Quickshell lo reescribe solo con el uso) | ¿Los hiciste a propósito? **NO** → `git restore <archivo>` y repetir el pull. **SÍ** → `git add -A && git commit -m "..."` y repetir el pull |
+| `! [rejected] ... (fetch first)` al hacer push | El otro PC pusheó antes que este | `git pull` y después `git push` |
+| El pull abre un editor con un mensaje "Merge branch 'main'..." ya escrito | Ambos PCs tenían commits propios y git los mezcló solo (tocaban archivos o líneas distintas). Este es el caso "hice cambios en los dos y quiero AMBOS": ya quedaron los dos | Guardar y cerrar el editor (nano: `Ctrl+O`, Enter, `Ctrl+X`) → `git push` |
+| `CONFLICT (content): Merge conflict in <archivo>` | Ambos PCs editaron **las mismas líneas** del mismo archivo | Resolver a mano (ver abajo) y es el único caso que lo requiere |
+| Quiero descartar TODO lo de este PC y quedar igual a GitHub | Experimentos locales que no vale la pena conservar | `git fetch origin && git reset --hard origin/main` ⚠️ borra commits no pusheados y cambios sin commitear de este PC |
+
+### Resolver un conflicto real (mismas líneas editadas en ambos PCs)
+
+Git deja el archivo marcado así:
+
+```
+<<<<<<< HEAD
+la versión de ESTE PC
+=======
+la versión que vino de GitHub (del otro PC)
+>>>>>>> abc1234
+```
+
+Abrir el archivo, dejar el texto definitivo (una versión, la otra, o una mezcla escrita a mano) **borrando las 3 líneas de marcas** (`<<<<<<<`, `=======`, `>>>>>>>`), guardar y:
+
+```bash
+git add <archivo>
+git commit        # git ya trae escrito el mensaje del merge: guardar y salir
+git push
+```
+
+Trabajando una sola persona esto es raro: solo pasa si editás las mismas líneas en dos PCs sin sincronizar en el medio.
+
 ## Actualizar end-4 (upstream) sin perder lo mío
 
 `pacman -Syu` no toca las dots (IgnoreGroup, lo puso bootstrap). La actualización es siempre a propósito:
@@ -285,10 +320,18 @@ cd ~/.config && git status     # ver qué archivos pisó upstream
 
 Por cada archivo modificado: `git checkout -- <archivo>` recupera mi versión, o `git add` + commit adopta la de upstream. Ojo con `quickshell/ii/scripts/colors/applycolor.sh`: mi fix (apply_anyterm desactivado — evita que cambiar wallpaper trabe las terminales) vive ahí y upstream lo pisa; `git checkout --` lo restaura.
 
+Hacerlo **primero en UN solo PC**: resolver ahí los veredictos, commit + push. En los demás PCs, después:
+
+```bash
+cd ~/dots-hyprland && git pull && ./setup install                  # paquetes nuevos de end-4
+cd ~/.config && git fetch origin && git reset --hard origin/main   # aplica la resolución ya pusheada
+```
+
 ## Notas
 
 - **Blur**: apagado global en `hypr/custom/general.lua` (la iGPU Iris Plus del PC original no daba abasto). Reactivarlo es 1 línea (`decoration.blur.enabled = true`), pero al ser config versionada aplica a todos los PCs.
 - `hypr/monitors.lua` y `workspaces.lua`: por-máquina a propósito (ignorados; los genera `nwg-displays`).
+- **Generados por matugen** (`fuzzel/fuzzel_theme.ini`, `yazi/theme.toml`, `hypr/hyprland/colors.lua`, `hypr/hyprlock/colors.conf`): no se versionan — se reescriben solos con cada cambio de wallpaper. Si tras un pull alguno desaparece del disco, un cambio de wallpaper (`Ctrl+Super+T`) lo regenera al instante.
 - **fish viaja completo** con el repo: `config.fish`, `functions/` (`fastfetch-random`, `y` de yazi) y todo `conf.d/` — `1password.fish` (socket SSH del agente), `path.fish` (`~/.local/bin` + npm-global), `editor.fish` (`EDITOR=nvim`) y los dos `fish_frozen_*` (tema y bindings congelados de fish). **Única excepción**: `conf.d/secrets.fish` (ignorado a propósito) — hoy no hace falta crearlo; solo sería necesario si en algún momento reactivás avante.nvim (ver nvim/CLAUDE.md), que es lo único que consumía `GEMINI_API_KEY` ahí.
 - **nvim**: `claudecode.nvim` (Claude Code real, vía CLI `claude`) es el asistente de IA in-editor activo; `avante.nvim` quedó desactivado (`enabled = false`) para no pisar sus atajos. Guía completa de uso en `nvim/guia.txt`.
 - Verificación rápida final: `Super+Enter` (kitty con fastfetch-random) · `Super+/` (cheatsheet) · `z <dir>` (zoxide) · en `yazi`: `m e` (Claude explica el archivo) · `gentle-ai doctor`.
