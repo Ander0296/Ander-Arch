@@ -91,6 +91,7 @@ hl.bind(
 
 -- ── Apps personales ──────────────────────────────────────────────────────────
 hl.bind("SUPER + CTRL + ALT + A", hl.dsp.exec_cmd("anki"), { description = "App: Anki" }) -- abre Anki
+hl.bind("SUPER + CTRL + ALT + N", hl.dsp.exec_cmd("notion-app"), { description = "App: Notion" }) -- abre Notion
 
 -- ── Super solo: overlay de workspaces sin abrir el buscador ─────────────────
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel")) -- fallback si Quickshell no responde

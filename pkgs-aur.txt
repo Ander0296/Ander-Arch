@@ -5,6 +5,7 @@ brave-bin
 1password
 ttf-jetbrains-mono-nerd
 onlyoffice-bin
+notion-app-electron
 
 # --- IDE Java (AUR) ---
 eclipse-java-bin
