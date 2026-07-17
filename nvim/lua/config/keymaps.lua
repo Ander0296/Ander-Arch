@@ -29,3 +29,10 @@ vim.keymap.set("n", "<leader>tm", function()
   -- "q" (ya viene mapeado por default en toda terminal de snacks).
   Snacks.terminal("mvn test", { cwd = root, auto_close = false })
 end, { desc = "Maven: correr tests (mvn test)" })
+
+-- LazyVim trae por default <leader>uz = zen y <leader>uZ = zoom. Acá los
+-- intercambiamos: "map" vuelve a bindear la tecla nueva sobre el mismo
+-- toggle, así que basta con llamarlo de nuevo con el leader cambiado
+-- (el bind viejo queda pisado porque set_keymap con el mismo lhs reemplaza).
+Snacks.toggle.zoom():map("<leader>uz")
+Snacks.toggle.zen():map("<leader>uZ")
