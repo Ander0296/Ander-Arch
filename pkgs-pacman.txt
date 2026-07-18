@@ -21,6 +21,7 @@ bat
 sd
 tealdeer
 btop
+ttyper
 
 # --- Yazi + previews / papelera ---
 yazi
@@ -60,6 +61,7 @@ kate
 zathura
 zathura-pdf-mupdf
 plasma-browser-integration
+nwg-displays
 
 # --- Virtualización (VMs con virt-manager) ---
 qemu-full
