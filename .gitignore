@@ -34,6 +34,8 @@
 # --- Layout de monitores específico de esta máquina (si nwg-displays lo crea) ---
 /hypr/workspaces.lua
 /hypr/monitors.lua
+/hypr/workspaces.conf
+/hypr/monitors.conf
 
 # --- Replicación multi-PC ---
 !/bootstrap.sh
@@ -47,3 +49,7 @@
 # --- Generados por matugen (colores del wallpaper, cambian solos) ---
 /fuzzel/fuzzel_theme.ini
 /yazi/theme.toml
+/ttyper/config.toml
+
+# --- ttyper: contenido propio (listas/textos de práctica), no la config autogenerada arriba ---
+!/ttyper

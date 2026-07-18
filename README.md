@@ -329,6 +329,7 @@ cd ~/.config && git fetch origin && git reset --hard origin/main   # aplica la r
 
 ## Notas
 
+- **`illogical-impulse/config.json` mezcla config compartida con rutas por-máquina** (`wallpaperPath`, `screenShot.savePath`, etc.) que Quickshell reescribe solo con el uso. Antes de `git add`/`commit`/`push` de este archivo: `git diff illogical-impulse/config.json` y revisar que no viajen rutas que solo existen en esta PC (wallpapers propios, carpetas de proyectos) — si viajan, el otro PC las recibe con el próximo `git pull` y pueden no existir ahí.
 - **Blur**: apagado global en `hypr/custom/general.lua` (la iGPU Iris Plus del PC original no daba abasto). Reactivarlo es 1 línea (`decoration.blur.enabled = true`), pero al ser config versionada aplica a todos los PCs.
 - `hypr/monitors.lua` y `workspaces.lua`: por-máquina a propósito (ignorados; los genera `nwg-displays`).
 - **Generados por matugen** (`fuzzel/fuzzel_theme.ini`, `yazi/theme.toml`, `hypr/hyprland/colors.lua`, `hypr/hyprlock/colors.conf`): no se versionan — se reescriben solos con cada cambio de wallpaper. Si tras un pull alguno desaparece del disco, un cambio de wallpaper (`Ctrl+Super+T`) lo regenera al instante.

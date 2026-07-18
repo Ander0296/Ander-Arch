@@ -36,3 +36,7 @@ output_path = '~/.local/state/quickshell/user/generated/wallpaper/path.txt'
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi/theme.toml'
 output_path = '~/.config/yazi/theme.toml'
+
+[templates.ttyper]
+input_path = '~/.config/matugen/templates/ttyper/config.toml'
+output_path = '~/.config/ttyper/config.toml'

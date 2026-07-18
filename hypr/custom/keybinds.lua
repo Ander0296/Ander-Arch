@@ -16,6 +16,7 @@ hl.unbind("SUPER + SHIFT + L") -- antes: Session: Sleep
 hl.unbind("CTRL + SHIFT + ALT + SUPER + Delete") -- antes: Session: Shut down
 hl.unbind("SUPER + SUPER_L") -- antes: abría el buscador al soltar Super + fallback fuzzel
 hl.unbind("SUPER + SUPER_R") -- antes: lo mismo, con Super derecho
+hl.unbind("CTRL + SUPER + ALT + T") -- antes: Shell: Random wallpaper, liberado para ttyper
 
 -- scratchpad Terminal
 hl.bind(
@@ -88,6 +89,10 @@ hl.bind(
 	"Print",
 	hl.dsp.exec_cmd(qsIsAlive .. " || pidof slurp || hyprshot --freeze --clipboard-only --mode region --silent")
 ) -- fallback si Quickshell no responde
+
+-- ── Utilidades del sistema ───────────────────────────────────────────────────
+hl.bind("CTRL + SUPER + M", hl.dsp.exec_cmd("nwg-displays"), { description = "Utilities: Monitor layout (nwg-displays)" }) -- abre nwg-displays para acomodar posición/resolución de monitores
+hl.bind("CTRL + SUPER + ALT + T", hl.dsp.exec_cmd("kitty --class typing-practice -e ttyper ~/.config/ttyper/texts/dev-es.txt"), { description = "Utilities: Typing practice (ttyper)" }) -- ventana flotante, oraciones reales en español con símbolos de dev en contexto
 
 -- ── Apps personales ──────────────────────────────────────────────────────────
 hl.bind("SUPER + CTRL + ALT + A", hl.dsp.exec_cmd("anki"), { description = "App: Anki" }) -- abre Anki
