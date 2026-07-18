@@ -34,6 +34,12 @@ hl.workspace_rule({
 })
 
 hl.workspace_rule({
+	workspace = "special:typing", -- workspace especial para el scratchpad de ttyper
+	on_created_empty = "[float; size 1000 400; center] kitty --class typing-practice -e bash ~/.config/hypr/scripts/ttyper-random.sh", -- elige una frase al azar y abre ttyper flotante
+	persistent = false, -- se destruye al cerrar, así la próxima vez elige otra frase al azar
+})
+
+hl.workspace_rule({
 	workspace = "9", -- workspace 9 (tecla SUPER+9)
 	layout = "scrolling", -- excepción: acá sí usamos scrolling, reemplaza el "dwindle" global solo acá
 })
