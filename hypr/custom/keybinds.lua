@@ -97,6 +97,13 @@ hl.bind("CTRL + SUPER + ALT + T", hl.dsp.exec_cmd("kitty --class typing-practice
 -- ── Apps personales ──────────────────────────────────────────────────────────
 hl.bind("SUPER + CTRL + ALT + A", hl.dsp.exec_cmd("anki"), { description = "App: Anki" }) -- abre Anki
 hl.bind("SUPER + CTRL + ALT + N", hl.dsp.exec_cmd("notion-app"), { description = "App: Notion" }) -- abre Notion
+hl.bind("SUPER + CTRL + ALT + O", hl.dsp.exec_cmd("obs"), { description = "App: OBS Studio" }) -- abre OBS Studio
+hl.bind("SUPER + CTRL + ALT + M", hl.dsp.exec_cmd("mpv"), { description = "App: mpv" }) -- abre mpv
+hl.bind("SUPER + CTRL + ALT + I", hl.dsp.exec_cmd("imv"), { description = "App: imv" }) -- abre imv
+hl.bind("SUPER + CTRL + ALT + Z", hl.dsp.exec_cmd("zathura"), { description = "App: Zathura" }) -- abre Zathura
+hl.bind("SUPER + CTRL + ALT + E", hl.dsp.exec_cmd("eclipse"), { description = "App: Eclipse" }) -- abre Eclipse
+hl.bind("SUPER + CTRL + ALT + J", hl.dsp.exec_cmd("idea"), { description = "App: IntelliJ IDEA" }) -- abre IntelliJ IDEA (J de Java)
+hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("netbeans"), { description = "App: NetBeans" }) -- abre NetBeans
 
 -- ── Super solo: overlay de workspaces sin abrir el buscador ─────────────────
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel")) -- fallback si Quickshell no responde
