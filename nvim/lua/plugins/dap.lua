@@ -1,7 +1,77 @@
 return {
+  -- El escaneo de clases con main() solo corre cuando jdtls se conecta al
+  -- buffer; una clase creada después no aparece en el picker de debug hasta
+  -- re-ejecutarlo. Este keymap lo refresca sin reiniciar nvim.
+  {
+    "mfussenegger/nvim-jdtls",
+    keys = {
+      {
+        "<leader>dj",
+        function()
+          -- verbose avisa que arrancó y on_ready cuando terminó: el escaneo
+          -- es asíncrono y sin aviso parece que la tecla no hizo nada.
+          require("jdtls.dap").setup_dap_main_class_configs({
+            verbose = true,
+            on_ready = function()
+              vim.notify("Java debug configs updated")
+            end,
+          })
+        end,
+        desc = "Refresh Java debug configs",
+        ft = "java",
+      },
+    },
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+    keys = {
+      {
+        "<leader>dc",
+        function()
+          -- Guardar todo antes de correr/continuar: debugear con cambios
+          -- sin guardar desincroniza las líneas del compilado y el buffer
+          -- (warning "Adapter reported frame ... Invalid cursor line").
+          vim.cmd("silent! wall")
+          require("dap").continue()
+        end,
+        desc = "Run/Continue",
+      },
+    },
+    opts = function()
+      -- La extra de Java de LazyVim registra "Debug (Attach) - Remote"
+      -- (conexión a una JVM remota en el puerto 5005). Acá no se debuggean
+      -- JVMs remotas, y elegirla por error termina en "Failed to attach";
+      -- se vacía la lista para que queden solo las main classes que
+      -- agrega jdtls al attachear.
+      require("dap").configurations.java = {}
+    end,
+  },
+
   {
     "rcarriga/nvim-dap-ui",
-    opts = {},
+    opts = {
+      -- Layout propio (idea tomada de bcampolo/nvim-starter-kit): scopes
+      -- ocupa la mitad del panel izquierdo porque es lo que más se mira
+      -- (valores de variables); repl + console van abajo.
+      layouts = {
+        {
+          elements = {
+            { id = "scopes", size = 0.50 },
+            { id = "stacks", size = 0.30 },
+            { id = "watches", size = 0.10 },
+            { id = "breakpoints", size = 0.10 },
+          },
+          size = 40,
+          position = "left",
+        },
+        {
+          elements = { "repl", "console" },
+          size = 10,
+          position = "bottom",
+        },
+      },
+    },
     config = function(_, opts)
       local dap = require("dap")
       local dapui = require("dapui")
