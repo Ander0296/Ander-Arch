@@ -44,7 +44,13 @@ return {
       -- JVMs remotas, y elegirla por error termina en "Failed to attach";
       -- se vacía la lista para que queden solo las main classes que
       -- agrega jdtls al attachear.
-      require("dap").configurations.java = {}
+      local dap = require("dap")
+      dap.configurations.java = {}
+      -- Al pausar, saltar SIEMPRE a la ventana que ya muestra el archivo.
+      -- El default ("uselast") usa la última ventana activa, y si el foco
+      -- venía de un panel de dapui intenta poner la línea ahí y tira
+      -- "Adapter reported frame ... Invalid cursor line".
+      dap.defaults.fallback.switchbuf = "useopen"
     end,
   },
 
