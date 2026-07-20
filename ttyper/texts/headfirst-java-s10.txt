@@ -1,0 +1,15 @@
+Java
+arranca
+en
+public
+static
+void
+main(String[]
+args)
+{
+}
+dentro
+de
+una
+clase
+pública.

@@ -1,0 +1,16 @@
+Todo
+bucle
+o
+if
+vive
+dentro
+de
+un
+método,
+y
+todo
+método
+dentro
+de
+una
+clase.

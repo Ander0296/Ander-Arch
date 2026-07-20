@@ -1,0 +1,12 @@
+Los
+arrays
+empiezan
+en
+cero
+y
+nextInt(limite)
+devuelve
+un
+entero
+al
+azar.

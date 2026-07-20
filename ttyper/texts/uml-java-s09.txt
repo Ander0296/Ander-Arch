@@ -1,0 +1,14 @@
+Suprimir
+un
+atributo
+en
+el
+diagrama
+no
+significa
+que
+no
+exista
+en
+la
+clase.
