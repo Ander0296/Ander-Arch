@@ -80,7 +80,7 @@
       "workspaceZoom": 1.07
     },
     "thumbnailPath": "",
-    "wallpaperPath": "/home/ander/Pictures/Wallpapers/Malick.png",
+    "wallpaperPath": "/home/ander/Pictures/Wallpapers/Fantasy.jpg",
     "widgets": {
       "clock": {
         "cookie": {
@@ -110,7 +110,7 @@
           "showDate": true,
           "vertical": false
         },
-        "enable": true,
+        "enable": false,
         "placementStrategy": "leastBusy",
         "quote": {
           "enable": false,
@@ -119,8 +119,8 @@
         "showOnlyWhenLocked": false,
         "style": "cookie",
         "styleLocked": "cookie",
-        "x": 1215,
-        "y": 235
+        "x": 795,
+        "y": 225
       },
       "weather": {
         "enable": false,
@@ -363,7 +363,7 @@
     "savePath": "/home/ander/Videos"
   },
   "screenSnip": {
-    "savePath": "/home/ander/Pictures/Screenshots"
+    "savePath": "/home/ander/Proyectos/HeadFirst-Java/paginas"
   },
   "search": {
     "engineBaseUrl": "https://www.google.com/search?q=",
