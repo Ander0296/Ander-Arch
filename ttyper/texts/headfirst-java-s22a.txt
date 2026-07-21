@@ -1,0 +1,12 @@
+Shape
+es
+superclase,
+Square
+y
+Circle
+son
+subclases
+que
+heredan
+de
+ella.

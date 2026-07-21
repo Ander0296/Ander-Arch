@@ -1,0 +1,13 @@
+Laura
+pensó
+en
+procedimientos,
+Brad
+pensó
+en
+objetos:
+rotate
+y
+playSound
+por
+forma.

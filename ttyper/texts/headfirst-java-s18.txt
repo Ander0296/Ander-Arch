@@ -1,0 +1,15 @@
+Sin
+x
+=
+x
++
+1
+dentro
+del
+while,
+la
+condición
+nunca
+se
+vuelve
+falsa.
