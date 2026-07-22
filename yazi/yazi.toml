@@ -20,6 +20,12 @@ show_symlink = true     # muestra a dónde apunta un symlink, al lado del nombre
 wrap     = "yes"  # ajusta líneas largas en vez de cortarlas, para no scrollear horizontal
 tab_size = 2      # ancho de tab en el preview (coincide con Lua/JSON/YAML/JS, la mayoría de tus configs)
 
+[plugin]
+prepend_previewers = [
+    # muestra el árbol de contenido del comprimido en el panel de preview (sin extraer)
+    { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run = "ouch" },
+]
+
 # --- Preview de imágenes ---
 # Valores conservadores a propósito: la iGPU (Intel Iris Plus, Ice Lake) ya mostró
 # ser sensible a carga sostenida de renderizado (ver diagnóstico del lag de blur).

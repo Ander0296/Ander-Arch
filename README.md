@@ -198,7 +198,7 @@ sudo pacman -S --needed neovim git ripgrep fd fzf tree-sitter-cli gcc lazygit gi
 # CLI extras
 sudo pacman -S --needed bat sd tealdeer btop
 # Yazi + previews / papelera
-sudo pacman -S --needed yazi ffmpeg 7zip jq poppler imagemagick trash-cli
+sudo pacman -S --needed yazi ffmpeg 7zip ouch jq poppler imagemagick trash-cli
 # Shell / terminal
 sudo pacman -S --needed starship zoxide fastfetch
 # Sistema
@@ -335,4 +335,5 @@ cd ~/.config && git fetch origin && git reset --hard origin/main   # aplica la r
 - **Generados por matugen** (`fuzzel/fuzzel_theme.ini`, `yazi/theme.toml`, `hypr/hyprland/colors.lua`, `hypr/hyprlock/colors.conf`): no se versionan — se reescriben solos con cada cambio de wallpaper. Si tras un pull alguno desaparece del disco, un cambio de wallpaper (`Ctrl+Super+T`) lo regenera al instante.
 - **fish viaja completo** con el repo: `config.fish`, `functions/` (`fastfetch-random`, `y` de yazi) y todo `conf.d/` — `1password.fish` (socket SSH del agente), `path.fish` (`~/.local/bin` + npm-global), `editor.fish` (`EDITOR=nvim`) y los dos `fish_frozen_*` (tema y bindings congelados de fish). **Única excepción**: `conf.d/secrets.fish` (ignorado a propósito) — hoy no hace falta crearlo; solo sería necesario si en algún momento reactivás avante.nvim (ver nvim/CLAUDE.md), que es lo único que consumía `GEMINI_API_KEY` ahí.
 - **nvim**: `claudecode.nvim` (Claude Code real, vía CLI `claude`) es el asistente de IA in-editor activo; `avante.nvim` quedó desactivado (`enabled = false`) para no pisar sus atajos. Guía completa de uso en `nvim/guia.txt`.
-- Verificación rápida final: `Super+Enter` (kitty con fastfetch-random) · `Super+/` (cheatsheet) · `z <dir>` (zoxide) · en `yazi`: `m e` (Claude explica el archivo) · `gentle-ai doctor`.
+- **Archivos comprimidos en `yazi`** (plugin `ndtoan96/ouch`, requiere `ouch` instalado): `Enter`/`l` sobre un comprimido lo descomprime ahí mismo (regla de mimetypes nativa de yazi + opener `extract` en `yazi.toml`); `C` comprime la selección (prompt para el nombre — la extensión que escribas define el formato: `.zip`, `.7z`, `.tar.gz`, etc.); preview automático del contenido sin extraer, parado sobre el archivo.
+- Verificación rápida final: `Super+Enter` (kitty con fastfetch-random) · `Super+/` (cheatsheet) · `z <dir>` (zoxide) · en `yazi`: `m e` (Claude explica el archivo) · `Enter`/`C` (des/comprimir con ouch) · `gentle-ai doctor`.
