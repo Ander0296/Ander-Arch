@@ -31,6 +31,10 @@ edit = [
     # block=true: nvim es de terminal, yazi le cede toda la pantalla hasta que cierre
     { run = '$EDITOR %s', block = true, desc = "Editar con nvim" },
 ]
+extract = [
+    # -y: no pregunta confirmación; "$@" pasa todos los archivos seleccionados
+    { run = 'ouch d -y "$@"', desc = "Descomprimir con ouch" },
+]
 play = [
     # orphan=true: mpv abre su propia ventana, sigue viva aunque cierres yazi
     { run = "mpv %s", orphan = true, desc = "Reproducir con mpv" },

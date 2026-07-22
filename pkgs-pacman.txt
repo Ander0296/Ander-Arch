@@ -27,6 +27,7 @@ ttyper
 yazi
 ffmpeg
 7zip
+ouch
 jq
 poppler
 imagemagick
