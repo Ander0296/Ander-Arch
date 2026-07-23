@@ -1,0 +1,14 @@
+Instance
+variable
+es
+lo
+que
+el
+objeto
+sabe,
+método
+es
+lo
+que
+sabe
+hacer.
