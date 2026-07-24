@@ -1,0 +1,16 @@
+Los
+objetos
+viven
+en
+el
+heap
+y
+Java
+los
+borra
+solo
+cuando
+ya
+no
+se
+usan.

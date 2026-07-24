@@ -1,0 +1,16 @@
+En
+una
+app
+real
+los
+objetos
+se
+llaman
+métodos
+entre
+sí,
+no
+todo
+lo
+hace
+main.

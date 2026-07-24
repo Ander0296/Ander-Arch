@@ -1,0 +1,9 @@
+objeto.metodo()
+solo
+compila
+si
+la
+clase
+declara
+ese
+método.

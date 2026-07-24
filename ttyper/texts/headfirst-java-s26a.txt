@@ -1,0 +1,12 @@
+Cada
+objeto
+Movie
+guarda
+sus
+propios
+valores
+de
+title,
+genre
+y
+rating.

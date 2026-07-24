@@ -1,0 +1,15 @@
+Un
+archivo
+.java
+puede
+tener
+varias
+clases,
+solo
+la
+pública
+se
+llama
+como
+el
+archivo.

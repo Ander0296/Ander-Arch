@@ -1,0 +1,16 @@
+Una
+clase
+es
+como
+una
+receta
+y
+cada
+objeto
+es
+una
+galletita
+distinta
+hecha
+con
+ella.
