@@ -26,9 +26,11 @@ scaling=$(section_get engine_defaults scaling)
 clamp=$(section_get engine_defaults clamping)
 fps=$(section_get engine_defaults fps)
 silent=$(section_get engine_defaults silent)
+no_fullscreen_pause=$(section_get engine_defaults no_fullscreen_pause)
 
 opts=(--scaling "${scaling:-fill}" --clamp "${clamp:-border}" --fps "${fps:-30}")
 [[ "$silent" == "true" ]] && opts+=(--silent)
+[[ "$no_fullscreen_pause" == "true" ]] && opts+=(--no-fullscreen-pause) # si no, hyprlock (fullscreen) lo pausa al bloquear la pantalla
 
 args=()
 if [[ "$(section_get multi_monitor enabled)" == "true" ]]; then
