@@ -50,7 +50,11 @@ local function toggle_term_here()
   -- Si SÍ estás en la terminal, java_term_dir queda con el valor de la
   -- última vez, así el id (cmd+cwd) coincide y focus() la esconde en vez
   -- de crear una nueva.
-  Snacks.terminal.focus(nil, { cwd = java_term_dir })
+  -- win.position = "float": Snacks solo flota por default cuando se le pasa
+  -- un cmd explícito (acá cmd es nil); sin esto abría un split abajo.
+  -- border = "rounded": para distinguirla a simple vista de otras ventanas
+  -- flotantes (yazi, dapui, etc.) que no tienen borde.
+  Snacks.terminal.focus(nil, { cwd = java_term_dir, win = { position = "float", border = "rounded" } })
 end
 
 -- Pisa el bind default de LazyVim (que usaba LazyVim.root()) con el nuestro.
