@@ -1,0 +1,13 @@
+boolean
+isLearning;
+declara
+el
+vaso
+vacío,
+isLearning
+=
+true;
+le
+pone
+el
+valor.

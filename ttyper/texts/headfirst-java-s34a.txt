@@ -1,0 +1,14 @@
+Un
+nombre
+empieza
+con
+letra,
+guion
+bajo
+o
+signo
+peso,
+nunca
+con
+un
+número.

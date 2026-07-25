@@ -1,0 +1,14 @@
+El
+compilador
+mira
+el
+tipo,
+no
+el
+valor:
+byte
+b
+=
+x;
+no
+compila.

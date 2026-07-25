@@ -1,0 +1,14 @@
+No
+podés
+llamar
+a
+tu
+variable
+public,
+static,
+void,
+int
+ni
+boolean:
+son
+reservadas.
