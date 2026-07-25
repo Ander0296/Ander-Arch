@@ -1,0 +1,14 @@
+Un
+primitivo
+guarda
+el
+valor
+directo,
+una
+referencia
+guarda
+la
+dirección
+de
+un
+objeto.

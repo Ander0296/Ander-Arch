@@ -1,0 +1,13 @@
+Java
+tiene
+ocho
+primitivas:
+byte,
+short,
+int,
+long,
+float,
+double,
+boolean
+y
+char.

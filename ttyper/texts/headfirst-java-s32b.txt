@@ -1,0 +1,15 @@
+z
+copia
+el
+valor
+de
+x
+en
+ese
+momento;
+después
+x
+puede
+cambiar
+sin
+afectarlo.
