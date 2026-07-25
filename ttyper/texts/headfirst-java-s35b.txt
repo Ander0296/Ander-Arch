@@ -1,0 +1,15 @@
+El
+objeto
+nunca
+entra
+en
+la
+variable;
+solo
+entra
+la
+manera
+de
+llegar
+a
+él.

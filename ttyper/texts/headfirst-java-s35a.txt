@@ -1,0 +1,15 @@
+Una
+variable
+de
+referencia
+es
+como
+un
+control
+remoto:
+no
+es
+el
+objeto,
+lo
+maneja.
