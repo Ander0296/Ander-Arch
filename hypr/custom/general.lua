@@ -40,6 +40,11 @@ hl.workspace_rule({
 })
 
 hl.workspace_rule({
+	workspace = "special:wallpaperengine", -- workspace especial (scratchpad) para wallpaperengine-gui
+	persistent = true, -- no se destruye al esconderla: el wallpaper debe seguir corriendo (el lanzado real lo maneja el script del keybind)
+})
+
+hl.workspace_rule({
 	workspace = "9", -- workspace 9 (tecla SUPER+9)
 	layout = "scrolling", -- excepción: acá sí usamos scrolling, reemplaza el "dwindle" global solo acá
 })

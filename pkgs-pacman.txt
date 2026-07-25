@@ -64,6 +64,9 @@ zathura-pdf-mupdf
 plasma-browser-integration
 nwg-displays
 
+# --- Wallpaper Engine (requiere repo multilib, lo habilita bootstrap.sh) ---
+steam
+
 # --- Virtualización (VMs con virt-manager) ---
 qemu-full
 libvirt
