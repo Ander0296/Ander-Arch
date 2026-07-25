@@ -9,3 +9,9 @@ notion-app-electron
 
 # --- IDE Java (AUR) ---
 eclipse-java-bin
+
+# --- Wallpaper Engine (reimplementación nativa para Linux) ---
+# Requiere Steam (pacman, multilib) + poseer Wallpaper Engine + wallpapers
+# suscriptos en la Workshop para que haya algo que reproducir.
+linux-wallpaperengine-bin
+wallpaperengine-gui
