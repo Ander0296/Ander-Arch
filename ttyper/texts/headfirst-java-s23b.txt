@@ -1,0 +1,13 @@
+El
+objeto
+sabe
+cómo
+hacerlo,
+el
+resto
+del
+programa
+solo
+dice
+qué
+hacer.

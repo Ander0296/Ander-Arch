@@ -1,0 +1,10 @@
+d.size
+=
+40
+escribe
+el
+dato;
+d.bark()
+ejecuta
+el
+método.

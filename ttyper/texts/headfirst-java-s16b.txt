@@ -1,0 +1,14 @@
+Si
+el
+compilador
+encuentra
+un
+error
+de
+sintaxis,
+el
+programa
+no
+compila
+ni
+corre.

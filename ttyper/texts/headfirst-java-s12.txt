@@ -1,0 +1,14 @@
+En
+un
+método
+hay
+statements,
+loops
+para
+repetir
+y
+branching
+con
+if
+para
+decidir.

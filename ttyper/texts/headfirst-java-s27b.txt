@@ -1,0 +1,11 @@
+Un
+while(true)
+repite
+para
+siempre
+hasta
+que
+un
+break
+lo
+corta.

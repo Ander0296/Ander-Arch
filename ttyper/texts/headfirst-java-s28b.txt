@@ -1,0 +1,15 @@
+Lo
+estático
+es
+la
+excepción
+en
+POO,
+casi
+todo
+sigue
+viviendo
+dentro
+de
+un
+objeto.

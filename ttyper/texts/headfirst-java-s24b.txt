@@ -1,0 +1,11 @@
+Pensá
+en
+instancia
+como
+otra
+forma
+de
+decir
+objeto
+en
+POO.

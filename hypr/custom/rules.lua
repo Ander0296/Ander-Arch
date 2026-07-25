@@ -15,3 +15,6 @@ hl.window_rule({
 hl.window_rule({ match = { class = "ai-explain-popup" }, float = true })
 hl.window_rule({ match = { class = "ai-explain-popup" }, center = true })
 hl.window_rule({ match = { class = "ai-explain-popup" }, size = { "(monitor_w*0.5)", "(monitor_h*0.5)" } })
+
+-- ttyper ahora es un scratchpad (special:typing en custom/general.lua);
+-- float/center/size ya los define el on_created_empty de ese workspace_rule

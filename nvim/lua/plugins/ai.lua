@@ -1,39 +1,51 @@
 return {
   {
     "yetone/avante.nvim",
+    -- Desactivado: nos quedamos con claudecode.nvim (Claude Code real) en vez
+    -- de avante. "enabled = false" apaga el plugin entero -- ya no carga sus
+    -- comandos ni sus atajos, así que <leader>aa/ac/af/ar/as quedan libres
+    -- para ClaudeCode sin pelea.
+    enabled = false,
+  },
+  {
+    "coder/claudecode.nvim",
     opts = {
-      provider = "gemini",
-      providers = {
-        gemini = {
-          -- Modelo principal: el de más cupo diario (500 por día).
-          model = "gemini-3.1-flash-lite",
+      terminal = {
+        -- snacks_win_opts pisa la geometría de la ventana. position = "float"
+        -- la saca del split y la centra como popup, en vez de pegada a un borde.
+        snacks_win_opts = {
+          position = "float",
+          width = 0.85, -- 85% del ancho de la pantalla -- bien grande
+          border = "rounded",
+          keys = {
+            -- Ctrl+, ADENTRO de la terminal (modo terminal) la esconde.
+            -- No toca Ctrl+C a propósito: ese sigue yendo derecho al proceso
+            -- `claude`, que es como se interrumpe una respuesta larga.
+            claude_hide = {
+              "<C-,>",
+              function(self)
+                self:hide()
+              end,
+              mode = "t",
+              desc = "Esconder Claude",
+            },
+          },
         },
       },
     },
+    -- Sumamos <leader>am para elegir modelo (opus/sonnet/haiku) sin escribir
+    -- el comando entero. NO copiamos <leader>at/<leader>av de la config de
+    -- referencia porque apuntan a comandos que no existen en esta versión
+    -- del plugin (verificado: cero resultados al buscarlos en el código
+    -- fuente instalado) -- son cruft de una versión vieja.
     keys = {
-      {
-        "<leader>ag",
-        function()
-          -- Lista de modelos para rotar, del que más cupo tiene al que menos.
-          -- 3.5-flash comparte el mismo límite que 3-flash (5 RPM / 20 RPD),
-          -- así que va justo al lado en la rotación.
-          local models = { "gemini-3.1-flash-lite", "gemini-2.5-flash", "gemini-3-flash", "gemini-3.5-flash" }
-          local config = require("avante.config")
-          local current = config.providers.gemini.model
-          -- Busca dónde está el modelo actual en la lista y pasa al siguiente
-          -- (si estaba en el último, vuelve al primero).
-          local idx = 1
-          for i, m in ipairs(models) do
-            if m == current then
-              idx = i
-            end
-          end
-          local next_model = models[(idx % #models) + 1]
-          config.override({ providers = { gemini = { model = next_model } } })
-          vim.notify("Avante/Gemini: cambiado a " .. next_model, vim.log.levels.INFO)
-        end,
-        desc = "Rotar modelo Gemini (3.1 Flash Lite -> 2.5 Flash -> 3 Flash -> 3.5 Flash)",
-      },
+      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Elegir modelo Claude" },
+      -- Ctrl+, FUERA de la terminal (normal/visual) la abre/togglea. Mismo
+      -- físico combo que arriba, distinta acción según el modo en el que
+      -- estás -- por eso desde cualquier lado es una sola tecla para
+      -- abrir y cerrar. <leader>ac sigue funcionando igual, por si la
+      -- preferís también.
+      { "<C-,>", "<cmd>ClaudeCode<cr>", desc = "Abrir/cerrar Claude", mode = { "n", "x" } },
     },
   },
 }

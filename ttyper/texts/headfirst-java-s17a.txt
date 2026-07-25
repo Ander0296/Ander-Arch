@@ -1,0 +1,15 @@
+Para
+predecir
+la
+salida
+hay
+que
+rastrear
+el
+código
+vuelta
+por
+vuelta,
+variable
+por
+variable.

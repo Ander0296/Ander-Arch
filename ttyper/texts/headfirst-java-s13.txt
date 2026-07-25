@@ -1,0 +1,12 @@
+La
+condición
+del
+if
+siempre
+es
+un
+boolean
+y
+va
+entre
+paréntesis.

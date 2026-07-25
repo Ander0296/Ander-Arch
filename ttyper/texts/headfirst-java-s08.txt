@@ -1,0 +1,15 @@
+javac
+compila
+el
+código
+fuente
+a
+bytecode
+y
+la
+JVM
+lo
+ejecuta
+en
+cualquier
+sistema.

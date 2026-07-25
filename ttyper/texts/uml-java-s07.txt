@@ -1,0 +1,13 @@
+La
+notación
+es
+lo
+que
+dibujás;
+el
+meta-modelo
+define
+qué
+significa
+cada
+elemento.

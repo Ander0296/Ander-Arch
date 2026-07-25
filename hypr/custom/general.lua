@@ -1,10 +1,10 @@
 hl.config({
-	general = { layout = "scrolling" },
-	scrolling = {
-		fullscreen_on_one_column = true,
-		column_width = 1.0,
-		wrap_swapcol = false,
-	},
+	general = { layout = "dwindle" }, -- layout por defecto; scrolling queda solo en workspaces 9 y 10
+	-- scrolling = {
+	-- 	fullscreen_on_one_column = true,
+	-- 	column_width = 1.0,
+	-- 	wrap_swapcol = false,
+	-- },
 	input = {
 		kb_layout = "us",
 		kb_variant = "dvorak-alt-intl", -- variante dvorak con teclas internacionales en AltGr
@@ -34,11 +34,17 @@ hl.workspace_rule({
 })
 
 hl.workspace_rule({
+	workspace = "special:typing", -- workspace especial para el scratchpad de ttyper
+	on_created_empty = "[float; size 1000 400; center] kitty --class typing-practice -e bash ~/.config/hypr/scripts/ttyper-random.sh", -- elige una frase al azar y abre ttyper flotante
+	persistent = false, -- se destruye al cerrar, así la próxima vez elige otra frase al azar
+})
+
+hl.workspace_rule({
 	workspace = "9", -- workspace 9 (tecla SUPER+9)
-	layout = "dwindle", -- layout apilado clásico de Hyprland, reemplaza el "scrolling" global solo acá
+	layout = "scrolling", -- excepción: acá sí usamos scrolling, reemplaza el "dwindle" global solo acá
 })
 
 hl.workspace_rule({
 	workspace = "10", -- workspace 10 (tecla SUPER+0, porque el bucle usa i % 10)
-	layout = "dwindle",
+	layout = "scrolling",
 })

@@ -1,0 +1,245 @@
+GUÍA DE claudecode.nvim (coder/claudecode.nvim)
+================================================
+Plugin: coder/claudecode.nvim
+Instalado en: ~/.local/share/nvim/lazy/claudecode.nvim
+Extra de LazyVim: lazyvim.plugins.extras.ai.claudecode
+Repo oficial: https://github.com/coder/claudecode.nvim
+Docs locales (ya las tenés en disco, valen la pena leerlas):
+  ~/.local/share/nvim/lazy/claudecode.nvim/README.md       -> uso general
+  ~/.local/share/nvim/lazy/claudecode.nvim/PROTOCOL.md     -> cómo habla con el CLI
+  ~/.local/share/nvim/lazy/claudecode.nvim/ARCHITECTURE.md -> diseño interno
+
+OJO con el nombre: hay OTROS plugins parecidos (greggh/claude-code.nvim,
+carlos-rodrigo/claude-code.nvim, rsmdt/claude-code.nvim) que NO son este.
+Si buscás tutoriales en YouTube o Google, fijate que el repo sea
+"coder/claudecode.nvim" (todo junto, sin guion) o vas a terminar leyendo
+docs de otro plugin con otros comandos.
+
+
+1. CÓMO FUNCIONA (la posta técnica)
+------------------------------------
+No es un cliente de la API de Anthropic. Es un puente WebSocket entre
+Neovim y el binario `claude` (el mismo CLI que usás en la terminal).
+Cuando corrés `:ClaudeCode`, el plugin:
+
+  1. Levanta un server WebSocket local en un puerto random (rango
+     configurable, ver sección 4).
+  2. Abre una terminal embebida corriendo `claude` con esas credenciales
+     de conexión.
+  3. Claude, adentro de esa terminal, se conecta como si Neovim fuera una
+     extensión de IDE oficial (mismo protocolo que las de VS Code/JetBrains).
+
+A partir de ahí, Neovim le expone a Claude un set de "tools" (esto ES la
+parte de MCP que mencionamos): abrir archivos, mostrar diffs, leer
+diagnósticos de LSP, saber qué buffers tenés abiertos, guardar documentos.
+Los vas a ver en lua/claudecode/tools/ si tenés curiosidad:
+  open_file, open_diff, get_diagnostics, get_open_editors,
+  get_workspace_folders, get_current_selection, get_latest_selection,
+  save_document, close_tab, check_document_dirty.
+
+Como usa el `claude` CLI real, hereda TODOS los MCP servers que ya tengas
+configurados globalmente para Claude Code (los de esta misma sesión:
+codegraph, engram, etc.) — no hay que configurar nada de MCP acá.
+
+
+2. ATAJOS QUE YA TENÉS CONFIGURADOS
+-------------------------------------
+(definidos en el extra oficial de LazyVim, sin que vos tocaras nada)
+
+  <leader>a    -> grupo "+ai" (which-key), no hace nada solo
+  <leader>ac   -> :ClaudeCode              Abre/cierra el panel de Claude (toggle)
+  <leader>af   -> :ClaudeCodeFocus         Salta el cursor a la ventana de Claude
+  <leader>ar   -> :ClaudeCode --resume     Retoma la última conversación (con picker)
+  <leader>aC   -> :ClaudeCode --continue   Continúa la sesión actual sin picker
+  <leader>ab   -> :ClaudeCodeAdd %         Agrega el buffer actual como contexto
+  <leader>as   -> :ClaudeCodeSend          (modo visual) manda la selección
+  <leader>as   -> :ClaudeCodeTreeAdd       (en NvimTree/neo-tree/oil) agrega archivo
+                  ^ OJO: no dispara con Yazi, que es tu explorer. Ver sección 5.
+  <leader>aa   -> :ClaudeCodeDiffAccept    Aceptás el diff que propuso Claude
+  <leader>ad   -> :ClaudeCodeDiffDeny      Lo rechazás
+
+
+3. TODOS LOS COMANDOS (Ex commands), tengan atajo o no
+---------------------------------------------------------
+Estos los podés tipear con : aunque no tengan keymap. Útiles para mapear
+vos mismo alguno si querés, o para usar una sola vez.
+
+  :ClaudeCode [args]         Toggle del panel. Acepta flags del CLI real,
+                             ej: :ClaudeCode --resume, :ClaudeCode --continue
+  :ClaudeCodeOpen [args]     Igual que arriba pero SIEMPRE abre (no togglea)
+  :ClaudeCodeClose           Cierra el panel sin togglear
+  :ClaudeCodeFocus           Foco a la ventana de Claude
+  :ClaudeCodeStart           Levanta el server WebSocket a mano (normalmente
+                             automático, ver auto_start en sección 4)
+  :ClaudeCodeStop            Lo apaga
+  :ClaudeCodeStatus          Te dice en qué puerto está corriendo (o si no
+                             está corriendo) — primer lugar a mirar si algo
+                             no conecta
+  :ClaudeCodeAdd <ruta> [l1] [l2]
+                             Agrega un archivo (o carpeta) por ruta, con rango
+                             de líneas opcional. Ej:
+                               :ClaudeCodeAdd lua/config/keymaps.lua
+                               :ClaudeCodeAdd lua/config/keymaps.lua 10 25
+  :ClaudeCodeTreeAdd         Agrega archivo(s) seleccionados en un explorer
+                             soportado (NvimTree/neo-tree/oil/mini.files/
+                             netrw/snacks picker)
+  :ClaudeCodeSend            (modo visual) manda la selección como @mención
+  :ClaudeCodeSendText <txt>  Manda texto literal al panel ya abierto de Claude,
+                             sin pasar por selección visual
+  :ClaudeCodeDiffAccept      Acepta el diff propuesto
+  :ClaudeCodeDiffDeny        Lo rechaza
+  :ClaudeCodeCloseAllDiffs   Cierra todos los diffs pendientes sin decidir
+                             (los aceptados que ya escribiste no se tocan)
+  :ClaudeCodeSelectModel [args]
+                             Abre un picker para elegir modelo (ver la lista
+                             en sección 4) y lanza Claude con ese modelo
+
+
+4. CONFIGURACIÓN "PRO" — todas las opciones reales
+------------------------------------------------------
+Esto es el default.lua tal cual está en tu instalación
+(~/.local/share/nvim/lazy/claudecode.nvim/lua/claudecode/config.lua).
+Por ahora en tu repo el plugin corre 100% con estos valores default
+(el extra de LazyVim no le pasa overrides). Si algún día querés tocar
+algo, se hace agregando un archivo lua/plugins/claudecode.lua con
+`opts = { ... }` -- SOLO poné ahí lo que quieras cambiar, no hace falta
+repetir toda la tabla.
+
+  port_range = { min = 10000, max = 65535 }
+      Rango de puertos donde el plugin busca uno libre para el WebSocket.
+      Rara vez hay que tocarlo (solo si tenés un firewall raro).
+
+  auto_start = true
+      Arranca el server automáticamente al abrir nvim. Si lo ponés en
+      false, tenés que correr :ClaudeCodeStart a mano.
+
+  terminal_cmd = nil
+      Comando alternativo para lanzar Claude (por si no querés que use
+      el `claude` del PATH tal cual). Normalmente no hace falta tocarlo.
+
+  env = {}
+      Variables de entorno extra para la terminal de Claude. Ejemplo de
+      uso real: si quisieras forzar un modelo por default vía env en vez
+      de por keymap, acá irían ese tipo de variables.
+
+  log_level = "info"
+      Nivel de logs del plugin (trace/debug/info/warn/error). Subilo a
+      "debug" si algo falla y necesitás ver qué está pasando en
+      :messages.
+
+  track_selection = true
+      Si está en true, cada vez que seleccionás texto en modo visual el
+      plugin le avisa a Claude cuál es tu selección actual (aunque no
+      hagas :ClaudeCodeSend). Es lo que hace que Claude "vea" en tiempo
+      real dónde tenés el cursor.
+
+  focus_after_send = false
+      Si lo ponés true, al mandar algo con <leader>as el foco salta
+      automáticamente a la ventana de Claude (hoy te quedás donde estabas).
+
+  visual_demotion_delay_ms = 50
+      Milisegundos de gracia antes de "olvidar" una selección visual al
+      salir de modo visual. Ajuste fino, no hace falta tocarlo.
+
+  connection_wait_delay = 600
+  connection_timeout = 10000
+  queue_timeout = 5000
+      Tiempos de espera para la conexión WebSocket inicial y para
+      mensajes en cola. Si en tu máquina Claude tarda mucho en conectar
+      y ves timeouts, subir connection_timeout es la primera perilla.
+
+  diff_opts = {
+    layout = "vertical",              -- "vertical" | "horizontal" | "unified"
+    open_in_new_tab = false,          -- true = el diff abre en pestaña nueva
+    keep_terminal_focus = false,      -- true = el foco vuelve a la terminal
+                                          de Claude después de abrir el diff
+    hide_terminal_in_new_tab = false, -- combinado con open_in_new_tab
+    on_new_file_reject = "keep_empty",-- qué hacer si rechazás un archivo nuevo:
+                                          "keep_empty" (deja buffer vacío) o
+                                          "close_window" (cierra el split)
+    auto_resize_terminal = true,      -- el plugin ajusta el ancho de la
+                                          terminal de Claude mientras hay un
+                                          diff abierto
+  }
+      Esta es la sección que más vale la pena tocar si el layout de diffs
+      no te cierra. Por ejemplo, si preferís ver los diffs lado a lado
+      SIEMPRE en pestaña nueva: diff_opts.open_in_new_tab = true.
+
+  models = {
+    { name = "Claude Opus (Latest)",              value = "opus" },
+    { name = "Claude Opus (Latest, 1M context)",  value = "opus[1m]" },
+    { name = "Claude Sonnet (Latest)",            value = "sonnet" },
+    { name = "Claude Sonnet (Latest, 1M context)",value = "sonnet[1m]" },
+    { name = "Claude Haiku (Latest)",             value = "haiku" },
+    { name = "Default (account recommended)",     value = "default" },
+  }
+      Lista que te muestra :ClaudeCodeSelectModel. El "value" se le pasa
+      tal cual a `claude --model`, por eso son alias cortos (opus/sonnet/
+      haiku) y no versiones fijas -- así nunca quedan obsoletos.
+
+  terminal = {
+    provider = "auto",         -- "auto" | "snacks" | "native" | "external" | "none"
+    provider_opts = {
+      external_terminal_cmd = nil,
+    },
+  }
+      "auto" detecta que tenés snacks.nvim instalado (lo tenés, por tu
+      keymap de mvn test) y usa ese como terminal embebida. No hace
+      falta tocar esto en tu setup.
+
+
+5. LIMITACIÓN CONOCIDA: Yazi
+--------------------------------
+:ClaudeCodeTreeAdd (el <leader>as en modo explorer) solo reacciona en
+buffers de NvimTree, neo-tree, oil.nvim, mini.files, netrw o el picker
+de snacks. Yazi corre como proceso externo, no como buffer de Neovim,
+así que el plugin no lo detecta.
+
+Alternativas mientras usás Yazi:
+  - :ClaudeCodeAdd <ruta> a mano (autocompleta rutas con Tab)
+  - Usar el picker de snacks para elegir varios archivos y mandarlos
+
+
+6. EJEMPLOS DE USO
+----------------------
+a) Preguntar algo sobre un archivo abierto:
+     <leader>ac                 -- abrís el panel
+     escribís tu pregunta ahí mismo, como en esta sesión de terminal
+
+b) Pedir que revise/arregle un bloque puntual:
+     seleccionás el bloque en modo visual
+     <leader>as                 -- lo manda como @mención
+     le escribís qué querés que haga
+
+c) Sumar contexto de otro archivo sin abrirlo:
+     :ClaudeCodeAdd lua/config/keymaps.lua
+
+d) Revisar y aplicar un cambio que propuso:
+     Claude te muestra un diff -> <leader>aa para aceptar, <leader>ad
+     para rechazar
+
+e) Retomar donde quedaste ayer:
+     <leader>ar                 -- te muestra el picker de conversaciones
+     o <leader>aC si querés seguir la MISMA sesión sin elegir
+
+f) Cambiar de modelo a media sesión (ej: pasar a Opus para algo difícil):
+     :ClaudeCodeSelectModel
+
+g) Algo no conecta o tira error raro:
+     :ClaudeCodeStatus           -- primero mirá si el server está corriendo
+     :messages                   -- logs recientes
+     (subir log_level a "debug" en la config si hace falta más detalle)
+
+
+7. DÓNDE SEGUIR APRENDIENDO
+-------------------------------
+- README.md del propio repo (instalado en tu disco, y la fuente más
+  confiable porque es exactamente la versión que tenés):
+  ~/.local/share/nvim/lazy/claudecode.nvim/README.md
+- PROTOCOL.md (si te interesa el detalle de cómo habla WebSocket con el
+  CLI, para cuando quieras ir más pro todavía):
+  ~/.local/share/nvim/lazy/claudecode.nvim/PROTOCOL.md
+- Repo en GitHub (issues, releases, discusiones):
+  https://github.com/coder/claudecode.nvim
+- Dentro de nvim: :help claudecode (si el plugin generó su doc de help;
+  si no aparece nada, corré :helptags ALL una vez)

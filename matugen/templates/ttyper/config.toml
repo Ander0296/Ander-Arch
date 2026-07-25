@@ -1,0 +1,42 @@
+# Template de Matugen para ttyper — se regenera solo con cada cambio de wallpaper
+# Mismo mapeo de roles Material You que yazi/theme.toml:
+#   primary   -> acento principal (progreso/correcto)
+#   error     -> rojo/destructivo (incorrecto)
+#   secondary/tertiary -> acentos secundarios
+#   outline(_variant)  -> bordes y texto atenuado
+# ttyper usa hex SIN "#" (hex_stripped), por eso no lleva el prefijo como en yazi.
+
+default_language = "spanish"
+
+[theme]
+default = "none"
+
+title = "{{colors.primary.default.hex_stripped}};bold"
+
+## test ##
+input_border = "{{colors.primary.default.hex_stripped}}"
+prompt_border = "{{colors.outline_variant.default.hex_stripped}}"
+border_type = "rounded"
+
+prompt_correct = "{{colors.primary.default.hex_stripped}}"
+prompt_incorrect = "{{colors.error.default.hex_stripped}}"
+prompt_untyped = "{{colors.outline.default.hex_stripped}}"
+
+prompt_current_correct = "{{colors.primary.default.hex_stripped}};bold"
+prompt_current_incorrect = "{{colors.error.default.hex_stripped}};bold"
+prompt_current_untyped = "{{colors.secondary.default.hex_stripped}};bold"
+
+prompt_cursor = "none;underlined"
+
+## results ##
+results_overview = "{{colors.primary.default.hex_stripped}};bold"
+results_overview_border = "{{colors.outline_variant.default.hex_stripped}}"
+
+results_worst_keys = "{{colors.tertiary.default.hex_stripped}};bold"
+results_worst_keys_border = "{{colors.outline_variant.default.hex_stripped}}"
+
+results_chart = "{{colors.primary.default.hex_stripped}}"
+results_chart_x = "{{colors.secondary.default.hex_stripped}}"
+results_chart_y = "{{colors.outline.default.hex_stripped}};italic"
+
+results_restart_prompt = "{{colors.outline_variant.default.hex_stripped}};italic"

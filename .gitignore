@@ -1,0 +1,55 @@
+# Ignorar todo por default; solo habilitamos explícitamente lo que gestionamos
+/*
+
+# --- Config gestionado por el instalador de dots-hyprland ---
+!/hypr
+!/kitty
+!/fish
+!/quickshell
+!/fuzzel
+!/mpv
+!/foot
+!/wlogout
+!/matugen
+!/Kvantum
+!/kde-material-you-colors
+!/fontconfig
+!/xdg-desktop-portal
+!/yazi
+/yazi/theme.toml
+
+# --- Tuyo, escrito a mano ---
+!/starship.toml
+!/zshrc.d
+!/nvim
+!/README.md
+
+# --- Secretos: nunca versionar, aunque /fish esté incluido arriba ---
+/fish/conf.d/secrets.fish
+
+# --- Generado por matugen desde el wallpaper: NO versionar (ver Paso 0) ---
+/hypr/hyprland/colors.lua
+/hypr/hyprlock/colors.conf
+
+# --- Layout de monitores específico de esta máquina (si nwg-displays lo crea) ---
+/hypr/workspaces.lua
+/hypr/monitors.lua
+/hypr/workspaces.conf
+/hypr/monitors.conf
+
+# --- Replicación multi-PC ---
+!/bootstrap.sh
+!/pkgs-pacman.txt
+!/pkgs-aur.txt
+!/illogical-impulse
+
+# --- Claude Code (proyecto raíz) ---
+!/CLAUDE.md
+
+# --- Generados por matugen (colores del wallpaper, cambian solos) ---
+/fuzzel/fuzzel_theme.ini
+/yazi/theme.toml
+/ttyper/config.toml
+
+# --- ttyper: contenido propio (listas/textos de práctica), no la config autogenerada arriba ---
+!/ttyper

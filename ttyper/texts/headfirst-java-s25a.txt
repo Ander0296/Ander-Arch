@@ -1,0 +1,15 @@
+Con
+new
+creo
+un
+objeto
+y
+con
+el
+punto
+accedo
+a
+sus
+datos
+y
+métodos.

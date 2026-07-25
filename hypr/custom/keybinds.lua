@@ -16,6 +16,7 @@ hl.unbind("SUPER + SHIFT + L") -- antes: Session: Sleep
 hl.unbind("CTRL + SHIFT + ALT + SUPER + Delete") -- antes: Session: Shut down
 hl.unbind("SUPER + SUPER_L") -- antes: abría el buscador al soltar Super + fallback fuzzel
 hl.unbind("SUPER + SUPER_R") -- antes: lo mismo, con Super derecho
+hl.unbind("CTRL + SUPER + ALT + T") -- antes: Shell: Random wallpaper, liberado para ttyper
 
 -- scratchpad Terminal
 hl.bind(
@@ -89,8 +90,21 @@ hl.bind(
 	hl.dsp.exec_cmd(qsIsAlive .. " || pidof slurp || hyprshot --freeze --clipboard-only --mode region --silent")
 ) -- fallback si Quickshell no responde
 
+-- ── Utilidades del sistema ───────────────────────────────────────────────────
+hl.bind("CTRL + SUPER + M", hl.dsp.exec_cmd("nwg-displays"), { description = "Utilities: Monitor layout (nwg-displays)" }) -- abre nwg-displays para acomodar posición/resolución de monitores
+hl.bind("CTRL + SUPER + ALT + W", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/toggle-wallpaper-loop.sh"), { description = "Utilities: Toggle auto wallpaper" }) -- activa/desactiva el cambio automático de wallpaper cada 1 hora
+hl.bind("CTRL + SUPER + ALT + T", hl.dsp.workspace.toggle_special("typing"), { description = "Utilities: Toggle typing practice (ttyper)" }) -- muestra/oculta el scratchpad de ttyper; cada apertura elige una frase al azar (se crea sola la primera vez)
+
 -- ── Apps personales ──────────────────────────────────────────────────────────
 hl.bind("SUPER + CTRL + ALT + A", hl.dsp.exec_cmd("anki"), { description = "App: Anki" }) -- abre Anki
+hl.bind("SUPER + CTRL + ALT + N", hl.dsp.exec_cmd("notion-app"), { description = "App: Notion" }) -- abre Notion
+hl.bind("SUPER + CTRL + ALT + O", hl.dsp.exec_cmd("obs"), { description = "App: OBS Studio" }) -- abre OBS Studio
+hl.bind("SUPER + CTRL + ALT + M", hl.dsp.exec_cmd("mpv"), { description = "App: mpv" }) -- abre mpv
+hl.bind("SUPER + CTRL + ALT + I", hl.dsp.exec_cmd("imv"), { description = "App: imv" }) -- abre imv
+hl.bind("SUPER + CTRL + ALT + Z", hl.dsp.exec_cmd("zathura"), { description = "App: Zathura" }) -- abre Zathura
+hl.bind("SUPER + CTRL + ALT + E", hl.dsp.exec_cmd("eclipse"), { description = "App: Eclipse" }) -- abre Eclipse
+hl.bind("SUPER + CTRL + ALT + J", hl.dsp.exec_cmd("idea"), { description = "App: IntelliJ IDEA" }) -- abre IntelliJ IDEA (J de Java)
+hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("netbeans"), { description = "App: NetBeans" }) -- abre NetBeans
 
 -- ── Super solo: overlay de workspaces sin abrir el buscador ─────────────────
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel")) -- fallback si Quickshell no responde

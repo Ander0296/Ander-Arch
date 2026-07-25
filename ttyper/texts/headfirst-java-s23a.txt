@@ -1,0 +1,13 @@
+Al
+diseñar
+una
+clase
+pensá
+qué
+sabe
+el
+objeto
+y
+qué
+sabe
+hacer.

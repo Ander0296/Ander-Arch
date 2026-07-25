@@ -1,0 +1,12 @@
+Cada
+clase
+sabe
+hacer
+sus
+propias
+cosas:
+eso
+es
+orientado
+a
+objetos.

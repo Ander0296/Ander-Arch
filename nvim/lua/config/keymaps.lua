@@ -29,3 +29,35 @@ vim.keymap.set("n", "<leader>tm", function()
   -- "q" (ya viene mapeado por default en toda terminal de snacks).
   Snacks.terminal("mvn test", { cwd = root, auto_close = false })
 end, { desc = "Maven: correr tests (mvn test)" })
+
+-- LazyVim trae por default <leader>uz = zen y <leader>uZ = zoom. Acá los
+-- intercambiamos: "map" vuelve a bindear la tecla nueva sobre el mismo
+-- toggle, así que basta con llamarlo de nuevo con el leader cambiado
+-- (el bind viejo queda pisado porque set_keymap con el mismo lhs reemplaza).
+Snacks.toggle.zoom():map("<leader>uz")
+Snacks.toggle.zen():map("<leader>uZ")
+
+-- Guarda la carpeta del último archivo real (no de la terminal) para que
+-- el toggle de <C-/> sepa qué terminal cerrar cuando lo apretás desde ADENTRO.
+local java_term_dir = nil
+
+local function toggle_term_here()
+  -- Si NO estás parado en la terminal (buftype != "terminal"), estás en un
+  -- archivo real: recalculá la carpeta a partir de ese archivo.
+  if vim.bo.buftype ~= "terminal" then
+    java_term_dir = vim.fn.expand("%:p:h") -- %:p:h = ruta absoluta de la carpeta del buffer actual
+  end
+  -- Si SÍ estás en la terminal, java_term_dir queda con el valor de la
+  -- última vez, así el id (cmd+cwd) coincide y focus() la esconde en vez
+  -- de crear una nueva.
+  -- win.position = "float": Snacks solo flota por default cuando se le pasa
+  -- un cmd explícito (acá cmd es nil); sin esto abría un split abajo.
+  -- border = "rounded": para distinguirla a simple vista de otras ventanas
+  -- flotantes (yazi, dapui, etc.) que no tienen borde.
+  Snacks.terminal.focus(nil, { cwd = java_term_dir, win = { position = "float", border = "rounded" } })
+end
+
+-- Pisa el bind default de LazyVim (que usaba LazyVim.root()) con el nuestro.
+-- <C-_> queda afuera a propósito: en kitty ese combo ya está tomado por
+-- "change_font_size all -1" (~/.config/kitty/*.conf), nunca llega a nvim.
+vim.keymap.set({ "n", "t" }, "<C-/>", toggle_term_here, { desc = "Terminal (carpeta del archivo)" })

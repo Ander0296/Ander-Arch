@@ -1,0 +1,13 @@
+Un
+atributo
+es
+un
+dato
+propio
+de
+cada
+objeto,
+adelanto
+de
+instance
+variable.
