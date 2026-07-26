@@ -1,0 +1,16 @@
+Book
+d
+=
+c;
+copia
+los
+bits
+de
+c
+en
+d:
+dos
+referencias,
+un
+solo
+objeto.

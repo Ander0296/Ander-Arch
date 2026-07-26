@@ -1,0 +1,16 @@
+Una
+variable
+de
+referencia
+en
+null
+no
+apunta
+a
+ningún
+objeto:
+existe
+pero
+no
+controla
+nada.

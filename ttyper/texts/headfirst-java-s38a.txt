@@ -1,0 +1,16 @@
+c
+=
+b;
+hace
+que
+c
+suelte
+su
+objeto
+viejo
+y
+controle
+el
+objeto
+de
+b.

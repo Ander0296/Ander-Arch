@@ -1,0 +1,15 @@
+Una
+variable
+de
+referencia
+sin
+objeto
+vale
+null
+y
+se
+imprime
+como
+el
+texto
+null.

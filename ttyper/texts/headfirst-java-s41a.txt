@@ -1,0 +1,12 @@
+myDogs[0].bark();
+llama
+al
+método
+sobre
+el
+objeto
+guardado
+en
+la
+posición
+cero.

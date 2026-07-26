@@ -1,0 +1,13 @@
+Un
+objeto
+es
+alcanzable
+si
+al
+menos
+una
+referencia
+activa
+todavía
+lo
+apunta.

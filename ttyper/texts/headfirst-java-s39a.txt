@@ -1,0 +1,17 @@
+Si
+b
+=
+c;
+deja
+al
+objeto
+1
+sin
+referencias,
+ese
+objeto
+queda
+abandonado
+y
+es
+basura.

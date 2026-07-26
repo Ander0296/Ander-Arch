@@ -1,0 +1,15 @@
+El
+compilador
+rechaza
+un
+Cat
+en
+un
+arreglo
+Dog[];
+un
+byte
+sí
+entra
+en
+int[].

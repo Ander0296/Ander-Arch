@@ -1,0 +1,15 @@
+pets
+=
+new
+Dog[7];
+crea
+la
+bandeja;
+pets[0]
+=
+new
+Dog();
+crea
+el
+primer
+perro.

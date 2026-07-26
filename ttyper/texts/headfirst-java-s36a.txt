@@ -1,0 +1,15 @@
+declarar,
+crear
+y
+vincular:
+los
+3
+pasos
+que
+arma
+new
+Dog()
+en
+una
+sola
+línea.

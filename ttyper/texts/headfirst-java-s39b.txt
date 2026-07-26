@@ -1,0 +1,15 @@
+int[]
+nums;
+declara
+la
+referencia;
+nums
+=
+new
+int[7];
+crea
+el
+objeto
+en
+el
+heap.

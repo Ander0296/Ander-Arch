@@ -1,0 +1,13 @@
+while
+(x
+<
+myDogs.length)
+recorre
+bien;
+con
+<=
+te
+pasás
+del
+último
+índice.
