@@ -265,12 +265,19 @@ Publicar un cambio (desde cualquier PC):
 cd ~/.config && git add -A && git commit -m "qué cambié" && git push
 ```
 
-Recibirlo en los demás:
+Recibirlo en los demás — **al empezar a trabajar, correr siempre**:
 
-```bash
-cd ~/.config && git pull
+```fish
+sync-repos            # función de fish: ~/.config + todos los repos de ~/Proyectos
 hyprctl reload        # aplica los cambios de Hyprland al instante
 ```
+
+`sync-repos` (en `fish/functions/sync-repos.fish`) hace `fetch` de cada repo y solo
+pullea cuando es **fast-forward puro**, así que nunca puede generar un conflicto por
+su cuenta. Si los dos PCs tienen commits te avisa `DIVERGIDO` y para, para que lo
+resuelvas vos (fase 11). Los repos de terceros (`~/dots-hyprland`, `~/yay`, el tema de
+SDDM) quedan afuera a propósito: pullear el upstream de end-4 pisaría mis fixes de
+Quickshell. Los proyectos nuevos que clones en `~/Proyectos/` entran solos.
 
 - Tocaste Quickshell (QML) → `Ctrl+Super+R`.
 - Cambió `lazy-lock.json` → en nvim: `:Lazy restore`.
@@ -278,7 +285,7 @@ hyprctl reload        # aplica los cambios de Hyprland al instante
 
 ## 11. Conflictos entre PCs — todas las variaciones
 
-Reglas de oro que evitan el 95%: **al terminar** en un PC → commit + push (fase 10). **Al empezar** en otro → pull. El que llega tarde a pushear es el que mezcla. Y una vez por PC: `git config --global pull.rebase false` (ya está en la fase 6).
+Reglas de oro que evitan el 95%: **al terminar** en un PC → commit + push (fase 10). **Al empezar** en otro → `sync-repos`. El que llega tarde a pushear es el que mezcla. Y una vez por PC: `git config --global pull.rebase false` (ya está en la fase 6).
 
 | Síntoma (mensaje de git) | Qué pasó | Solución |
 |---|---|---|
