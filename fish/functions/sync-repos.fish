@@ -1,12 +1,25 @@
 function sync-repos --description "Fetch + pull seguro de todos mis repos (config + Proyectos)"
-    # ~/.config primero (es el que se replica en todos los PCs), después cada
-    # subcarpeta de ~/Proyectos que tenga .git adentro. Los proyectos nuevos
-    # entran solos, sin tocar el script. Quedan afuera a propósito los repos
-    # de terceros (~/dots-hyprland, ~/yay, el tema de SDDM, la caché de yay):
-    # pullear el upstream de end-4 pisaría mis fixes de Quickshell.
+    # Mi usuario de GitHub: es el criterio de "este repo es mío".
+    set -l usuario Ander0296
+
+    # ~/.config va sí o sí y primero: es el que se replica en todos los PCs.
+    # Si algún día el escaneo fallara, este no se pierde.
     set -l repos $HOME/.config
-    for d in $HOME/Proyectos/*
-        test -d $d/.git; and set -a repos $d
+
+    # El resto los descubro por dueño, no por ruta fija. Antes tenía
+    # ~/Proyectos hardcodeado y se me escapó ~/Pictures (los wallpapers).
+    # Filtrar por el remoto deja afuera solos a los de terceros (end-4, yay,
+    # sddm, plugins de yazi) sin tener que enumerarlos, y mete los míos
+    # nuevos estén donde estén.
+    # -H incluye ocultos, -I ignora los .gitignore (si no, no encuentra
+    # ~/.config, que se ignora a sí mismo), -d 5 acota la profundidad.
+    for gitdir in (fd -H -I -t d -d 5 '^\.git$' $HOME \
+            -E .cache -E .local -E .claude -E node_modules -E .venv -E target 2>/dev/null | sort)
+        set -l repo (string replace -r '/\.git/?$' '' $gitdir)
+        contains -- $repo $repos; and continue # ya está (el ~/.config de arriba)
+        set -l url (git -C $repo remote get-url origin 2>/dev/null)
+        # Matchea tanto git@github.com:Usuario/ como https://github.com/Usuario/
+        string match -qr "github\.com[:/]$usuario/" -- "$url"; and set -a repos $repo
     end
 
     set -l problemas 0 # si termina en >0, hay algo para mirar a mano

@@ -21,19 +21,30 @@
 
  QUE REPOS TOCA
  --------------
- No hay una lista escrita: los descubre solos cada vez.
+ No hay una lista escrita: los descubre solos cada vez, por DUEÑO del remoto.
 
-     ~/.config                 siempre (este repo, el que se replica)
-     ~/Proyectos/<lo-que-sea>  toda subcarpeta que tenga .git adentro
+ La regla: busca todos los .git bajo ~ y se queda con los que tengan el
+ origin apuntando a github.com/Ander0296/... O sea, los MIOS, esten donde
+ esten. No importa la carpeta.
 
- Un proyecto nuevo que clones en ~/Proyectos entra solo, sin tocar nada.
+ Hoy eso da:
+     ~/.config                 (Ander-Arch, el que se replica)
+     ~/Pictures                (Wallpapers + FastfetchLogos)
+     ~/Proyectos/*             (los 5 proyectos)
 
- QUEDAN AFUERA A PROPOSITO (son de terceros, no mios):
-     ~/dots-hyprland        <- pullear el upstream de end-4 me pisa mis fixes
-                               de Quickshell (applycolor.sh)
-     ~/yay
-     ~/sddm-astronaut-theme
-     ~/.cache/yay/*
+ Un repo mio nuevo, clonado en cualquier lado, entra solo.
+
+ QUEDAN AFUERA SOLOS (el remoto no es mio, no hay que enumerarlos):
+     ~/dots-hyprland        <- upstream de end-4. Pullearlo me pisaria mis
+                               fixes de Quickshell (applycolor.sh)
+     ~/yay, ~/sddm-astronaut-theme, plugins de yazi, fastfetch, engram...
+
+ NO se escanean (por velocidad): ~/.cache, ~/.local, ~/.claude,
+ node_modules, .venv, target. Y la busqueda llega hasta 5 niveles de
+ profundidad. Si algun dia tengo un repo mas hondo que eso, no lo va a ver.
+
+ OJO: el criterio es el remoto, no la carpeta. Un repo local sin origin, o
+ con el origin apuntando a otra cuenta, NO entra aunque sea mio.
 
 
  COMO LEER LA SALIDA
@@ -95,10 +106,18 @@
 
  CASOS RAROS (todos probados)
  ----------------------------
- - ~/Proyectos no existe (PC recien replicada) -> no falla, sincroniza solo
-   ~/.config.
- - Carpeta en ~/Proyectos que no es repo git   -> ni aparece, la ignora.
+ - PC recien replicada, sin repos clonados aun -> no falla, sincroniza solo
+   ~/.config (que va explicito, no depende del escaneo).
+ - Carpeta suelta que no es repo git           -> ni aparece, la ignora.
  - Repo con el remoto borrado                  -> avisa y sigue con el resto.
+ - Repo de otra persona (end-4, yay...)        -> ni aparece, el filtro por
+                                                  dueño lo descarta.
+
+ CUANTO TARDA
+ ------------
+ El escaneo de carpetas son 10 milisegundos: no es lo que cuesta. El tiempo
+ se va en los "git fetch", ~1.3s cada uno por latencia de red. Con 7 repos
+ son unos 11 segundos. Crece a razon de un repo mas = un segundo mas.
 
 
  DONDE VIVE

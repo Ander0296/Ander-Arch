@@ -268,16 +268,18 @@ cd ~/.config && git add -A && git commit -m "qué cambié" && git push
 Recibirlo en los demás — **al empezar a trabajar, correr siempre**:
 
 ```fish
-sync-repos            # función de fish: ~/.config + todos los repos de ~/Proyectos
+sync-repos            # función de fish: trae todos MIS repos (mirar GUIA-sync-repos.txt)
 hyprctl reload        # aplica los cambios de Hyprland al instante
 ```
 
-`sync-repos` (en `fish/functions/sync-repos.fish`) hace `fetch` de cada repo y solo
-pullea cuando es **fast-forward puro**, así que nunca puede generar un conflicto por
-su cuenta. Si los dos PCs tienen commits te avisa `DIVERGIDO` y para, para que lo
-resuelvas vos (fase 11). Los repos de terceros (`~/dots-hyprland`, `~/yay`, el tema de
-SDDM) quedan afuera a propósito: pullear el upstream de end-4 pisaría mis fixes de
-Quickshell. Los proyectos nuevos que clones en `~/Proyectos/` entran solos.
+`sync-repos` (en `fish/functions/sync-repos.fish`) busca todos los repos bajo `~` y se
+queda con los que tengan el `origin` apuntando a mi usuario de GitHub — hoy `~/.config`,
+`~/Pictures` y los de `~/Proyectos/`. Uno nuevo, clonado donde sea, entra solo; los de
+terceros (`~/dots-hyprland`, `~/yay`, el tema de SDDM) quedan afuera por el mismo filtro,
+lo cual importa porque pullear el upstream de end-4 pisaría mis fixes de Quickshell.
+Hace `fetch` y solo pullea cuando es **fast-forward puro**, así que nunca puede generar
+un conflicto por su cuenta: si los dos PCs tienen commits avisa `DIVERGIDO` y para, para
+que lo resuelvas vos (fase 11). Guía completa de la salida en `GUIA-sync-repos.txt`.
 
 - Tocaste Quickshell (QML) → `Ctrl+Super+R`.
 - Cambió `lazy-lock.json` → en nvim: `:Lazy restore`.
