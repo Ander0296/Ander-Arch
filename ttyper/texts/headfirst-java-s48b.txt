@@ -1,0 +1,14 @@
+void
+bark(int
+numOfBarks)
+{
+}
+declara
+un
+parámetro
+y
+un
+tipo
+de
+retorno
+vacío.

@@ -1,0 +1,16 @@
+Todos
+los
+objetos
+de
+una
+clase
+tienen
+los
+mismos
+métodos,
+pero
+el
+estado
+cambia
+su
+comportamiento.

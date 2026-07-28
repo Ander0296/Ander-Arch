@@ -1,0 +1,12 @@
+Un
+arreglo
+guarda
+diez
+referencias;
+una
+sola
+variable
+guarda
+apenas
+la
+última.

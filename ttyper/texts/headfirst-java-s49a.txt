@@ -1,0 +1,15 @@
+Si
+declarás
+int
+giveSecret()
+tenés
+que
+devolver
+un
+int:
+return
+42;
+y
+los
+tipos
+coinciden.

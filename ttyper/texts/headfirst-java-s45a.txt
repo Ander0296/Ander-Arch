@@ -1,0 +1,13 @@
+Reasignar
+la
+misma
+referencia
+en
+cada
+vuelta
+deja
+sin
+dueño
+al
+objeto
+anterior.

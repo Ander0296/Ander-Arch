@@ -1,0 +1,11 @@
+Kate
+creó
+diez
+objetos
+Contact
+pero
+solo
+el
+último
+quedó
+accesible.

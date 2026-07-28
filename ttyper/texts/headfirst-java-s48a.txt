@@ -1,0 +1,12 @@
+Quien
+llama
+pasa
+argumentos;
+un
+método
+toma
+parámetros,
+que
+son
+variables
+locales.

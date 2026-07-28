@@ -1,0 +1,12 @@
+void
+play()
+{
+soundPlayer.playSound(title,
+artist);
+}
+usa
+las
+instance
+variables
+del
+objeto.
