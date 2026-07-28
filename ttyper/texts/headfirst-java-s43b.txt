@@ -1,0 +1,11 @@
+El
+arreglo
+index
+guarda
+posiciones,
+no
+datos;
+apunta
+a
+otro
+arreglo.

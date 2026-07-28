@@ -11,7 +11,10 @@ grep -q '^\[multilib\]' /etc/pacman.conf ||
 	sudo sed -i '/^#\[multilib\]/,/^#Include/ s/^#//' /etc/pacman.conf
 
 echo "==> [2/10] Paquetes oficiales (pkgs-pacman.txt)"
-grep -v '^\s*#' pkgs-pacman.txt | grep -v '^\s*$' | sudo pacman -Sy --needed --noconfirm -
+# -Syu (no solo -Sy): sincroniza Y actualiza TODO el sistema antes de
+# instalar los paquetes de la lista, evitando "partial upgrades" que
+# rompen libs compartidas (ej: poppler vs poppler-qt6).
+grep -v '^\s*#' pkgs-pacman.txt | grep -v '^\s*$' | sudo pacman -Syu --needed --noconfirm -
 
 echo "==> [3/10] Paquetes AUR (pkgs-aur.txt) — los -bin pueden tardar"
 grep -v '^\s*#' pkgs-aur.txt | grep -v '^\s*$' | yay -S --needed --noconfirm -

@@ -1,0 +1,14 @@
+Un
+programa
+desordenado
+en
+imanes;
+lo
+armás
+vos
+para
+que
+compile
+y
+corra
+bien.

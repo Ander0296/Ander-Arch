@@ -1,0 +1,10 @@
+Ahora
+aparece
+el
+pool
+de
+fragmentos
+para
+completar
+los
+huecos.
