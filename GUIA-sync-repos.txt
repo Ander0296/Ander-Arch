@@ -1,0 +1,116 @@
+===============================================================================
+ sync-repos - Guia rapida
+===============================================================================
+
+ QUE ES
+ ------
+ Una funcion de fish que trae los cambios de todos mis repos antes de empezar
+ a trabajar. Existe porque el problema real no es git: es olvidarse de que
+ ayer estuve en la otra PC.
+
+
+ COMO SE USA
+ -----------
+ Escribir esto en cualquier terminal, desde cualquier carpeta:
+
+     sync-repos
+
+ Nada mas. No lleva argumentos ni hay que estar parado en ningun lado.
+ Se corre AL EMPEZAR a trabajar. Al terminar, lo de siempre: commit + push.
+
+
+ QUE REPOS TOCA
+ --------------
+ No hay una lista escrita: los descubre solos cada vez.
+
+     ~/.config                 siempre (este repo, el que se replica)
+     ~/Proyectos/<lo-que-sea>  toda subcarpeta que tenga .git adentro
+
+ Un proyecto nuevo que clones en ~/Proyectos entra solo, sin tocar nada.
+
+ QUEDAN AFUERA A PROPOSITO (son de terceros, no mios):
+     ~/dots-hyprland        <- pullear el upstream de end-4 me pisa mis fixes
+                               de Quickshell (applycolor.sh)
+     ~/yay
+     ~/sddm-astronaut-theme
+     ~/.cache/yay/*
+
+
+ COMO LEER LA SALIDA
+ -------------------
+ Imprime UNA linea por repo, siempre, aunque no haga nada. La salida ES la
+ lista de lo que agarro: nada se toca en silencio.
+
+   =   al dia                       No habia nada que traer.
+                                    -> No hacer nada.
+
+   v   actualizado (+N)             Trajo N commits. Fast-forward puro.
+                                    -> Si toco Hyprland: hyprctl reload
+                                    -> Si toco Quickshell: Ctrl+Super+R
+                                    -> Si cambio lazy-lock.json: :Lazy restore
+                                    -> Si cambio pkgs-*.txt: bash bootstrap.sh
+
+   ^   N commit(s) sin pushear      Tengo trabajo local sin publicar.
+                                    -> git push (asi la otra PC lo recibe)
+
+   !   DIVERGIDO (N local/M remoto) Las dos PCs tienen commits. NO pulleo solo.
+                                    -> git pull   (git mezcla; si marca
+                                       CONFLICT, ver fase 11 del README)
+                                    -> git push
+
+   x   no pude pullear              Hay archivos sin commitear que el pull
+                                    pisaria. Git aborto: no se perdio nada.
+                                    -> Casi siempre es illogical-impulse/
+                                       config.json, que Quickshell reescribe
+                                       solo. Si NO lo edite a proposito:
+                                         git restore <archivo>
+                                       Si SI lo edite:
+                                         git add -A; git commit -m "..."
+                                       Y repetir sync-repos.
+
+   x   no pude contactar el remoto  Sin internet, o el remoto no existe.
+                                    -> Revisar conexion. Los demas repos se
+                                       sincronizaron igual.
+
+   ~   sin upstream, lo salteo      La rama actual no tiene remoto asociado.
+                                    -> git push -u origin <rama>  (si querian
+                                       que se sincronice)
+
+ Al final, si hubo algo para mirar, imprime "N repo(s) necesitan atencion"
+ y devuelve exit code 1. Si salio todo bien, exit code 0.
+
+
+ QUE NO HACE (las garantias)
+ ---------------------------
+ - NO hace merge por su cuenta. Usa "git pull --ff-only": solo avanza cuando
+   es imposible que haya conflicto. Si las dos PCs tienen commits, avisa y
+   para. La decision queda siempre en mis manos.
+ - NO pisa cambios sin commitear. Si hay archivos sucios que el pull tocaria,
+   git aborta y la edicion local sobrevive.
+ - NO hace push nunca. Solo trae, jamas publica.
+ - NO se frena si un repo falla. Avisa de ese y sigue con los demas.
+
+ Por eso correrlo es inofensivo: en el peor caso te informa y no hace nada.
+
+
+ CASOS RAROS (todos probados)
+ ----------------------------
+ - ~/Proyectos no existe (PC recien replicada) -> no falla, sincroniza solo
+   ~/.config.
+ - Carpeta en ~/Proyectos que no es repo git   -> ni aparece, la ignora.
+ - Repo con el remoto borrado                  -> avisa y sigue con el resto.
+
+
+ DONDE VIVE
+ ----------
+ El script:  ~/.config/fish/functions/sync-repos.fish
+ Esta guia:  ~/.config/GUIA-sync-repos.txt
+
+ Los dos estan versionados en el repo, asi que aparecen solos en cada PC.
+ Fish autocarga functions/: guardar el archivo alcanza, no hay que recargar
+ nada ni abrir una terminal nueva.
+
+ Para editarlo:  nvim ~/.config/fish/functions/sync-repos.fish
+
+ Ver tambien: README.md fase 10 (sincronizar) y fase 11 (conflictos).
+===============================================================================
