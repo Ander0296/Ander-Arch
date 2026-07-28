@@ -94,7 +94,6 @@ hl.bind(
 hl.bind("CTRL + SUPER + M", hl.dsp.exec_cmd("nwg-displays"), { description = "Utilities: Monitor layout (nwg-displays)" }) -- abre nwg-displays para acomodar posición/resolución de monitores
 hl.bind("CTRL + SUPER + ALT + W", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/toggle-wallpaper-loop.sh"), { description = "Utilities: Toggle auto wallpaper" }) -- activa/desactiva el cambio automático de wallpaper cada 1 hora
 hl.bind("CTRL + SUPER + ALT + T", hl.dsp.workspace.toggle_special("typing"), { description = "Utilities: Toggle typing practice (ttyper)" }) -- muestra/oculta el scratchpad de ttyper; cada apertura elige una frase al azar (se crea sola la primera vez)
-hl.bind("SUPER + CTRL + ALT + G", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/toggle-wallpaperengine-gui.sh"), { description = "Utilities: Toggle Wallpaper Engine GUI" }) -- primera vez la lanza en el scratchpad; después solo muestra/oculta sin cerrarla
 
 -- ── Apps personales ──────────────────────────────────────────────────────────
 hl.bind("SUPER + CTRL + ALT + A", hl.dsp.exec_cmd("anki"), { description = "App: Anki" }) -- abre Anki

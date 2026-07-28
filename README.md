@@ -255,7 +255,7 @@ En la pantalla de login (SDDM) elegir la sesión **Hyprland** (no UWSM) y entrar
 6. **API key de Gemini** (solo Quickshell — traducción IA, estilo del reloj Cookie): `Super+A` → `/key` (queda en el keyring del sistema, no viaja por git).
    Tip: guardar la key en 1Password → en cada PC nuevo se copia desde la bóveda.
 7. **Snapshot de seguridad**: `sudo timeshift --create --comments "sistema completo replicado"`.
-8. **Wallpaper Engine** (opcional, wallpapers animados): abrir Steam, loguearse, y en la Workshop de Wallpaper Engine suscribirte a los wallpapers que quieras (con el "juego" instalado para que Steam los descargue). Abrir la GUI (`SUPER+CTRL+ALT+G`) → Settings → pestaña Paths → "Auto-Detect Steam". En Engine Defaults tildar **"Don't pause on fullscreen"** (si no, se pausa al bloquear pantalla con hyprlock). Si tenés más de un monitor, configurar la pestaña Multi-Monitor. Nada de esto se versiona (config por PC).
+8. **Wallpaper Engine** (opcional, wallpapers animados): hoy solo se instala el motor `linux-wallpaperengine`, **sin interfaz y sin autoarranque** — la GUI (`wallpaperengine-gui`) se quitó porque consumía demasiada GPU. El motor queda listo para cuando evaluemos `skwd-wall` como selector. Si querés usarlo igual a mano: abrir Steam, loguearse, y suscribirte en la Workshop de Wallpaper Engine a los wallpapers que quieras (con el "juego" instalado para que Steam los descargue); después invocar `linux-wallpaperengine` por CLI con el id del wallpaper y `--no-fullscreen-pause` (si no, se pausa al bloquear pantalla con hyprlock). Nada de esto se versiona (config por PC).
 
 ## 10. Sincronizar cambios entre todos los PCs
 
