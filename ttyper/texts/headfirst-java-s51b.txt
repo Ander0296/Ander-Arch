@@ -1,0 +1,11 @@
+La
+encapsulación
+evita
+que
+código
+externo
+asigne
+theCat.height
+=
+0;
+directamente.

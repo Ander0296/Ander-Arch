@@ -1,0 +1,11 @@
+El
+getter
+de
+numOfPickups
+se
+llama
+getNumOfPickups()
+y
+el
+setter
+setNumOfPickups(int).

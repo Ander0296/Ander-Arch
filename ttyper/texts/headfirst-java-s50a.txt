@@ -1,0 +1,13 @@
+Pasar
+un
+objeto
+también
+es
+pass-by-value:
+se
+copia
+la
+referencia,
+no
+el
+objeto.

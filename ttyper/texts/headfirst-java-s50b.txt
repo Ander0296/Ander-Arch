@@ -1,0 +1,13 @@
+Un
+método
+puede
+devolver
+un
+byte
+donde
+declaró
+int,
+pero
+no
+un
+double.
