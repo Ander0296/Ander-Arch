@@ -1,0 +1,13 @@
+Una
+instance
+variable
+sin
+valor
+no
+queda
+vacía,
+Java
+le
+pone
+un
+default.

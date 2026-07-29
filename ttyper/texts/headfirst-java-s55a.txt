@@ -1,0 +1,16 @@
+El
+operador
+==
+compara
+bits:
+sirve
+para
+primitivos
+y
+para
+ver
+si
+dos
+referencias
+son
+iguales.

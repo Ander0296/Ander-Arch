@@ -1,0 +1,15 @@
+El
+setter
+valida
+antes
+de
+asignar:
+if
+(ht
+>
+9)
+{
+height
+=
+ht;
+}

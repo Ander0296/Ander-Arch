@@ -1,0 +1,14 @@
+Dos
+objetos
+distintos
+pueden
+ser
+iguales
+en
+contenido;
+para
+eso
+existe
+el
+método
+equals().

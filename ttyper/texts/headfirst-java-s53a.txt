@@ -1,0 +1,15 @@
+El
+private
+frena
+a
+los
+de
+afuera:
+bark()
+lee
+size
+directo
+sin
+llamar
+a
+getSize().

@@ -1,0 +1,13 @@
+Donde
+entra
+un
+int
+entra
+una
+llamada:
+int
+x
+=
+3
++
+pets[0].getSize();

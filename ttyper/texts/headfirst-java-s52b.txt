@@ -1,0 +1,11 @@
+Marcá
+las
+instance
+variables
+private
+y
+los
+getters
+y
+setters
+public.

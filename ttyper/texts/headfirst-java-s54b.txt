@@ -1,0 +1,13 @@
+La
+variable
+local
+debe
+inicializarse
+antes
+de
+usarse
+o
+el
+compilador
+la
+frena.
