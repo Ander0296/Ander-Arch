@@ -1,0 +1,14 @@
+Un
+short
+entra
+donde
+se
+pide
+un
+int,
+pero
+un
+long
+necesita
+un
+cast.

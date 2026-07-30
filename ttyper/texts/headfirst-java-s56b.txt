@@ -1,0 +1,13 @@
+Un
+método
+void
+no
+puede
+tener
+un
+return
+con
+valor,
+revienta
+al
+compilar.

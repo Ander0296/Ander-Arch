@@ -1,0 +1,10 @@
+Guardá
+solo
+las
+celdas
+que
+importan,
+nunca
+la
+fila
+entera.

@@ -1,0 +1,12 @@
+El
+método
+devuelve
+hit,
+miss
+o
+kill
+según
+el
+resultado
+del
+intento.

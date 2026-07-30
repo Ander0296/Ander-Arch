@@ -1,0 +1,11 @@
+Programá
+primero
+la
+clase
+que
+no
+depende
+de
+ninguna
+otra
+clase.

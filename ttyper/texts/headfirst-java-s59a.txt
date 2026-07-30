@@ -1,0 +1,14 @@
+Diseñá
+el
+flujo
+del
+juego
+con
+un
+diagrama
+de
+flujo
+antes
+de
+escribir
+código.
