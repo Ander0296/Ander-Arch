@@ -1,0 +1,12 @@
+El
+operador
+++
+suma
+uno
+y
+break
+corta
+el
+bucle
+de
+inmediato.

@@ -1,0 +1,12 @@
+El
+for
+each
+recorre
+el
+arreglo
+entero
+sin
+necesitar
+un
+índice
+manual.
