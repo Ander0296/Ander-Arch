@@ -1,0 +1,12 @@
+Un
+stub
+es
+código
+truncado
+que
+compila
+pero
+siempre
+falla
+el
+test.
