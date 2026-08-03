@@ -1,0 +1,15 @@
+La
+clase
+GameHelper
+agrupa
+el
+código
+auxiliar
+para
+leer
+los
+datos
+que
+ingresa
+el
+usuario.

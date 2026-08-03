@@ -1,0 +1,16 @@
+El
+booleano
+isAlive
+arranca
+en
+true
+y
+se
+apaga
+con
+set
+false
+al
+matar
+la
+startup

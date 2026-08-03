@@ -1,0 +1,14 @@
+Math.random()
+devuelve
+un
+double,
+hay
+que
+castear
+a
+int
+para
+quedarse
+con
+un
+entero.
