@@ -1,0 +1,13 @@
+Antes
+de
+escribir
+el
+juego
+real,
+primero
+planifico
+su
+lógica
+en
+prep
+code.
