@@ -105,6 +105,7 @@ hl.bind("SUPER + CTRL + ALT + Z", hl.dsp.exec_cmd("zathura"), { description = "A
 hl.bind("SUPER + CTRL + ALT + E", hl.dsp.exec_cmd("eclipse"), { description = "App: Eclipse" }) -- abre Eclipse
 hl.bind("SUPER + CTRL + ALT + J", hl.dsp.exec_cmd("idea"), { description = "App: IntelliJ IDEA" }) -- abre IntelliJ IDEA (J de Java)
 hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("netbeans"), { description = "App: NetBeans" }) -- abre NetBeans
+hl.bind("SUPER + CTRL + ALT + K", hl.dsp.exec_cmd("zapzap"), { description = "App: WhatsApp (ZapZap)" }) -- abre WhatsApp (ZapZap)
 
 -- ── Super solo: overlay de workspaces sin abrir el buscador ─────────────────
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel")) -- fallback si Quickshell no responde

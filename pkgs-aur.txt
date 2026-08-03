@@ -7,6 +7,9 @@ ttf-jetbrains-mono-nerd
 onlyoffice-bin
 notion-app-electron
 
+# --- WhatsApp (cliente nativo, prebuilt) ---
+zapzap-bin
+
 # --- IDE Java (AUR) ---
 eclipse-java-bin
 
