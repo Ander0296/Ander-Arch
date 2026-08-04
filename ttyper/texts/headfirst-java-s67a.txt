@@ -1,0 +1,12 @@
+Scanner
+envuelve
+System.in
+para
+leer
+con
+nextInt()
+lo
+que
+el
+usuario
+tipea.
