@@ -16,6 +16,12 @@ set scrolloff=999
 " Sin wrap de líneas largas, igual que en nvim.
 set nowrap
 
+" Numeración híbrida: la línea actual muestra el número absoluto, el resto
+" relativo (para saber cuántas líneas saltar con j/k). Es el default de
+" LazyVim, aunque no lo tengas explícito en tu options.lua.
+set number
+set relativenumber
+
 " Habilita ys/cs/ds para envolver, cambiar y borrar comillas/paréntesis/tags
 " (vim-surround). En nvim lo tenés heredado de LazyVim por default.
 set surround
