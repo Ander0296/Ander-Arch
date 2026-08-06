@@ -12,6 +12,7 @@ zapzap-bin
 
 # --- IDE Java (AUR) ---
 eclipse-java-bin
+intellij-idea-ultimate-edition
 
 # --- Wallpaper Engine (reimplementación nativa para Linux) ---
 # Solo el motor de render, SIN interfaz: wallpaperengine-gui se quitó porque
