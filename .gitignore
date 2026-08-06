@@ -22,6 +22,7 @@
 !/starship.toml
 !/zshrc.d
 !/nvim
+!/ideavim
 !/README.md
 
 # --- Secretos: nunca versionar, aunque /fish esté incluido arriba ---

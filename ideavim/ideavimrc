@@ -1,0 +1,37 @@
+" Espacio como leader, igual que LazyVim (por default IdeaVim usa "\").
+let mapleader = " "
+
+" ideajoin: hace que "J" (unir líneas) sea "inteligente" según el lenguaje
+" (en Java, por ejemplo, no te deja una coma colgando al unir).
+set ideajoin
+
+" Integra el portapapeles del sistema con yank/paste de Vim (y, p, etc),
+" sin esto quedan separados del Ctrl+C/Ctrl+V normal.
+set clipboard+=unnamed
+
+" Mantiene el cursor centrado verticalmente (scroll antes de llegar al borde),
+" igual que scrolloff=999 en tu options.lua de nvim.
+set scrolloff=999
+
+" Sin wrap de líneas largas, igual que en nvim.
+set nowrap
+
+" Habilita ys/cs/ds para envolver, cambiar y borrar comillas/paréntesis/tags
+" (vim-surround). En nvim lo tenés heredado de LazyVim por default.
+set surround
+
+" Panel de proyecto (árbol de archivos), como tu <leader>e en nvim.
+map <leader>e <Action>(ActivateProjectToolWindow)
+
+" Alterna la terminal integrada, mismo espíritu que tu <C-/> en nvim
+" (acá no hay conflicto con kitty porque IntelliJ es una app gráfica aparte).
+map <C-/> <Action>(ActivateTerminalToolWindow)
+
+" Buscar archivo por nombre, equivalente a tu <leader>ff de Telescope/Snacks.
+map <leader>ff <Action>(GotoFile)
+
+" Buscar texto en todo el proyecto, equivalente a <leader>fg.
+map <leader>fg <Action>(FindInPath)
+
+" Guarda todos los archivos abiertos.
+map <leader>w <Action>(SaveAll)
