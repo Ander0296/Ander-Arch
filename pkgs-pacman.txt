@@ -50,7 +50,6 @@ ntfsprogs
 # --- Java + IDEs (repos oficiales) ---
 jdk-openjdk
 maven
-intellij-idea-community-edition
 netbeans
 
 # --- Apps de escritorio ---
