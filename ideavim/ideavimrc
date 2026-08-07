@@ -1,43 +1,154 @@
-" Espacio como leader, igual que LazyVim (por default IdeaVim usa "\").
+" ============================================================
+"  IdeaVim — lo primordial. Sumar de a poco, no de golpe.
+"
+"  OJO: en vimscript NO se puede comentar al final de un "map".
+"  El texto después del <Action> queda pegado al mapeo y lo rompe.
+"  Los comentarios van SIEMPRE en su propia línea.
+" ============================================================
+
+" Espacio como leader, igual que LazyVim (IdeaVim usa "\" por default).
 let mapleader = " "
 
-" ideajoin: hace que "J" (unir líneas) sea "inteligente" según el lenguaje
-" (en Java, por ejemplo, no te deja una coma colgando al unir).
+" "J" une líneas de forma inteligente según el lenguaje.
 set ideajoin
 
-" Integra el portapapeles del sistema con yank/paste de Vim (y, p, etc),
-" sin esto quedan separados del Ctrl+C/Ctrl+V normal.
-set clipboard+=unnamed
+" unnamedplus = registro "+", el clipboard real de Ctrl+C/Ctrl+V, igual que
+" tu nvim. ideaput hace que al pegar se reindente y se agreguen los imports.
+set clipboard+=unnamedplus,ideaput
 
-" Mantiene el cursor centrado verticalmente (scroll antes de llegar al borde),
-" igual que scrolloff=999 en tu options.lua de nvim.
+" Cursor siempre centrado, como scrolloff=999 en tu options.lua.
 set scrolloff=999
 
-" Sin wrap de líneas largas, igual que en nvim.
+" Sin wrap de líneas largas.
 set nowrap
 
-" Numeración híbrida: la línea actual muestra el número absoluto, el resto
-" relativo (para saber cuántas líneas saltar con j/k). Es el default de
-" LazyVim, aunque no lo tengas explícito en tu options.lua.
+" Numeración híbrida: absoluta en la línea actual, relativa en el resto.
 set number
 set relativenumber
 
-" Habilita ys/cs/ds para envolver, cambiar y borrar comillas/paréntesis/tags
-" (vim-surround). En nvim lo tenés heredado de LazyVim por default.
+" Búsqueda como LazyVim: resalta mientras tipeás e ignora mayúsculas,
+" salvo que vos escribas alguna (ahí sí distingue).
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" En un refactor te deja en modo normal de vim, no en el modo select del IDE.
+set idearefactormode=keep
+
+" ---------- Plugins que vienen dentro de IdeaVim ----------
+
+" ys/cs/ds para envolver, cambiar y borrar comillas y paréntesis.
 set surround
 
-" Panel de proyecto (árbol de archivos), como tu <leader>e en nvim.
+" Text objects inteligentes: ci( va{ etc.
+set mini-ai
+
+" gcc comenta la línea, gc + movimiento comenta el bloque.
+set commentary
+
+" Destella lo que acabás de copiar con y.
+set highlightedyank
+
+" j/k/gg/G funcionan dentro del panel de proyecto.
+set NERDTree
+
+" ---------- which-key (plugin aparte, del Marketplace) ----------
+
+set which-key
+
+" Sin esto el popup se va al segundo y no llegás a leerlo.
+" OJO: con notimeout, un atajo que sea prefijo de otro NUNCA dispara solo.
+set notimeout
+
+" ============================================================
+"  Atajos
+" ============================================================
+
+" Ir a la definición de lo que está bajo el cursor.
+map gd <Action>(GotoDeclaration)
+
+" Ver todos los lugares donde se usa.
+map gr <Action>(FindUsages)
+
+" Documentación flotante.
+map K <Action>(QuickJavaDoc)
+
+" Saltar al siguiente error.
+map ]d <Action>(GotoNextError)
+
+" Saltar al error anterior.
+map [d <Action>(GotoPreviousError)
+
+" Pestaña anterior / siguiente.
+map <S-h> <Action>(PreviousTab)
+map <S-l> <Action>(NextTab)
+
+" Guardar todo.
+map <C-s> <Action>(SaveAll)
+
+" Panel de proyecto (árbol de archivos).
 map <leader>e <Action>(ActivateProjectToolWindow)
 
-" Alterna la terminal integrada, mismo espíritu que tu <C-/> en nvim
-" (acá no hay conflicto con kitty porque IntelliJ es una app gráfica aparte).
+" Terminal integrada.
 map <C-/> <Action>(ActivateTerminalToolWindow)
 
-" Buscar archivo por nombre, equivalente a tu <leader>ff de Telescope/Snacks.
+" Buscar archivo por nombre.
 map <leader>ff <Action>(GotoFile)
 
-" Buscar texto en todo el proyecto, equivalente a <leader>fg.
-map <leader>fg <Action>(FindInPath)
+" Archivos recientes.
+map <leader>fr <Action>(RecentFiles)
 
-" Guarda todos los archivos abiertos.
-map <leader>w <Action>(SaveAll)
+" Buscar texto en todo el proyecto.
+map <leader>sg <Action>(FindInPath)
+
+" Quick fix / sugerencia de arreglo.
+map <leader>ca <Action>(ShowIntentionActions)
+
+" Renombrar en todo el proyecto.
+map <leader>cr <Action>(RenameElement)
+
+" Formatear el archivo.
+map <leader>cf <Action>(ReformatCode)
+
+" Cerrar la pestaña actual.
+map <leader>bd <Action>(CloseContent)
+
+" Correr la clase actual.
+map <leader>tt <Action>(RunClass)
+
+" Poner o sacar un breakpoint.
+map <leader>db <Action>(ToggleLineBreakpoint)
+
+" Arrancar el debug.
+map <leader>dc <Action>(Debug)
+
+" ============================================================
+"  Descripciones para which-key
+"  Esto es lo que se lee en el popup: sin esto muestra el nombre
+"  crudo de la acción de IntelliJ, que no dice nada.
+" ============================================================
+
+let g:WhichKeyDesc_explorer = "<leader>e  explorador"
+
+let g:WhichKeyDesc_file      = "<leader>f  +archivos"
+let g:WhichKeyDesc_file_find = "<leader>ff buscar archivo"
+let g:WhichKeyDesc_file_recent = "<leader>fr archivos recientes"
+
+let g:WhichKeyDesc_search      = "<leader>s  +buscar"
+let g:WhichKeyDesc_search_grep = "<leader>sg buscar texto en el proyecto"
+
+let g:WhichKeyDesc_code        = "<leader>c  +código"
+let g:WhichKeyDesc_code_action = "<leader>ca quick fix"
+let g:WhichKeyDesc_code_rename = "<leader>cr renombrar"
+let g:WhichKeyDesc_code_format = "<leader>cf formatear"
+
+let g:WhichKeyDesc_buffer       = "<leader>b  +pestañas"
+let g:WhichKeyDesc_buffer_close = "<leader>bd cerrar pestaña"
+
+let g:WhichKeyDesc_test     = "<leader>t  +correr"
+let g:WhichKeyDesc_test_run = "<leader>tt correr esta clase"
+
+let g:WhichKeyDesc_debug            = "<leader>d  +debug"
+let g:WhichKeyDesc_debug_breakpoint = "<leader>db poner/sacar breakpoint"
+let g:WhichKeyDesc_debug_start      = "<leader>dc arrancar debug"
