@@ -26,3 +26,21 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+
+-- Al llegar a un breakpoint en un archivo que todavía no está abierto en
+-- ninguna ventana (ej: entrar a GameHelper.java parado en SimpleStartupGame.java),
+-- el default de nvim-dap no lo encuentra y tira "switchbuf setting prevented
+-- jump to location" sin abrir nada. Se arregla en VeryLazy (evento que
+-- LazyVim dispara una sola vez, apenas arranca nvim) para no tocar el
+-- plugin spec de nvim-dap y no pisar la config que trae LazyVim.
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    local dap = require("dap")
+    -- "usetab": si el archivo ya está abierto (en esta pestaña o en otra),
+    -- salta ahí directo. "split": si es la primera vez que aparece (caso
+    -- GameHelper), lo abre solo en un split nuevo. Nunca hace falta
+    -- cerrar y volver a abrir nvim.
+    dap.defaults.fallback.switchbuf = "usetab,split"
+  end,
+})
