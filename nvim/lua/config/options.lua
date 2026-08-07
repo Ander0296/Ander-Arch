@@ -3,7 +3,7 @@
 -- Add any additional options here
 vim.opt.spell = false
 vim.opt.wrap = false
-vim.opt.mouse = "" -- Desactivar el mouse
+-- vim.opt.mouse = "" -- Desactivar el mouse
 vim.opt.scrolloff = 999 -- Mantener foco en el centro
 
 -- Sin esto, :terminal (y Snacks.terminal) usan $SHELL, que para este user

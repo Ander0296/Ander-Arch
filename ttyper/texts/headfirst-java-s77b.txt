@@ -1,0 +1,15 @@
+indexOf
+devuelve
+-1
+cuando
+no
+encuentra
+nada;
+por
+eso
+el
+if
+pregunta
+index
+>=
+0.

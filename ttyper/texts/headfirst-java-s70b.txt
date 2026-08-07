@@ -1,0 +1,14 @@
+En
+Be
+the
+JVM
+el
+lector
+predice
+qué
+imprime
+un
+programa
+antes
+de
+ejecutarlo.

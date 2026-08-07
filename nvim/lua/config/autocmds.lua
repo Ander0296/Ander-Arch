@@ -42,5 +42,17 @@ vim.api.nvim_create_autocmd("User", {
     -- GameHelper), lo abre solo en un split nuevo. Nunca hace falta
     -- cerrar y volver a abrir nvim.
     dap.defaults.fallback.switchbuf = "usetab,split"
+
+    -- LazyVim cierra el panel de dapui (consola incluida) apenas el
+    -- programa termina ("dapui_config" en event_terminated/event_exited).
+    -- Para programas rápidos sin breakpoint ni Scanner (como un Hello
+    -- World) se cierra antes de que te dé tiempo a leer la salida.
+    -- Cada vez que arranca una sesión (event_initialized), anulamos esos
+    -- dos listeners: el panel queda abierto hasta que vos lo cierres a
+    -- mano con <leader>du.
+    dap.listeners.after.event_initialized["ander_keep_dapui_open"] = function()
+      dap.listeners.before.event_terminated["dapui_config"] = nil
+      dap.listeners.before.event_exited["dapui_config"] = nil
+    end
   end,
 })

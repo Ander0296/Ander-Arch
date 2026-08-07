@@ -1,0 +1,14 @@
+ArrayList<String>
+significa
+una
+lista
+de
+Strings;
+los
+ángulos
+<>
+son
+un
+parámetro
+de
+tipo.

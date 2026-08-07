@@ -1,0 +1,15 @@
+El
+for
+tiene
+inicialización,
+prueba
+booleana
+y
+expresión
+de
+iteración
+separadas
+por
+punto
+y
+coma.

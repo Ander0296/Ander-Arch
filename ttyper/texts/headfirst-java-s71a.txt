@@ -1,0 +1,12 @@
+Reordenar
+imanes
+con
+dos
+for(i)
+y
+for(j)
+anidados
+hasta
+acertar
+la
+salida.

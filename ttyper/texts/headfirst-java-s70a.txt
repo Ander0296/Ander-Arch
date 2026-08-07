@@ -1,0 +1,12 @@
+Castear
+un
+long
+grande
+a
+short
+puede
+dar
+un
+número
+negativo
+inesperado.

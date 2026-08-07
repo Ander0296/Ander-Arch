@@ -1,0 +1,15 @@
+Castear
+de
+long
+a
+short
+puede
+perder
+bits:
+por
+eso
+Java
+exige
+el
+cast
+explícito.

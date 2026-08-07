@@ -1,0 +1,17 @@
+El
+tamaño
+de
+un
+arreglo
+no
+se
+puede
+cambiar:
+hay
+que
+crear
+otro
+y
+copiar
+los
+valores.

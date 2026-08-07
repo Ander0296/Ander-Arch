@@ -1,0 +1,13 @@
+Un
+bloque
+candidato
+puede
+cambiar
+en
+qué
+vuelta
+corta
+el
+break
+del
+bucle.

@@ -1,0 +1,13 @@
+remove(index)
+achica
+la
+lista
+de
+verdad:
+el
+contador
+numOfHits
+ya
+no
+hace
+falta.

@@ -1,0 +1,12 @@
+Leer
+dogArray[1]
+solo
+copia
+la
+referencia:
+el
+objeto
+sigue
+adentro
+del
+arreglo.

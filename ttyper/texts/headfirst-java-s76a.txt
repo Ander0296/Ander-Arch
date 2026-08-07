@@ -1,0 +1,13 @@
+Un
+arreglo
+es
+un
+objeto,
+pero
+no
+acepta
+métodos:
+solo
+la
+variable
+length.

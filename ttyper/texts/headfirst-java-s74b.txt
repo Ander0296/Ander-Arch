@@ -1,0 +1,13 @@
+Un
+ArrayList
+crece
+y
+se
+achica
+solo
+con
+add(),
+remove(),
+contains()
+y
+size().

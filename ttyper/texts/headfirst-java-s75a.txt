@@ -1,0 +1,12 @@
+Un
+arreglo
+usa
+length
+sin
+paréntesis;
+un
+ArrayList
+usa
+size()
+con
+paréntesis.

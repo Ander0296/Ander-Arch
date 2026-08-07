@@ -1,0 +1,13 @@
+Un
+segundo
+arreglo
+guarda
+qué
+celdas
+ya
+fueron
+acertadas
+antes
+de
+sumar
+hits.
