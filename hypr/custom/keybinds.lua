@@ -106,6 +106,7 @@ hl.bind("SUPER + CTRL + ALT + E", hl.dsp.exec_cmd("eclipse"), { description = "A
 hl.bind("SUPER + CTRL + ALT + J", hl.dsp.exec_cmd("idea"), { description = "App: IntelliJ IDEA" }) -- abre IntelliJ IDEA (J de Java)
 hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("netbeans"), { description = "App: NetBeans" }) -- abre NetBeans
 hl.bind("SUPER + CTRL + ALT + K", hl.dsp.exec_cmd("zapzap"), { description = "App: WhatsApp (ZapZap)" }) -- abre WhatsApp (ZapZap)
+hl.bind("SUPER + CTRL + ALT + Y", hl.dsp.workspace.toggle_special("music"), { description = "App: Toggle YouTube Music (Zuno)" }) -- muestra/oculta Zuno en su scratchpad; la primera vez lo abre solo (special:music en custom/general.lua)
 
 -- ── Super solo: overlay de workspaces sin abrir el buscador ─────────────────
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel")) -- fallback si Quickshell no responde

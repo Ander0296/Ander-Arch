@@ -40,6 +40,12 @@ hl.workspace_rule({
 })
 
 hl.workspace_rule({
+	workspace = "special:music", -- workspace especial para el scratchpad de Zuno (YouTube Music)
+	on_created_empty = "[float; size 1200 800; center] zuno", -- abre Zuno flotante y centrado solo cuando el scratchpad está vacío
+	persistent = false, -- se destruye al cerrar Zuno, así el próximo toggle lo vuelve a spawnear
+})
+
+hl.workspace_rule({
 	workspace = "9", -- workspace 9 (tecla SUPER+9)
 	layout = "scrolling", -- excepción: acá sí usamos scrolling, reemplaza el "dwindle" global solo acá
 })

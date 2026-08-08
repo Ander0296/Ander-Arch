@@ -22,3 +22,9 @@ intellij-idea-ultimate-edition
 # Requiere Steam (pacman, multilib) + poseer Wallpaper Engine + wallpapers
 # suscriptos en la Workshop para que haya algo que reproducir.
 linux-wallpaperengine-bin
+
+# --- Cliente de escritorio de YouTube Music (Tauri, prebuilt del .deb oficial) ---
+# Se elige `zuno` (mantenido por el autor upstream) sobre `zuno-bin` porque
+# declara gst-libav: sin ese plugin no hay decodificación AAC/H.264 y la
+# reproducción muere con "GStreamer element appsink not found".
+zuno
