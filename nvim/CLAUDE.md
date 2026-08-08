@@ -33,7 +33,7 @@
 - Los commits se hacen desde ~/.config (raíz del repo), no desde esta carpeta.
 
 ### Entorno
-- Arch Linux + Hyprland 0.55 (end-4/dots-hyprland), terminal kitty, shell fish.
+- Arch Linux + Hyprland 0.56 (end-4/dots-hyprland), terminal kitty, shell fish.
 - Teclado dvorak-alt-intl: considerar la ergonomía REAL de los keymaps
   (las posiciones físicas no son las de qwerty).
 - Fuente JetBrains Mono Nerd instalada (iconos ok) · clipboard Wayland

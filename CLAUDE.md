@@ -37,7 +37,7 @@ cada cambio versionado impacta en todos.
 - Commits en español, mensaje corto de qué cambié.
 
 ### Estructura modular
-- hypr/ → Hyprland 0.55 en Lua nativo (NO hyprlang/.conf viejo).
+- hypr/ → Hyprland 0.56 en Lua nativo (NO hyprlang/.conf viejo).
 - quickshell/ → shell gráfico illogical-impulse completo (QML).
 - fish/ → config.fish, functions/ y todo conf.d/.
 - nvim/ → LazyVim; tiene su PROPIO CLAUDE.md y project de Engram ("nvim").
