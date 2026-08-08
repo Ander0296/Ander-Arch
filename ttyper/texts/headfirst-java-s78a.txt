@@ -1,0 +1,14 @@
+El
+main
+de
+StartupBust
+solo
+instancia
+el
+objeto
+que
+después
+juega
+todo
+el
+juego.

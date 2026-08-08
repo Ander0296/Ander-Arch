@@ -1,0 +1,16 @@
+El
+objeto
+del
+juego
+delega:
+pide
+la
+ubicación
+al
+helper
+y
+el
+chequeo
+a
+cada
+Startup.

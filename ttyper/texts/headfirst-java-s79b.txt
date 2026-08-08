@@ -1,0 +1,10 @@
+Para
+comparar
+Strings
+usá
+result.equals("hit");
+el
+operador
+==
+compara
+referencias.

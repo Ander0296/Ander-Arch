@@ -1,0 +1,11 @@
+Los
+métodos
+internos
+del
+juego
+van
+private;
+solo
+main
+queda
+public.
