@@ -330,6 +330,20 @@ PATRON_FRASE = re.compile(r"(?<=[.!?…])\s+(?=[^a-záéíóúüñ])")
 ANCHO_MAXIMO = 88  # tope para una frase sin puntuacion interna
 
 
+def envolver(texto: str, ancho: int = ANCHO_MAXIMO) -> list[str]:
+    """Corta por palabras para que ninguna linea pase de `ancho`."""
+    lineas, actual = [], ""
+    for palabra in texto.split():
+        if actual and len(actual) + 1 + len(palabra) > ancho:
+            lineas.append(actual)
+            actual = palabra
+        else:
+            actual = f"{actual} {palabra}".strip()
+    if actual:
+        lineas.append(actual)
+    return lineas
+
+
 def en_frases(texto: str) -> list[str]:
     """Parte el texto en UNA FRASE POR LINEA.
 
@@ -343,18 +357,7 @@ def en_frases(texto: str) -> list[str]:
         frase = frase.strip()
         if not frase:
             continue
-        if len(frase) <= 100:
-            lineas.append(frase)
-            continue
-        actual = ""
-        for palabra in frase.split():
-            if actual and len(actual) + 1 + len(palabra) > ANCHO_MAXIMO:
-                lineas.append(actual)
-                actual = palabra
-            else:
-                actual = f"{actual} {palabra}".strip()
-        if actual:
-            lineas.append(actual)
+        lineas += [frase] if len(frase) <= 100 else envolver(frase)
     return lineas
 
 
@@ -806,9 +809,14 @@ class Transcriptor:
         # tiempo en negrita ya senala donde empieza cada uno, asi que el
         # renglon vacio solo gastaba pantalla.
         lineas = en_frases(texto)
+        # La marca de tiempo se pega DESPUES de cortar, asi que suma 12
+        # caracteres que el corte no vio: si la primera frase venia justa,
+        # la linea terminaba saliendose igual. Por eso se re-corta con la
+        # marca ya puesta.
+        primera = f"**[{hhmmss(inicio_s)}]** {lineas[0] if lineas else texto}"
+        salida = envolver(primera) if len(primera) > 100 else [primera]
         with self.salida.open("a") as f:
-            f.write(f"**[{hhmmss(inicio_s)}]** {lineas[0] if lineas else texto}\n")
-            for linea in lineas[1:]:
+            for linea in salida + lineas[1:]:
                 f.write(linea + "\n")
             with self.marcas_lock:
                 vencidas = [m for m in self.marcas if m <= fin_s]
@@ -829,12 +837,13 @@ class Transcriptor:
             if self.usos["error"]:
                 detalle += f", {self.usos['error']} con error"
             minutos_groq = getattr(self.principal, "segundos_enviados", 0) / 60
+            # El pie tambien en lineas cortas: era la ultima que se salia.
             f.write(
-                f"---\n\n"
-                f"_Duracion: {hhmmss(dur)} · {self.trozos_listos} trozos "
-                f"({detalle}) · ~{self.palabras} palabras · "
-                f"{minutos_groq:.1f} min de audio enviados a Groq · "
-                f"fin: {self.motivo_parada}._\n"
+                f"\n---\n\n"
+                f"_Duracion: {hhmmss(dur)} · {self.trozos_listos} trozos ({detalle})._\n"
+                f"_~{self.palabras} palabras · {minutos_groq:.1f} min de audio "
+                f"enviados a Groq._\n"
+                f"_Fin: {self.motivo_parada}._\n"
             )
 
     # ── Aviso permanente ───────────────────────────────────────────────────
