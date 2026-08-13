@@ -61,3 +61,7 @@
 #     NO se versionan) ---
 !/transcriptor
 /transcriptor/__pycache__
+
+# --- WirePlumber: solo mi ajuste de Bluetooth (que los auriculares no se
+#     vayan solos a modo headset y bajen toda la salida a calidad teléfono) ---
+!/wireplumber
