@@ -43,6 +43,13 @@ cada cambio versionado impacta en todos.
 - nvim/ → LazyVim; tiene su PROPIO CLAUDE.md y project de Engram ("nvim").
   Para trabajo enfocado en Neovim, abrir claude parado en esa carpeta.
 - bootstrap.sh + pkgs-*.txt + README.md → sistema de replicación multi-PC.
+- transcriptor/ → transcriptor del audio del sistema (Python + Groq Whisper),
+  con su propio README. La clave vive en ~/.local/share/transcriptor/groq.key,
+  FUERA del repo. Binds: CTRL+SUPER+ALT+R grabar, +P elegir materia, +D duda.
+  OJO al tocar la captura: `pw-record --target <sink>.monitor` NO falla si el
+  destino no existe, se engancha al MICRÓFONO. Ver el README.
+- wireplumber/ → un solo ajuste: que los auriculares BT no se vayan solos a
+  modo headset (bajaría toda la salida a calidad teléfono).
 
 ### Engram
 - El project es "ander-arch" (basename real de esta carpeta, NO inventar otro
