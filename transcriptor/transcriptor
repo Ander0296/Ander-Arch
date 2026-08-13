@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Envoltorio del transcriptor.
+#
+# Prefiere el Python del entorno propio (el que tiene faster-whisper para el
+# motor local de respaldo), pero funciona igual con el Python del sistema: con
+# Groq como motor no hace falta ninguna dependencia externa, solo curl.
+set -euo pipefail
+
+SCRIPT="$HOME/.config/transcriptor/transcriptor.py"
+VENV_PY="$HOME/.local/share/transcriptor/venv/bin/python"
+
+if [[ -x "$VENV_PY" ]]; then
+  exec "$VENV_PY" "$SCRIPT" "$@"
+elif command -v python3 >/dev/null; then
+  exec python3 "$SCRIPT" "$@"
+else
+  echo "No encuentro Python. Corre: bash ~/.config/transcriptor/install.sh" >&2
+  exit 1
+fi

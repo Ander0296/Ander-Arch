@@ -55,3 +55,9 @@
 
 # --- ttyper: contenido propio (listas/textos de práctica), no la config autogenerada arriba ---
 !/ttyper
+
+# --- Transcriptor de audio del sistema (solo el código; el venv, los modelos
+#     de Whisper y la clave de Groq viven en ~/.local/share/transcriptor y
+#     NO se versionan) ---
+!/transcriptor
+/transcriptor/__pycache__

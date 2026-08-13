@@ -72,3 +72,9 @@ libvirt
 virt-manager
 dnsmasq
 edk2-ovmf
+
+# --- Transcriptor de audio del sistema (~/.config/transcriptor) ---
+# uv suele venir como dependencia de otro paquete: va acá para que quede
+# explícito y pacman no se lo lleve al desinstalar algo. El resto (pipewire,
+# libpulse, libnotify) ya está más arriba o lo trae el grupo illogical-impulse.
+uv
