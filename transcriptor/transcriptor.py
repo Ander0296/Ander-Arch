@@ -58,11 +58,13 @@ FRAME_SEC = FRAME_MS / 1000
 # palabras al medio. Pero en un video o una clase corrida puede no haber NUNCA
 # 0,8 s de silencio (medido: todos los cortes caian justo en el maximo), asi
 # que el corte forzado existe igual — y por eso existe el SOLAPAMIENTO.
-# Trozos cortos a proposito: cada trozo es una marca de tiempo en el archivo,
-# y con bloques de 45 s las marcas quedaban tan espaciadas que no servian para
-# ubicarse. Con 25 s de tope hay una marca cada medio minuto o menos.
-MIN_CHUNK_SEC = 8.0
-MAX_CHUNK_SEC = 25.0
+# 30 s de tope NO es un numero al azar: es exactamente la ventana con la que
+# Whisper analiza el audio. Un bloque mas largo no le da mas contexto — el
+# propio modelo lo parte adentro (45 s = 30 + 15), con un corte que nosotros no
+# controlamos. A 30 s cada trozo entra entero en una ventana, y de paso las
+# marcas de tiempo del archivo quedan al doble de seguidas que con 45.
+MIN_CHUNK_SEC = 12.0
+MAX_CHUNK_SEC = 30.0
 SILENCE_CUT_SEC = 0.8
 # El trozo nuevo arranca 2 s ANTES del final del anterior. Asi la palabra
 # partida por un corte forzado aparece entera en al menos uno de los dos, y
