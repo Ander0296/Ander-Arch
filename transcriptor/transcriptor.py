@@ -30,7 +30,6 @@ import json
 import math
 import os
 import queue
-import re
 import signal
 import subprocess
 import sys
@@ -59,8 +58,11 @@ FRAME_SEC = FRAME_MS / 1000
 # palabras al medio. Pero en un video o una clase corrida puede no haber NUNCA
 # 0,8 s de silencio (medido: todos los cortes caian justo en el maximo), asi
 # que el corte forzado existe igual — y por eso existe el SOLAPAMIENTO.
-MIN_CHUNK_SEC = 12.0
-MAX_CHUNK_SEC = 45.0
+# Trozos cortos a proposito: cada trozo es una marca de tiempo en el archivo,
+# y con bloques de 45 s las marcas quedaban tan espaciadas que no servian para
+# ubicarse. Con 25 s de tope hay una marca cada medio minuto o menos.
+MIN_CHUNK_SEC = 8.0
+MAX_CHUNK_SEC = 25.0
 SILENCE_CUT_SEC = 0.8
 # El trozo nuevo arranca 2 s ANTES del final del anterior. Asi la palabra
 # partida por un corte forzado aparece entera en al menos uno de los dos, y
@@ -321,44 +323,6 @@ def es_alucinacion(texto: str) -> bool:
         return False
     sin_repes = [p for i, p in enumerate(palabras) if i == 0 or p != palabras[i - 1]]
     return " ".join(sin_repes) in ALUCINACIONES
-
-
-# Corta despues de punto, interrogacion o exclamacion, pero SOLO si lo que
-# sigue no empieza en minuscula. Asi "etc. y despues" no se parte, y tampoco
-# se rompen los decimales tipo "1,5 GB".
-PATRON_FRASE = re.compile(r"(?<=[.!?…])\s+(?=[^a-záéíóúüñ])")
-ANCHO_MAXIMO = 88  # tope para una frase sin puntuacion interna
-
-
-def envolver(texto: str, ancho: int = ANCHO_MAXIMO) -> list[str]:
-    """Corta por palabras para que ninguna linea pase de `ancho`."""
-    lineas, actual = [], ""
-    for palabra in texto.split():
-        if actual and len(actual) + 1 + len(palabra) > ancho:
-            lineas.append(actual)
-            actual = palabra
-        else:
-            actual = f"{actual} {palabra}".strip()
-    if actual:
-        lineas.append(actual)
-    return lineas
-
-
-def en_frases(texto: str) -> list[str]:
-    """Parte el texto en UNA FRASE POR LINEA.
-
-    Una linea = una idea completa: se lee sin scrollear al costado y se puede
-    citar un tramo suelto sin arrastrar el parrafo entero. Las frases que
-    igual salen larguisimas (Whisper a veces devuelve chorizos sin puntuacion)
-    se cortan por palabras, para que ninguna linea se vaya de pantalla.
-    """
-    lineas = []
-    for frase in PATRON_FRASE.split(texto.strip()):
-        frase = frase.strip()
-        if not frase:
-            continue
-        lineas += [frase] if len(frase) <= 100 else envolver(frase)
-    return lineas
 
 
 def quitar_solape(anterior: str, nuevo: str, max_palabras: int = 25) -> str:
@@ -805,24 +769,18 @@ class Transcriptor:
         )
 
     def escribir_trozo(self, inicio_s: float, fin_s: float, texto: str):
-        # Una frase por linea y SIN lineas en blanco entre trozos: la marca de
-        # tiempo en negrita ya senala donde empieza cada uno, asi que el
-        # renglon vacio solo gastaba pantalla.
-        lineas = en_frases(texto)
-        # La marca de tiempo se pega DESPUES de cortar, asi que suma 12
-        # caracteres que el corte no vio: si la primera frase venia justa,
-        # la linea terminaba saliendose igual. Por eso se re-corta con la
-        # marca ya puesta.
-        primera = f"**[{hhmmss(inicio_s)}]** {lineas[0] if lineas else texto}"
-        salida = envolver(primera) if len(primera) > 100 else [primera]
+        # UNA linea por trozo y renglon en blanco entre trozos. El renglon no
+        # es decorativo: la linea de la duda es una CITA de Markdown (empieza
+        # con ">") y sin la linea en blanco de abajo, la continuacion perezosa
+        # se traga todo el texto siguiente dentro de la cita — se ve pintado de
+        # otro color de ahi para abajo. Probado.
         with self.salida.open("a") as f:
-            for linea in salida + lineas[1:]:
-                f.write(linea + "\n")
+            f.write(f"**[{hhmmss(inicio_s)}]** {texto}\n\n")
             with self.marcas_lock:
                 vencidas = [m for m in self.marcas if m <= fin_s]
                 self.marcas = [m for m in self.marcas if m > fin_s]
             for m in vencidas:
-                f.write(f"> ⚠️ **DUDA** — no entendi esto (marcado en {hhmmss(m)})\n")
+                f.write(f"> ⚠️ **DUDA** — no entendi esto (marcado en {hhmmss(m)})\n\n")
 
     def escribir_cierre(self):
         dur = time.time() - self.inicio
@@ -830,20 +788,19 @@ class Transcriptor:
             with self.marcas_lock:
                 sobrantes = list(self.marcas)
             for m in sobrantes:
-                f.write(f"> ⚠️ **DUDA** — no entendi esto (marcado en {hhmmss(m)})\n")
+                f.write(f"> ⚠️ **DUDA** — no entendi esto (marcado en {hhmmss(m)})\n\n")
             detalle = f"{self.usos['groq']} por Groq, {self.usos['local']} locales"
             if self.descartados:
                 detalle += f", {self.descartados} descartados por silencio"
             if self.usos["error"]:
                 detalle += f", {self.usos['error']} con error"
             minutos_groq = getattr(self.principal, "segundos_enviados", 0) / 60
-            # El pie tambien en lineas cortas: era la ultima que se salia.
             f.write(
-                f"\n---\n\n"
-                f"_Duracion: {hhmmss(dur)} · {self.trozos_listos} trozos ({detalle})._\n"
-                f"_~{self.palabras} palabras · {minutos_groq:.1f} min de audio "
-                f"enviados a Groq._\n"
-                f"_Fin: {self.motivo_parada}._\n"
+                f"---\n\n"
+                f"_Duracion: {hhmmss(dur)} · {self.trozos_listos} trozos "
+                f"({detalle}) · ~{self.palabras} palabras · "
+                f"{minutos_groq:.1f} min de audio enviados a Groq · "
+                f"fin: {self.motivo_parada}._\n"
             )
 
     # ── Aviso permanente ───────────────────────────────────────────────────

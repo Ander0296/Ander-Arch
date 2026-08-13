@@ -167,25 +167,25 @@ El nombre sale solo: `2026-08-12-2142-analisis-datos.md`.
 
 ### El formato del texto
 
-**Una frase por línea, sin líneas en blanco entre trozos.**
+**Un párrafo por trozo, separados por una línea en blanco.**
 
 ```markdown
-**[03:10]** ¿Qué es la inteligencia artificial?
-Hoy les voy a enseñar cómo pueden instalar Olama de forma local.
-Vengan que les muestro el paso a paso.
-**[03:53]** Siempre busquemos la versión oficial.
+**[01:20]** Ustedes me venían preguntando si pueden instalar una IA de forma local…
+
+> ⚠️ **DUDA** — no entendi esto (marcado en 01:51)
+
+**[02:03]** Y vamos a poner descargar Olama…
 ```
 
-Una línea es una idea completa: se lee sin scrollear al costado y se puede citar
-un tramo suelto sin arrastrar el párrafo entero. El renglón en blanco entre
-trozos no hacía falta — la marca de tiempo en negrita ya señala dónde empieza
-cada uno.
+El párrafo va en una sola línea larga a propósito: este archivo se lee por
+encima y sobre todo se le pasa a una IA, y para eso el párrafo entero de corrido
+es mejor que cortado. Para leerlo cómodo en Neovim: `:set wrap linebreak`.
 
-El corte de frase solo ocurre cuando lo que sigue **no** empieza en minúscula,
-así `1,5 GB` y `etc. y después` quedan enteros. Si una frase igual sale
-larguísima (Whisper a veces devuelve chorizos sin puntuación), se parte por
-palabras a 88 columnas. La cabecera y el pie sí conservan su línea en blanco:
-sin ella, Markdown toma el `---` como subrayado de título.
+**La línea en blanco después de la duda no es decorativa.** La línea del ⚠️ es
+una cita de Markdown (empieza con `>`), y sin el renglón en blanco debajo, la
+*continuación perezosa* de Markdown se traga todo el texto siguiente dentro de
+la cita: se ve pintado de otro color de ahí para abajo, como si la duda nunca
+terminara.
 
 La ruta se dice en cuatro momentos: al correr `donde`, al elegir la materia, al
 arrancar (terminal y notificación) y en `transcriptor estado`.
