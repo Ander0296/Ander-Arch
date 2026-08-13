@@ -95,6 +95,11 @@ hl.bind("CTRL + SUPER + M", hl.dsp.exec_cmd("nwg-displays"), { description = "Ut
 hl.bind("CTRL + SUPER + ALT + W", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/toggle-wallpaper-loop.sh"), { description = "Utilities: Toggle auto wallpaper" }) -- activa/desactiva el cambio automático de wallpaper cada 1 hora
 hl.bind("CTRL + SUPER + ALT + T", hl.dsp.workspace.toggle_special("typing"), { description = "Utilities: Toggle typing practice (ttyper)" }) -- muestra/oculta el scratchpad de ttyper; cada apertura elige una frase al azar (se crea sola la primera vez)
 
+-- ── Transcriptor de audio del sistema ────────────────────────────────────────
+hl.bind("CTRL + SUPER + ALT + R", hl.dsp.exec_cmd("bash ~/.config/transcriptor/transcriptor alternar"), { description = "Utilities: Toggle audio transcription" }) -- prende/apaga la transcripción del audio del sistema; usa la materia activa (se fija con SUPER+CTRL+ALT+P)
+hl.bind("CTRL + SUPER + ALT + P", hl.dsp.exec_cmd("bash ~/.config/transcriptor/transcriptor elegir"), { description = "Utilities: Pick transcription subject" }) -- abre un menú de fuzzel con las carpetas de ~/Proyectos para elegir a qué materia va la transcripción
+hl.bind("CTRL + SUPER + ALT + D", hl.dsp.exec_cmd("bash ~/.config/transcriptor/transcriptor marcar"), { description = "Utilities: Mark doubt in transcription" }) -- clava un ⚠️ "no entendí esto" en el punto exacto de la transcripción
+
 -- ── Apps personales ──────────────────────────────────────────────────────────
 hl.bind("SUPER + CTRL + ALT + A", hl.dsp.exec_cmd("anki"), { description = "App: Anki" }) -- abre Anki
 hl.bind("SUPER + CTRL + ALT + N", hl.dsp.exec_cmd("notion-app"), { description = "App: Notion" }) -- abre Notion
