@@ -1,0 +1,15 @@
+private
+static
+final
+int
+GRID_SIZE
+=
+49;
+declara
+una
+constante
+que
+ningún
+objeto
+puede
+cambiar.

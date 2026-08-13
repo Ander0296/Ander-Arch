@@ -1,0 +1,11 @@
+Escribí
+if
+(refVar
+!=
+null
+&&
+refVar.isValidType())
+y
+nunca
+al
+revés.

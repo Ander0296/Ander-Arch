@@ -1,0 +1,15 @@
+Si
+la
+izquierda
+del
+&&
+es
+false,
+la
+JVM
+corta
+y
+ni
+mira
+la
+derecha.
