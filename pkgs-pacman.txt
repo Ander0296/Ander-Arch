@@ -23,6 +23,15 @@ tealdeer
 btop
 ttyper
 
+# --- Conversión de documentos (función md2pdf en fish/functions) ---
+# pandoc traduce entre formatos, pero para emitir PDF necesita un motor de
+# tipografía. El clásico es LaTeX (texlive-full = varios GB); typst hace lo
+# mismo en un binario de ~30MB y compila mucho más rápido.
+# OJO: pandoc necesita sí o sí -V mainfont=... o typst 0.15 aborta con
+# "font fallback list must not be empty". Ya va en la función.
+pandoc-cli
+typst
+
 # --- Yazi + previews / papelera ---
 yazi
 ffmpeg
