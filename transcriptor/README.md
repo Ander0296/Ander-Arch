@@ -165,6 +165,28 @@ arrancar: si Groq se cae a mitad de clase y sigue en local, el aviso lo delata.
 
 El nombre sale solo: `2026-08-12-2142-analisis-datos.md`.
 
+### El formato del texto
+
+**Una frase por línea, sin líneas en blanco entre trozos.**
+
+```markdown
+**[03:10]** ¿Qué es la inteligencia artificial?
+Hoy les voy a enseñar cómo pueden instalar Olama de forma local.
+Vengan que les muestro el paso a paso.
+**[03:53]** Siempre busquemos la versión oficial.
+```
+
+Una línea es una idea completa: se lee sin scrollear al costado y se puede citar
+un tramo suelto sin arrastrar el párrafo entero. El renglón en blanco entre
+trozos no hacía falta — la marca de tiempo en negrita ya señala dónde empieza
+cada uno.
+
+El corte de frase solo ocurre cuando lo que sigue **no** empieza en minúscula,
+así `1,5 GB` y `etc. y después` quedan enteros. Si una frase igual sale
+larguísima (Whisper a veces devuelve chorizos sin puntuación), se parte por
+palabras a 88 columnas. La cabecera y el pie sí conservan su línea en blanco:
+sin ella, Markdown toma el `---` como subrayado de título.
+
 La ruta se dice en cuatro momentos: al correr `donde`, al elegir la materia, al
 arrancar (terminal y notificación) y en `transcriptor estado`.
 
