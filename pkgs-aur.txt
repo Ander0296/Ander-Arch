@@ -14,14 +14,13 @@ zapzap-bin
 eclipse-java-bin
 intellij-idea-ultimate-edition
 
-# --- Wallpaper Engine (reimplementación nativa para Linux) ---
-# Solo el motor de render, SIN interfaz: wallpaperengine-gui se quitó porque
-# consumía demasiada GPU y arrancaba solo al inicio. Se deja el motor instalado
-# porque es el backend que usa skwd-wall (el selector que vamos a evaluar
-# cuando salga su reescritura en Rust). Sin GUI no arranca nada por su cuenta.
-# Requiere Steam (pacman, multilib) + poseer Wallpaper Engine + wallpapers
-# suscriptos en la Workshop para que haya algo que reproducir.
-linux-wallpaperengine-bin
+# --- Wallpaper Engine — QUITADO ---
+# linux-wallpaperengine-bin se borró del AUR (la RPC no lo encuentra más) y
+# rompía el bootstrap en cada PC nuevo. Sigue instalado en las máquinas donde
+# ya estaba. Si hace falta reponerlo, el sucesor es linux-wallpaperengine-git,
+# mantenido por Almamu (autor upstream); OJO: linux-wallpaper-engine-bin, con
+# guión, es OTRO proyecto distinto. Decisión a revisar cuando salga la
+# reescritura en Rust de skwd-wall, que lo usa de backend.
 
 # --- Cliente de escritorio de YouTube Music (Tauri, prebuilt del .deb oficial) ---
 # Se elige `zuno` (mantenido por el autor upstream) sobre `zuno-bin` porque
