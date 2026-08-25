@@ -113,16 +113,20 @@ hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("netbeans"), { description = "
 hl.bind("SUPER + CTRL + ALT + K", hl.dsp.exec_cmd("zapzap"), { description = "App: WhatsApp (ZapZap)" }) -- abre WhatsApp (ZapZap)
 hl.bind("SUPER + CTRL + ALT + Y", hl.dsp.workspace.toggle_special("music"), { description = "App: Toggle YouTube Music (Zuno)" }) -- muestra/oculta Zuno en su scratchpad; la primera vez lo abre solo (special:music en custom/general.lua)
 
--- ── Super solo: overlay de workspaces sin abrir el buscador ─────────────────
-hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel")) -- fallback si Quickshell no responde
-hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel")) -- ídem, con Super derecho
+-- Super solo NO abre ningun lanzador: el unbind de arriba es definitivo.
+-- Antes habia un fallback "qsIsAlive || fuzzel" que solo se disparaba cuando
+-- Quickshell estaba caido; se saco porque abrir una ventana al soltar Super es
+-- incomodo. Lanzador de apps -> SUPER+Space; overview de Quickshell -> SUPER+Tab.
 
--- ── Overview general de workspaces, ahora en su propia tecla ────────────────
+-- ── Lanzador de apps fuzzel, en su propia tecla ────────────────────────────
+-- No se usa "quickshell:searchToggle": en el flavor ii ese target hace exactamente
+-- lo mismo que overviewWorkspacesToggle (ambos togglean GlobalStates.overviewOpen
+-- en Overview.qml), o sea abre el MISMO panel que SUPER+Tab. fuzzel es otro programa.
 hl.bind(
 	"SUPER + Space",
-	hl.dsp.global("quickshell:overviewWorkspacesToggle"),
-	{ description = "Shell: Toggle overview" }
-) -- abre/cierra el overview de todos los workspaces
+	hl.dsp.exec_cmd("pkill fuzzel || fuzzel"), -- toggle: si fuzzel esta abierto lo cierra, si no lo abre
+	{ description = "Shell: Toggle app launcher (fuzzel)" }
+) -- el overview de workspaces queda en SUPER+Tab (viene de upstream, hyprland/keybinds.lua:23)
 
 -- ── Ciclar layout del workspace actual (scrolling ↔ dwindle) ────────────────
 hl.bind("SUPER + ALT + W", function()
