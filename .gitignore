@@ -20,6 +20,7 @@
 
 # --- Tuyo, escrito a mano ---
 !/starship.toml
+!/fastfetch
 !/zshrc.d
 !/nvim
 !/ideavim
