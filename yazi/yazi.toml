@@ -52,10 +52,21 @@ view = [
 read = [
     { run = "zathura %s", orphan = true, desc = "Leer PDF con zathura" },
 ]
+office = [
+    # orphan=true: OnlyOffice abre su propia ventana, sigue viva aunque cierres yazi
+    { run = "onlyoffice-desktopeditors %s", orphan = true, desc = "Abrir con OnlyOffice" },
+]
 
 [open]
 
 prepend_rules = [
+    # Ofimática -> OnlyOffice. Va PRIMERO a propósito: las reglas se evalúan de
+    # arriba hacia abajo, y .csv es mime text/csv, así que si la regla text/* de
+    # abajo estuviera primero se lo comería nvim.
+    # Se matchea por extensión (url) y no por mime porque `file` a veces detecta
+    # los .docx/.xlsx como application/zip (son ZIPs por dentro) y se escaparían.
+    { url = "*.{csv,doc,docx,dot,dotx,rtf,odt,ott,xls,xlsx,xlsm,xlt,xltx,ods,ots,ppt,pptx,pps,ppsx,odp,otp}", use = "office" },
+
     { mime = "text/*", use = "edit" },   # cualquier archivo de texto -> nvim
     { mime = "video/*", use = "play" },  # cualquier video -> mpv
     { mime = "audio/*", use = "play" },  # audio también con mpv
