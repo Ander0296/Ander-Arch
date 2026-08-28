@@ -56,3 +56,35 @@ vim.api.nvim_create_autocmd("User", {
     end
   end,
 })
+
+-- FIX which-key + grug-far.
+-- grug-far muestra su buffer (nvim_win_set_buf, grug-far.lua:299) ANTES de
+-- crear sus keymaps \r, \s, \l... (farBuffer.lua:326). which-key escanea y
+-- CACHEA los keymaps del buffer en el BufEnter de ese primer momento
+-- (which-key/state.lua:143 -> buf.lua:183), así que se queda con un árbol
+-- vacío y nunca registra "\" como trigger: por eso el "\" queda colgado en el
+-- showcmd y el popup no aparece.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "grug-far",
+  callback = function(ev)
+    -- vim.schedule difiere esto al final del tick actual. Es imprescindible:
+    -- el evento FileType se dispara DENTRO de setupBuffer, unas líneas antes
+    -- de que se creen los keymaps. Sin el schedule, limpiaríamos el cache
+    -- demasiado temprano y volveríamos a cachear vacío.
+    vim.schedule(function()
+      -- El buffer puede haberse cerrado en el intervalo (grug-far usa
+      -- bufhidden=wipe en modo transient), así que validamos antes de tocarlo.
+      if not vim.api.nvim_buf_is_valid(ev.buf) then
+        return
+      end
+      -- Buf.clear invalida el cache de ese buffer para TODOS los modos. En el
+      -- próximo BufEnter/cambio de modo which-key lo reconstruye, esta vez
+      -- viendo los keymaps de grug-far, y registra "\" como trigger real.
+      -- pcall porque which-key.buf es un módulo interno: si un update lo
+      -- renombra, preferimos perder el popup antes que romper el autocmd.
+      pcall(function()
+        require("which-key.buf").clear({ buf = ev.buf })
+      end)
+    end)
+  end,
+})
