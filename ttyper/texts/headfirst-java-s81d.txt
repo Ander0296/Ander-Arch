@@ -1,0 +1,13 @@
+Las
+casillas
+vacías
+de
+un
+arreglo
+de
+objetos
+valen
+null,
+y
+nunca
+cero.

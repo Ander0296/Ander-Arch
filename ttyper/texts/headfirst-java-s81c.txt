@@ -1,0 +1,13 @@
+En
+un
+ArrayList
+escribí
+lista.size()
+y
+lista.get(i);
+los
+corchetes
+son
+solo
+para
+arreglos.
