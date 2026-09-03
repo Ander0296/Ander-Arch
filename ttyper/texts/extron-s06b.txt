@@ -1,0 +1,14 @@
+El
+Room
+File
+exige
+login
+code
+estatico,
+si
+es
+aleatorio
+el
+archivo
+queda
+desactualizado.

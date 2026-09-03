@@ -1,0 +1,14 @@
+Source
+Aspect
+Ratio
+mantiene
+la
+proporcion
+original
+y
+agrega
+barras
+negras
+si
+no
+coincide.

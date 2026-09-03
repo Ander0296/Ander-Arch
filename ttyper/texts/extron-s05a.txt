@@ -1,0 +1,15 @@
+El
+archivo
+multimedia
+no
+se
+reproduce
+si
+origen
+y
+receptor
+no
+comparten
+la
+misma
+subred.
