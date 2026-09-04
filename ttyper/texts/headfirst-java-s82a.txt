@@ -1,0 +1,13 @@
+El
+ArrayList
+responde
+size()
+con
+paréntesis
+y
+el
+arreglo
+expone
+length
+sin
+paréntesis.
