@@ -1,0 +1,17 @@
+Presentar
+un
+archivo
+del
+movil
+usa
+la
+red
+local,
+pero
+Dropbox
+y
+Browser
+exigen
+salida
+a
+internet.
