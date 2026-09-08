@@ -1,0 +1,16 @@
+La
+firma
+dice
+qué
+recibe
+y
+qué
+devuelve;
+la
+sección
+Throws
+dice
+con
+qué
+excepción
+revienta.

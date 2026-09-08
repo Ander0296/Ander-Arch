@@ -1,0 +1,17 @@
+La
+llamada
+a.add(2,
+"dos");
+inserta
+en
+la
+posición
+2
+y
+corre
+un
+lugar
+a
+los
+que
+seguían.

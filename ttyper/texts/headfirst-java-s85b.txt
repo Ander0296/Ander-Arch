@@ -1,0 +1,15 @@
+El
+bucle
+for
+(String
+element
+:
+list)
+recorre
+cada
+elemento
+sin
+llevar
+un
+contador
+propio.

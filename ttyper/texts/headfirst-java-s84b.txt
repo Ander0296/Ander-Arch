@@ -1,0 +1,12 @@
+El
+método
+indexOf
+devuelve
+-1
+si
+no
+encuentra,
+pero
+get(50)
+lanza
+IndexOutOfBoundsException.
