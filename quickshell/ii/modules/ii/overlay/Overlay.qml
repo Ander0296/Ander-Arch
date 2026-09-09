@@ -19,7 +19,18 @@ Scope {
     
     Loader {
         id: overlayLoader
-        active: GlobalStates.overlayOpen || OverlayContext.hasPinnedWidgets
+        // Lee states.json: ¿algún widget de la lista "open" quedó con pinned:true?
+        // Necesario al arrancar el PC, cuando todavía no existe ningún widget vivo
+        // que pueda auto-registrarse en OverlayContext.
+        readonly property bool hasPersistedPinnedWidgets: Persistent.states.overlay.open
+            .some(identifier => Persistent.states.overlay[identifier]?.pinned === true)
+
+        // Se enciende si: abriste el overlay (SUPER+G), hay un widget vivo pineado,
+        // o el estado en disco dice que algo quedó pineado de la sesión anterior.
+        active: GlobalStates.overlayOpen
+            || OverlayContext.hasPinnedWidgets
+            || overlayLoader.hasPersistedPinnedWidgets
+
         sourceComponent: PanelWindow {
             id: overlayWindow
             exclusionMode: ExclusionMode.Ignore
