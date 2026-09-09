@@ -1,0 +1,13 @@
+La
+subclase
+Square
+extends
+Shape
+recibe
+el
+método
+rotate()
+sin
+escribirlo
+de
+nuevo.

@@ -1,0 +1,14 @@
+La
+clase
+Amoeba
+redefine
+rotate()
+y
+playSound();
+la
+JVM
+elige
+cuál
+corre
+en
+ejecución.
