@@ -1,0 +1,15 @@
+Feline
+y
+Canine
+heredan
+de
+Animal
+y
+definen
+su
+propio
+roam();
+Hippo
+usa
+el
+genérico.

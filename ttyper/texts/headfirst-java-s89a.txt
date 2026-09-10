@@ -1,0 +1,14 @@
+Cada
+subclase
+sobrescribe
+makeNoise()
+y
+eat(),
+pero
+sleep()
+y
+roam()
+quedan
+genéricos
+en
+Animal.
