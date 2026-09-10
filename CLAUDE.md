@@ -36,6 +36,9 @@ cada cambio versionado impacta en todos.
 - Quickshell: quickshell/ii/modules/ii/overlay/Overlay.qml tiene mi fix (el Loader
   también se activa si states.json tiene un widget pineado, para que la imagen
   flotante arranque sola); upstream lo pisa al actualizar end-4.
+- Quickshell: quickshell/ii/modules/ii/onScreenKeyboard/layouts.js tiene mi layout
+  "Dvorak (alt. intl.)" (etiquetas dvorak, mismos keycodes que el US) y se activa
+  desde illogical-impulse/config.json → osk.layout; upstream lo pisa al actualizar end-4.
 - Teclado dvorak-alt-intl: tenerlo en cuenta al proponer keybinds.
 - Commits en español, mensaje corto de qué cambié.
 

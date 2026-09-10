@@ -311,7 +311,7 @@
         "timeout": 1000
     },
     "osk": {
-        "layout": "qwerty_full",
+        "layout": "Dvorak (alt. intl.)",
         "pinnedOnStartup": false
     },
     "overlay": {
