@@ -1,0 +1,13 @@
+La
+superclase
+Animal
+declara
+picture,
+food,
+hunger,
+boundaries,
+location
+y
+el
+método
+roam().

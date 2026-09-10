@@ -1,0 +1,16 @@
+El
+estado
+son
+las
+variables
+de
+instancia
+y
+el
+comportamiento
+son
+los
+métodos
+de
+la
+clase.

@@ -1,0 +1,15 @@
+Las
+variables
+de
+instancia
+no
+se
+sobrescriben;
+cada
+objeto
+les
+da
+el
+valor
+que
+quiera.

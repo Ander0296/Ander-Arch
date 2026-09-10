@@ -1,0 +1,10 @@
+La
+subclase
+Surgeon
+extends
+Doctor
+hereda
+worksAtHospital
+y
+sobrescribe
+treatPatient().
