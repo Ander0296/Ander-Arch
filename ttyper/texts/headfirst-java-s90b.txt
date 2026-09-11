@@ -1,0 +1,13 @@
+Tabla
+de
+herencia:
+Clothing
+no
+tiene
+superclase;
+Boxers
+y
+Shirt
+son
+sus
+subclases.
