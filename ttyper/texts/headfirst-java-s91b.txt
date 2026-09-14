@@ -1,0 +1,12 @@
+class
+Bathroom
+{
+Tub
+bathtub;
+}
+porque
+el
+baño
+tiene
+una
+bañera.
