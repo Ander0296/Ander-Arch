@@ -1,0 +1,17 @@
+Triangle
+extends
+Shape
+tiene
+sentido,
+pero
+Shape
+extends
+Triangle
+no:
+la
+flecha
+va
+en
+un
+solo
+sentido.
