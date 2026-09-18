@@ -1,0 +1,9 @@
+Sobrescribir:
+mismos
+argumentos,
+retorno
+compatible
+y
+nunca
+menos
+accesible.

@@ -1,0 +1,13 @@
+public
+final
+class
+String
+{
+}
+nadie
+puede
+extenderla
+ni
+cambiar
+sus
+métodos.
