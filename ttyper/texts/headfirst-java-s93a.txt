@@ -1,0 +1,14 @@
+Los
+miembros
+public
+se
+heredan;
+los
+private
+no.
+La
+subclase
+los
+usa
+como
+propios.

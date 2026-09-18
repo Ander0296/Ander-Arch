@@ -1,0 +1,13 @@
+Potato
+no
+extiende
+Animal
+para
+imprimir:
+no
+pasa
+ES-UN,
+eso
+va
+con
+TIENE-UN.
