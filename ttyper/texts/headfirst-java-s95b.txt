@@ -1,0 +1,10 @@
+public
+void
+giveShot(Animal
+a)
+{
+a.makeNoise();
+}
+acepta
+cualquier
+animal.

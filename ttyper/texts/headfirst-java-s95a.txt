@@ -1,0 +1,13 @@
+Animal[]
+animals
+=
+new
+Animal[5];
+guarda
+un
+Dog,
+un
+Cat
+y
+un
+Hippo.
