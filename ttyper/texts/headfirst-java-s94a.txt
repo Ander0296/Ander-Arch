@@ -1,0 +1,14 @@
+Dog
+d
+=
+new
+Dog();
+declara
+la
+referencia,
+crea
+el
+objeto
+y
+los
+enlaza.

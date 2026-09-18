@@ -1,0 +1,14 @@
+Animal
+a
+=
+new
+Dog();
+la
+referencia
+es
+Animal
+y
+el
+objeto
+es
+Dog.
