@@ -1,0 +1,16 @@
+Con
+tres
+referencias
+llamando
+a
+move(),
+imprime
+la
+versión
+del
+objeto
+real,
+no
+la
+del
+tipo.

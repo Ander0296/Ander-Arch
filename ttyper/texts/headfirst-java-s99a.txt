@@ -1,0 +1,15 @@
+Cada
+hueco
+pide
+tres
+cosas:
+modificador,
+tipo
+y
+nombre;
+extends
+solo
+va
+en
+el
+encabezado.
