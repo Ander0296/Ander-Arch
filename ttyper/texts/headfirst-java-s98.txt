@@ -1,0 +1,13 @@
+El
+compilador
+mira
+Monster
+m;
+la
+JVM
+corre
+el
+frighten()
+del
+objeto
+real.
