@@ -1,0 +1,13 @@
+Animal
+anim
+=
+new
+Animal();
+compila,
+pero
+¿qué
+forma
+tiene
+un
+animal
+genérico?

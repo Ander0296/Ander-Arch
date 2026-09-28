@@ -1,0 +1,14 @@
+Animal
+aHippo
+=
+new
+Hippo();
+la
+referencia
+es
+Animal
+y
+el
+objeto
+es
+Hippo.
