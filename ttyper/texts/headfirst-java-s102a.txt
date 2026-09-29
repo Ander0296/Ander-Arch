@@ -1,0 +1,12 @@
+public
+abstract
+void
+eat();
+no
+tiene
+cuerpo:
+termina
+en
+punto
+y
+coma.

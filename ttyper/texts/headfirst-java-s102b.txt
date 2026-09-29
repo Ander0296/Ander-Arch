@@ -1,0 +1,15 @@
+La
+primera
+clase
+concreta
+implementa
+todos
+los
+métodos
+abstractos:
+class
+Dog
+extends
+Canine
+{
+}
