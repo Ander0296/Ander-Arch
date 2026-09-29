@@ -1,0 +1,13 @@
+Una
+clase
+concreta
+se
+puede
+instanciar:
+Canine
+c
+=
+new
+Dog();
+compila
+bien.

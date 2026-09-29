@@ -1,0 +1,13 @@
+abstract
+class
+Canine
+extends
+Animal
+{
+}
+no
+se
+puede
+instanciar
+con
+new.
