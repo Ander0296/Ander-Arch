@@ -87,3 +87,6 @@ edk2-ovmf
 # explícito y pacman no se lo lleve al desinstalar algo. El resto (pipewire,
 # libpulse, libnotify) ya está más arriba o lo trae el grupo illogical-impulse.
 uv
+
+# --- Waydroid: Android en contenedor, para la app Kindle (Kindle para PC murió el 30/06/2026) ---
+waydroid

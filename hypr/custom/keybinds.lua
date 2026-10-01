@@ -112,6 +112,7 @@ hl.bind("SUPER + CTRL + ALT + J", hl.dsp.exec_cmd("idea"), { description = "App:
 hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("netbeans"), { description = "App: NetBeans" }) -- abre NetBeans
 hl.bind("SUPER + CTRL + ALT + K", hl.dsp.exec_cmd("zapzap"), { description = "App: WhatsApp (ZapZap)" }) -- abre WhatsApp (ZapZap)
 hl.bind("SUPER + CTRL + ALT + Y", hl.dsp.workspace.toggle_special("music"), { description = "App: Toggle YouTube Music (Zuno)" }) -- muestra/oculta Zuno en su scratchpad; la primera vez lo abre solo (special:music en custom/general.lua)
+hl.bind("SUPER + CTRL + ALT + G", hl.dsp.exec_cmd("waydroid show-full-ui"), { description = "App: Android (Waydroid)" }) -- abre Android en ventana; si la sesión no está corriendo, la arranca sola (ahí vive la app Kindle)
 
 -- Super solo NO abre ningun lanzador: el unbind de arriba es definitivo.
 -- Antes habia un fallback "qsIsAlive || fuzzel" que solo se disparaba cuando
