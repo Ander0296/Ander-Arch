@@ -1,0 +1,13 @@
+Toda
+clase
+que
+no
+extiende
+nada
+extiende
+Object
+automáticamente:
+class
+Animal
+{
+}

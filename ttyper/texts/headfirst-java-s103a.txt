@@ -1,0 +1,11 @@
+new
+Animal[5]
+crea
+un
+arreglo,
+no
+objetos:
+Animal
+sigue
+siendo
+abstracta.
