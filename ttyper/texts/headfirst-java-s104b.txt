@@ -1,0 +1,7 @@
+System.out.println(c.toString());
+imprime
+Cat@7d277f:
+clase,
+arroba
+y
+número.

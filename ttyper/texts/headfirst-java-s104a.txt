@@ -1,0 +1,10 @@
+Todo
+objeto
+hereda
+equals(),
+getClass(),
+hashCode()
+y
+toString()
+de
+Object.
