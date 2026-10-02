@@ -54,6 +54,20 @@ cada cambio versionado impacta en todos.
   FUERA del repo. Binds: CTRL+SUPER+ALT+R grabar, +P elegir materia, +D duda.
   OJO al tocar la captura: `pw-record --target <sink>.monitor` NO falla si el
   destino no existe, se engancha al MICRÓFONO. Ver el README.
+- Waydroid → Android en contenedor, para leer en la app Kindle (Kindle para PC
+  murió el 30/06/2026 y la versión web no abre libros de diseño fijo). Los paquetes
+  ya están en pkgs-*.txt y el bind es SUPER+CTRL+ALT+G. Pasos POR MÁQUINA (no se versionan):
+  1. `sudo waydroid init -s GAPPS`
+  2. Si ufw está activo: `sudo ufw allow 67`, `allow 53`, `default allow FORWARD` (sin esto Android no tiene internet).
+  3. `sudo systemctl enable --now waydroid-container`
+  4. Traductor ARM (Kindle viene solo para ARM): `sudo waydroid-extras install libhoudini` con Intel, `libndk` con AMD.
+  5. Certificar Play Store: sacar el GSF android_id con
+     `sudo waydroid shell -- sh -c "ANDROID_RUNTIME_ROOT=/apex/com.android.runtime ANDROID_DATA=/data ANDROID_TZDATA_ROOT=/apex/com.android.tzdata ANDROID_I18N_ROOT=/apex/com.android.i18n sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \"select value from main where name='android_id';\""`
+     y registrarlo en google.com/android/uncertified (el ID es distinto en cada PC).
+  6. Reiniciar: `waydroid session stop; and waydroid show-full-ui`.
+  7. En Android: Settings → System → Physical keyboard → Keyboard layouts → dejar
+     SOLO "English (US), Dvorak style" (Waydroid ignora la distribución de Linux).
+  Con NVIDIA, Waydroid necesita ajustes extra: revisarlo antes de empezar.
 - wireplumber/ → un solo ajuste: que los auriculares BT no se vayan solos a
   modo headset (bajaría toda la salida a calidad teléfono).
 
