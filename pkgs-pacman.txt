@@ -90,3 +90,5 @@ uv
 
 # --- Waydroid: Android en contenedor, para la app Kindle (Kindle para PC murió el 30/06/2026) ---
 waydroid
+# python-pyclip: portapapeles compartido Android <-> Linux (sin esto Waydroid no lo sincroniza)
+python-pyclip

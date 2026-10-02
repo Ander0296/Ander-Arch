@@ -27,3 +27,6 @@ intellij-idea-ultimate-edition
 # declara gst-libav: sin ese plugin no hay decodificación AAC/H.264 y la
 # reproducción muere con "GStreamer element appsink not found".
 zuno
+
+# --- Waydroid: herramienta para instalar libhoudini (traduce apps ARM, como Kindle, a x86) ---
+waydroid-script-git
