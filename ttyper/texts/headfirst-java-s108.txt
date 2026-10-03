@@ -1,0 +1,11 @@
+lo
+que
+sale
+de
+un
+ArrayList<Object>
+es
+siempre
+una
+referencia
+Object.
