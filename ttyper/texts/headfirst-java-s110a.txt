@@ -1,0 +1,14 @@
+class
+Dog
+extends
+Animal,
+Pet
+{
+}
+no
+compila:
+Java
+no
+tiene
+herencia
+múltiple.
