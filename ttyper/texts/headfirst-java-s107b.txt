@@ -1,0 +1,12 @@
+Object
+o
+=
+new
+Snowboard();
+o.turn();
+no
+compila:
+Object
+no
+tiene
+turn().

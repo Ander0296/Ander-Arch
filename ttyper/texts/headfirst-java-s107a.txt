@@ -1,0 +1,11 @@
+new
+Snowboard()
+crea
+UN
+solo
+objeto,
+con
+un
+núcleo
+Object
+adentro.
