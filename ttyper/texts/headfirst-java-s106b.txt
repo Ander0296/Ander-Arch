@@ -1,0 +1,10 @@
+Object
+x
+=
+getObject(aDog);
+compila:
+todo
+objeto
+ES
+UN
+Object.

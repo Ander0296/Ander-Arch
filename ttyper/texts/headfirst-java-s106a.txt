@@ -1,0 +1,11 @@
+Dog
+d
+=
+getObject(aDog);
+no
+compila:
+el
+retorno
+declarado
+es
+Object.
