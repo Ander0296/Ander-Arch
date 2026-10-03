@@ -1,0 +1,14 @@
+if
+(o
+instanceof
+Dog)
+{
+Dog
+d
+=
+(Dog)
+o;
+}
+evita
+el
+ClassCastException.

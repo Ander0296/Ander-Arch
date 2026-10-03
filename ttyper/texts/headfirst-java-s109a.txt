@@ -1,0 +1,16 @@
+Dog
+d
+=
+(Dog)
+o;
+devuelve
+el
+Object
+a
+su
+tipo
+real,
+sin
+cambiar
+el
+objeto.
