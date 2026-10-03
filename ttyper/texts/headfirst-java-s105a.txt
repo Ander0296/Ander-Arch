@@ -1,0 +1,10 @@
+Con
+ArrayList<Object>,
+get(0)
+devuelve
+Object
+aunque
+adentro
+haya
+un
+Dog.

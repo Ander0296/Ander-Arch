@@ -1,0 +1,12 @@
+Object
+o
+=
+new
+Dog();
+o.bark();
+no
+compila:
+Object
+no
+tiene
+bark().
