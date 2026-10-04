@@ -1,0 +1,10 @@
+super.runReport();
+corre
+la
+versión
+de
+la
+superclase
+desde
+la
+subclase.
