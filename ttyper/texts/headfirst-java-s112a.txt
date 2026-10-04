@@ -1,0 +1,13 @@
+class
+Dog
+extends
+Animal
+implements
+Pet,
+Saveable
+{
+}
+una
+clase,
+varias
+interfaces.

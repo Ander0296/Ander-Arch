@@ -1,0 +1,14 @@
+Pet
+p
+=
+new
+RoboDog();
+la
+interface
+acepta
+clases
+de
+cualquier
+árbol
+de
+herencia.
