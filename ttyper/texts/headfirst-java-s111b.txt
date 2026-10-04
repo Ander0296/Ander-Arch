@@ -1,0 +1,15 @@
+class
+Dog
+extends
+Canine
+implements
+Pet
+{
+}
+extiende
+una
+clase
+e
+implementa
+una
+interface.

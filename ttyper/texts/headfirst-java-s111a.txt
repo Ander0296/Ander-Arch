@@ -1,0 +1,12 @@
+public
+interface
+Pet
+{
+void
+beFriendly();
+void
+play();
+}
+métodos
+sin
+cuerpo.
