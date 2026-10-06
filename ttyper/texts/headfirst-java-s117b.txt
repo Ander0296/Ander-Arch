@@ -1,0 +1,13 @@
+Cuando
+crazy()
+termina,
+su
+frame
+sale
+y
+go()
+sigue
+en
+la
+línea
+siguiente.

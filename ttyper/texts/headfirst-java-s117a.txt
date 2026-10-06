@@ -1,0 +1,13 @@
+Cada
+llamada
+a
+un
+método
+apila
+un
+stack
+frame
+con
+sus
+variables
+locales.
