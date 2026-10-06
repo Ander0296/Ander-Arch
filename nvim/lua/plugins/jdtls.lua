@@ -7,6 +7,14 @@ return {
     opts.cmd = vim.tbl_filter(function(arg)
       return not arg:find("lombok", 1, true)
     end, opts.cmd)
+    -- Proyectos creados con Eclipse no tienen .git ni pom.xml; sin esto
+    -- jdtls toma la carpeta del archivo como raíz e ignora .classpath.
+    opts.root_dir = function(path)
+      return vim.fs.root(path, {
+        ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", "build.gradle.kts",
+        ".project", ".classpath",
+      })
+    end
     -- Flags de arranque de la JVM: JIT menos agresivo al inicio y GC
     -- paralelo (el que mejor arranca con heaps chicos).
     vim.list_extend(opts.cmd, {
