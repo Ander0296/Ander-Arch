@@ -1,0 +1,17 @@
+En
+foo(int
+x)
+{
+int
+i
+=
+x
++
+3;
+}
+x
+e
+i
+son
+variables
+locales.

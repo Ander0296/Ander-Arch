@@ -1,0 +1,15 @@
+Los
+objetos
+viven
+en
+el
+heap;
+los
+métodos
+y
+sus
+variables
+locales,
+en
+el
+stack.
