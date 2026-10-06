@@ -1,0 +1,12 @@
+Pet[]
+p
+=
+new
+Pet[3];
+crea
+tres
+referencias
+vacías,
+ningún
+objeto
+Pet.
