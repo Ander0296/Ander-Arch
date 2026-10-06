@@ -1,0 +1,11 @@
+Un
+objeto
+sin
+ninguna
+referencia
+queda
+elegible
+para
+el
+garbage
+collector.
