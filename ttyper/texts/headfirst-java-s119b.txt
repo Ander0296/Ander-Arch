@@ -1,0 +1,15 @@
+public
+Duck()
+{
+}
+no
+tiene
+tipo
+de
+retorno
+y
+se
+llama
+como
+la
+clase.

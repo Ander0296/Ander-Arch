@@ -1,0 +1,11 @@
+new
+reserva
+la
+memoria
+y
+el
+constructor
+Duck()
+inicializa
+el
+objeto.
