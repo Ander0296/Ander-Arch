@@ -1,0 +1,13 @@
+El
+constructor
+corre
+antes
+del
+=
+y
+deja
+el
+objeto
+listo
+para
+usar.

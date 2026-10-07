@@ -1,0 +1,13 @@
+public
+Duck()
+{
+size
+=
+34;
+}
+evita
+crear
+un
+pato
+sin
+tamaño.
