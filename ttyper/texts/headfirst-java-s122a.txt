@@ -1,0 +1,16 @@
+public
+Duck2()
+{
+size
+=
+27;
+}
+y
+public
+Duck2(int
+duckSize)
+{
+size
+=
+duckSize;
+}

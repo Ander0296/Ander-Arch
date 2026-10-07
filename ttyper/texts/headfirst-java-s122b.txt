@@ -1,0 +1,13 @@
+Se
+sobrecarga
+con
+tipo
+y
+orden
+distintos:
+(int,
+boolean)
+no
+es
+(boolean,
+int).
