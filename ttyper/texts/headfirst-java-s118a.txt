@@ -1,0 +1,16 @@
+Duck
+d
+=
+new
+Duck();
+la
+referencia
+d
+va
+al
+stack
+y
+el
+objeto
+al
+heap.
