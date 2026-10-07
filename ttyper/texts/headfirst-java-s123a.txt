@@ -1,0 +1,13 @@
+Color
+c
+=
+new
+Color(3,
+45,
+200);
+exige
+el
+color:
+no
+hay
+no-arg.

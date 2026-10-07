@@ -1,0 +1,13 @@
+El
+constructor
+se
+llama
+como
+la
+clase
+y
+no
+tiene
+tipo
+de
+retorno.
