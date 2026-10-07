@@ -1,0 +1,13 @@
+private
+Hippo()
+{
+}
+solo
+deja
+hacer
+new
+desde
+adentro
+de
+la
+clase.

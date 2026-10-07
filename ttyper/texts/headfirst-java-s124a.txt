@@ -1,0 +1,11 @@
+new
+Hippo()
+crea
+UN
+objeto
+con
+capas:
+Hippo,
+Animal
+y
+Object.
