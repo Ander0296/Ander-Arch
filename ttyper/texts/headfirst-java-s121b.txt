@@ -1,0 +1,13 @@
+public
+Duck(int
+duckSize)
+{
+size
+=
+duckSize;
+}
+recibe
+el
+dato
+al
+nacer.

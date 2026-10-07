@@ -1,0 +1,15 @@
+Duck
+d
+=
+new
+Duck(42);
+crea
+el
+pato
+y
+le
+da
+tamaño
+en
+un
+paso.
