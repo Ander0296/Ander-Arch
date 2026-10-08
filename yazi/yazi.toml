@@ -38,8 +38,9 @@ edit = [
     { run = '$EDITOR %s', block = true, desc = "Editar con nvim" },
 ]
 extract = [
-    # -y: no pregunta confirmación; "$@" pasa todos los archivos seleccionados
-    { run = 'ouch d -y "$@"', desc = "Descomprimir con ouch" },
+    # -y: no pregunta confirmación; %s pasa todos los archivos seleccionados
+    # (yazi 26 ya no expande "$@": ouch recibía cero archivos y fallaba en silencio)
+    { run = 'ouch d -y %s', desc = "Descomprimir con ouch" },
 ]
 play = [
     # orphan=true: mpv abre su propia ventana, sigue viva aunque cierres yazi
