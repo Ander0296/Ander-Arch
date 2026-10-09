@@ -1,0 +1,12 @@
+new
+Hippo()
+corre
+Hippo(),
+que
+llama
+a
+Animal(),
+que
+llama
+a
+Object().

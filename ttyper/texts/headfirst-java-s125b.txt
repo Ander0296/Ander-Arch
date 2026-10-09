@@ -1,0 +1,11 @@
+Una
+clase
+abstract
+no
+admite
+new,
+pero
+su
+constructor
+corre
+igual.
