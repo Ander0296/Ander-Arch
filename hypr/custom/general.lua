@@ -1,5 +1,5 @@
 hl.config({
-	general = { layout = "scrolling" }, -- layout por defecto dwindle; scrolling queda solo en workspaces 9 y 10
+	general = { layout = "dwindle" }, -- layout por defecto; scrolling queda solo en workspaces 9 y 10
 	-- scrolling = {
 	-- 	fullscreen_on_one_column = true,
 	-- 	column_width = 1.0,
