@@ -1,0 +1,12 @@
+Para
+llamar
+al
+constructor
+de
+la
+superclase
+se
+escribe
+super();
+nunca
+Animal();

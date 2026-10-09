@@ -1,0 +1,10 @@
+Si
+no
+escribís
+super(),
+el
+compilador
+lo
+agrega
+sin
+argumentos.
