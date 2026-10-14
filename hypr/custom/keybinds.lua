@@ -94,6 +94,7 @@ hl.bind(
 hl.bind("CTRL + SUPER + M", hl.dsp.exec_cmd("nwg-displays"), { description = "Utilities: Monitor layout (nwg-displays)" }) -- abre nwg-displays para acomodar posición/resolución de monitores
 hl.bind("CTRL + SUPER + ALT + W", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/toggle-wallpaper-loop.sh"), { description = "Utilities: Toggle auto wallpaper" }) -- activa/desactiva el cambio automático de wallpaper cada 1 hora
 hl.bind("CTRL + SUPER + ALT + T", hl.dsp.workspace.toggle_special("typing"), { description = "Utilities: Toggle typing practice (ttyper)" }) -- muestra/oculta el scratchpad de ttyper; cada apertura elige una frase al azar (se crea sola la primera vez)
+hl.bind("CTRL + SUPER + ALT + S", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/salida-audio.sh"), { description = "Utilities: Pick audio output" }) -- abre un menú de fuzzel con todas las salidas de audio posibles (jack, HDMI, BT, USB) y cambia a la elegida
 
 -- ── Transcriptor de audio del sistema ────────────────────────────────────────
 hl.bind("CTRL + SUPER + ALT + R", hl.dsp.exec_cmd("bash ~/.config/transcriptor/transcriptor alternar"), { description = "Utilities: Toggle audio transcription" }) -- prende/apaga la transcripción del audio del sistema; usa la materia activa (se fija con SUPER+CTRL+ALT+P)
