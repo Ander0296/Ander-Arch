@@ -26,7 +26,7 @@ opciones=$(pactl -f json list cards | jq -r '
      elif (.out | test("analog")) then                       # jack de la placa
        "🎧 Jack (audífonos / parlantes)"
      else "🔊 " + $cdesc end) as $label                      # USB u otros: nombre del dispositivo
-  | [$card, .key, $act, (if .key == $act then "● " else "   " end) + $label]
+  | [$card, .key, $act, (if .key == $act then "● " else "○ " end) + $label]
   | @tsv')
 
 [ -z "$opciones" ] && { notify-send "Salida de audio" "No encontré salidas" -a "Hyprland"; exit 1; }
@@ -52,4 +52,4 @@ done
 [ -z "$sink" ] && { notify-send "Salida de audio" "No apareció la salida elegida" -a "Hyprland"; exit 1; }
 
 pactl set-default-sink "$sink" # lo que suena se muda a la salida nueva
-notify-send "Salida de audio" "$(printf '%s' "$eleccion" | sed 's/^● *//; s/^ *//')" -a "Hyprland"
+notify-send "Salida de audio" "$(printf '%s' "$eleccion" | sed 's/^[●○] *//')" -a "Hyprland"
