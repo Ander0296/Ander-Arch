@@ -1,0 +1,14 @@
+Si
+el
+rival
+deja
+una
+pieza
+suelta,
+compruebo
+que
+sea
+gratis
+y
+la
+cobro.
