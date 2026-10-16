@@ -18,3 +18,8 @@ hl.window_rule({ match = { class = "ai-explain-popup" }, size = { "(monitor_w*0.
 
 -- ttyper ahora es un scratchpad (special:typing en custom/general.lua);
 -- float/center/size ya los define el on_created_empty de ese workspace_rule
+
+-- Packet Tracer (XWayland, Qt propio): con un diálogo modal abierto (Preferences),
+-- al sacar el mouse el foco pasa a otra ventana, Qt pide "activar" el diálogo de nuevo
+-- y focus_on_activate lo enfoca y devuelve el cursor al centro. Se ignoran esos pedidos.
+hl.window_rule({ match = { class = "PacketTracer" }, suppress_event = "activate activatefocus" })

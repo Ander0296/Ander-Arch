@@ -107,11 +107,12 @@ hl.bind("SUPER + CTRL + ALT + N", hl.dsp.exec_cmd("notion-app"), { description =
 hl.bind("SUPER + CTRL + ALT + O", hl.dsp.exec_cmd("obs"), { description = "App: OBS Studio" }) -- abre OBS Studio
 hl.bind("SUPER + CTRL + ALT + M", hl.dsp.exec_cmd("mpv"), { description = "App: mpv" }) -- abre mpv
 hl.bind("SUPER + CTRL + ALT + I", hl.dsp.exec_cmd("imv"), { description = "App: imv" }) -- abre imv
-hl.bind("SUPER + CTRL + ALT + Z", hl.dsp.exec_cmd("zathura"), { description = "App: Zathura" }) -- abre Zathura
+hl.bind("SUPER + CTRL + ALT + F", hl.dsp.exec_cmd("zathura"), { description = "App: Zathura" }) -- abre Zathura (F; en Z chocaba con "Session: Shut down")
 hl.bind("SUPER + CTRL + ALT + E", hl.dsp.exec_cmd("eclipse"), { description = "App: Eclipse" }) -- abre Eclipse
 hl.bind("SUPER + CTRL + ALT + J", hl.dsp.exec_cmd("idea"), { description = "App: IntelliJ IDEA" }) -- abre IntelliJ IDEA (J de Java)
 hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("netbeans"), { description = "App: NetBeans" }) -- abre NetBeans
 hl.bind("SUPER + CTRL + ALT + K", hl.dsp.exec_cmd("zapzap"), { description = "App: WhatsApp (ZapZap)" }) -- abre WhatsApp (ZapZap)
+hl.bind("SUPER + CTRL + ALT + C", hl.dsp.exec_cmd("~/.local/bin/packettracer"), { description = "App: Cisco Packet Tracer" }) -- abre Packet Tracer (C de Cisco); ruta completa porque el PATH de Hyprland no trae ~/.local/bin; el script le pasa el cursor Bibata
 hl.bind("SUPER + CTRL + ALT + Y", hl.dsp.workspace.toggle_special("music"), { description = "App: Toggle YouTube Music (Zuno)" }) -- muestra/oculta Zuno en su scratchpad; la primera vez lo abre solo (special:music en custom/general.lua)
 hl.bind("SUPER + CTRL + ALT + G", hl.dsp.exec_cmd("waydroid show-full-ui"), { description = "App: Android (Waydroid)" }) -- abre Android en ventana; si la sesión no está corriendo, la arranca sola (ahí vive la app Kindle)
 
