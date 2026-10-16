@@ -1,0 +1,15 @@
+Ahogado
+es
+tablas:
+el
+rey
+rival
+no
+tiene
+jugadas
+legales
+y
+no
+está
+en
+jaque.

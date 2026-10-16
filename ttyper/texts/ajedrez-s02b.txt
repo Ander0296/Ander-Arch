@@ -1,0 +1,16 @@
+Con
+dama
+contra
+rey,
+antes
+de
+cada
+jugada
+miro
+si
+el
+rey
+rival
+todavía
+puede
+moverse.
