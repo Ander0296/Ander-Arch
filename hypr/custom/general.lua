@@ -25,6 +25,10 @@ hl.config({
 			xray = false,
 		},
 	},
+
+	cursor = {
+		inactive_timeout = 3, -- esconde el cursor tras 3 s quieto; borra el cursor congelado de la TV espejo (queda al reconectarse o volver del bloqueo)
+	},
 })
 
 hl.workspace_rule({
