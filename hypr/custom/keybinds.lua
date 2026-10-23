@@ -104,6 +104,7 @@ hl.bind("CTRL + SUPER + ALT + D", hl.dsp.exec_cmd("bash ~/.config/transcriptor/t
 -- ── Apps personales ──────────────────────────────────────────────────────────
 hl.bind("SUPER + CTRL + ALT + A", hl.dsp.exec_cmd("anki"), { description = "App: Anki" }) -- abre Anki
 hl.bind("SUPER + CTRL + ALT + N", hl.dsp.exec_cmd("notion-app"), { description = "App: Notion" }) -- abre Notion
+hl.bind("SUPER + CTRL + ALT + V", hl.dsp.exec_cmd("obsidian"), { description = "App: Obsidian" }) -- abre Obsidian (V de vault; la O ya es OBS); abre la última bóveda usada, ~/Proyectos/Universidad
 hl.bind("SUPER + CTRL + ALT + O", hl.dsp.exec_cmd("obs"), { description = "App: OBS Studio" }) -- abre OBS Studio
 hl.bind("SUPER + CTRL + ALT + M", hl.dsp.exec_cmd("mpv"), { description = "App: mpv" }) -- abre mpv
 hl.bind("SUPER + CTRL + ALT + I", hl.dsp.exec_cmd("imv"), { description = "App: imv" }) -- abre imv
