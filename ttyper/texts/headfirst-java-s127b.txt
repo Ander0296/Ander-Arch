@@ -1,0 +1,9 @@
+public
+Boop(int
+i)
+{
+super();
+size
+=
+i;
+}

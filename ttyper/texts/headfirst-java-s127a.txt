@@ -1,0 +1,13 @@
+super();
+va
+primero:
+la
+superclase
+se
+termina
+de
+construir
+antes
+que
+la
+subclase.
