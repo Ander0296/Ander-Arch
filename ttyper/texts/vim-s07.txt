@@ -1,0 +1,11 @@
+NVIM_APPNAME=nvim-ia
+nvim
+git
+clone
+mv
+lazygit
+rg
+fd
+:checkhealth
+lazyvim
+:q!

@@ -1,0 +1,8 @@
+:w
+:q
+:wq
+:q!
+:help
+:Lazy
+:s/vi/vim/
+:s/ed/ex/

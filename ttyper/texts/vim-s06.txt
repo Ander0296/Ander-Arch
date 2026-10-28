@@ -1,0 +1,11 @@
+nvim
+--clean
+:Tutor
+:q!
+:qa
+:qa!
+:wq
+:w
+:q
+:Tutor
+:q!

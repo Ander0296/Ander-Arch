@@ -1,0 +1,11 @@
+:echo
+$TERM
+:echo
+"kitty"
+:lua
+print("gpu")
+:w
+:q
+:wq
+:q!
+:s/vi/vim/

@@ -1,0 +1,9 @@
+:lua
+print("hola")
+:echo
+"hola"
+:Lazy
+:help
+lua-guide
+:s/vim/nvim/
+:wq

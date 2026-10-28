@@ -1,0 +1,12 @@
+:echo
+""
+:echo
+$TERM
+:lua
+print("nerd")
+:echo
+"font"
+:w
+:q
+:wq
+:q!

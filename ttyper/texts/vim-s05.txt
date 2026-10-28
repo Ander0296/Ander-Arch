@@ -1,0 +1,11 @@
+:checkhealth
+lazyvim
+:checkhealth
+nvim-treesitter
+:version
+:echo
+""
+:w
+:q
+:wq
+:q!

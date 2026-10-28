@@ -18,28 +18,7 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- Extras oficiales de LazyVim. Van acá, DESPUÉS de lazyvim.plugins y
-    -- ANTES de tus propios plugins, porque LazyVim valida ese orden exacto
-    -- (lazyvim/config/init.lua:221) y tira warning si no lo respetás.
-    { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.toml" },
-    { import = "lazyvim.plugins.extras.lang.python" },
-    -- NUEVO: soporte Java. Instala jdtls (el mismo motor LSP que usa Eclipse),
-    -- más java-debug-adapter y java-test para debug/testing.
-    { import = "lazyvim.plugins.extras.lang.java" },
-    -- NUEVO: debugger genérico (nvim-dap + panel visual nvim-dap-ui).
-    -- Sin esto, jdtls no tiene con qué "correr" el main(): esta extra agrega
-    -- el keymap <leader>dc (Run/Continue) y el panel <leader>du.
-    { import = "lazyvim.plugins.extras.dap.core" },
-    -- NUEVO: asistente de IA (avante.nvim). El provider por default es
-    -- "copilot"; lo pisamos a Gemini en lua/plugins/ai.lua.
-    { import = "lazyvim.plugins.extras.ai.avante" },
-    { import = "lazyvim.plugins.extras.ai.claudecode" },
     -- import/override with your plugins
-    -- NUEVO: surround (envolver/cambiar/borrar paréntesis, comillas, tags).
-    -- LazyVim remapea sus teclas por default (sa/sd/sr) al prefijo "gs"
-    -- para no chocar con flash.nvim, que ya usa "s"/"S" para saltar.
-    { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "plugins" },
   },
   defaults = {
