@@ -1,0 +1,12 @@
+.gitignore
+!/nvim
+/*
+~/.config/nvim
+git
+pull
+:Lazy
+R
+q
+eza
+-a
+~/.gitconfig

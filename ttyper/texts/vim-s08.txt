@@ -1,0 +1,11 @@
+:Lazy
+:LazyExtras
+:qa
+:enew
+:checkhealth
+lazyvim
+:Lazy
+G
+q
+:qa
+:LazyExtras

@@ -1,0 +1,10 @@
+:w
+:q
+:wq
+:x
+:q!
+:e
+:help
+:qall
+:x
+:w
