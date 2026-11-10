@@ -1,0 +1,10 @@
+:enew
+:startinsert
+:checkhealth
+:WhichKey
+:wq
+:q!
+i
+a
+I
+A

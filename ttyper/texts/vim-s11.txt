@@ -1,0 +1,12 @@
+:WhichKey
+:sp
+:vs
+:q
+:e#
+:Lazy
+q
+:WhichKey
+:e#
+:sp
+:vs
+:qa

@@ -1,0 +1,9 @@
+:write
+:w
+:quit
+:q
+:edit
+:e
+:help
+:x
+:wq
