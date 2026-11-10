@@ -264,6 +264,11 @@ En la pantalla de login (SDDM) elegir la sesión **Hyprland** (no UWSM) y entrar
    exec /usr/lib/packettracer/packettracer.AppImage "$@"
    ```
    (`chmod +x`), y el cursor por defecto de abajo (*Notas → Apps XWayland*). Al primer arranque: aceptar la licencia en la terminal y loguearse con el botón verde *Skills For All*.
+10. **Obsidian** (después de clonar `~/Proyectos/Universidad`): la config (vim, plugins, snippets) viaja en `obsidian-boveda/` de este repo y Obsidian la lee por un symlink dentro de la bóveda. `bootstrap.sh` (paso 9b) lo crea si Universidad ya estaba clonado; si no, a mano:
+   ```fish
+   ln -s ~/.config/obsidian-boveda ~/Proyectos/Universidad/.obsidian   # acceso directo: Obsidian cree que la config está en la bóveda
+   ```
+   Si dice `File exists`, es una carpeta `.obsidian` real: cerrar Obsidian, `rm -rf ~/Proyectos/Universidad/.obsidian` y repetir. Después abrir Obsidian → *Open folder as vault* → la **raíz** de `~/Proyectos/Universidad` (nunca una materia), elegir idioma y en Settings → General apagar *Automatic updates* (que actualice pacman). Esas tres cosas son de la app (`~/.config/obsidian/`), no viajan.
 
 ## 10. Sincronizar cambios entre todos los PCs
 

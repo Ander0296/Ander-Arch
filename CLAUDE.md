@@ -71,6 +71,12 @@ cada cambio versionado impacta en todos.
   Con NVIDIA, Waydroid necesita ajustes extra: revisarlo antes de empezar.
 - wireplumber/ → un solo ajuste: que los auriculares BT no se vayan solos a
   modo headset (bajaría toda la salida a calidad teléfono).
+- obsidian-boveda/ → config de Obsidian (vim, plugins, snippets, atajos).
+  Obsidian la ve como ~/Proyectos/Universidad/.obsidian por un symlink (lo
+  crea bootstrap.sh paso 9b). El repo Universidad es SOLO de la facu: ahí
+  .obsidian está ignorado, nunca versionar config de apps en él.
+  ~/.config/obsidian/ (la app: caché, idioma, lista de bóvedas) NO se versiona.
+  Cerrar Obsidian antes de pullear: si está abierto puede pisar la config nueva.
 
 ### Engram
 - El project es "ander-arch" (basename real de esta carpeta, NO inventar otro

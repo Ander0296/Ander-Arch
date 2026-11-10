@@ -66,3 +66,11 @@
 # --- WirePlumber: solo mi ajuste de Bluetooth (que los auriculares no se
 #     vayan solos a modo headset y bajen toda la salida a calidad teléfono) ---
 !/wireplumber
+
+# --- Obsidian: config de la bóveda (vim, plugins, snippets). Obsidian la ve
+#     como ~/Proyectos/Universidad/.obsidian gracias a un symlink (bootstrap.sh).
+#     ~/.config/obsidian/ (la app: caché, idioma, lista de bóvedas) sigue
+#     ignorada por el /* de arriba: es de cada máquina ---
+!/obsidian-boveda
+# El layout de ventanas/pestañas es de cada máquina y cambia a cada clic
+/obsidian-boveda/workspace*.json
