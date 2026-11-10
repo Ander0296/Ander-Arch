@@ -1,0 +1,9 @@
+15k
+5l
+5j
+12k
+3j
+7k
+20j
+vim.opt.relativenumber=false
+vim.opt.number=false

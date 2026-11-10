@@ -1,0 +1,11 @@
+:jumps
+70G
+10j
+gg
+5G
+:ju
+240G
+3G
+o
+8G
+G
