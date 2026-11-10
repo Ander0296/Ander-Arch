@@ -63,23 +63,6 @@ echo "==> [8/10] Tema de fastfetch con imágenes (LierB)"
 echo "==> [9/10] Carpetas de imágenes"
 mkdir -p ~/Pictures/{Wallpapers,Screenshots,FastfetchLogos}
 
-echo "==> [9b/10] Obsidian: enchufar la config de este repo en la bóveda (symlink)"
-# Obsidian solo lee la config de <bóveda>/.obsidian. La real vive acá, en
-# obsidian-boveda/, y en la bóveda queda un acceso directo que apunta a ella.
-boveda="$HOME/Proyectos/Universidad"
-if [ -L "$boveda/.obsidian" ]; then
-	:   # ya es un symlink: nada que hacer (idempotente)
-elif [ -e "$boveda/.obsidian" ]; then
-	# Carpeta real (Obsidian abierto antes del symlink, o restos de la config
-	# vieja que vivía en el repo Universidad): no se borra sola por si tiene algo.
-	echo "  OJO: $boveda/.obsidian es una carpeta real. Cerrá Obsidian, borrala y re-ejecutá."
-elif [ -d "$boveda" ]; then
-	mkdir -p "$HOME/.config/obsidian-boveda"
-	ln -s "$HOME/.config/obsidian-boveda" "$boveda/.obsidian"
-else
-	echo "  Universidad no está clonado todavía: hacer este paso a mano (README fase 9)."
-fi
-
 echo "==> [10/10] Identidad de git (solo si no existe) y permisos de scripts"
 git config --global user.name >/dev/null 2>&1 || git config --global user.name "Ander0296"
 git config --global user.email >/dev/null 2>&1 || git config --global user.email "165844215+Ander0296@users.noreply.github.com"
