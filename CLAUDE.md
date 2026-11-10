@@ -6,12 +6,13 @@ fish, kitty, yazi, scripts. Este repo se replica idéntico en varios PCs:
 cada cambio versionado impacta en todos.
 
 ### Reglas de trabajo
-- Yo escribo el código a mano. Claude Code NO ejecuta bash ni crea/edita
-  archivos directamente salvo que yo lo pida explícitamente en el mensaje.
+- Antes de cambiar algo, preguntame qué prefiero: que lo haga Claude Code
+  (editar archivos, ejecutar comandos, commitear) o escribirlo yo a mano.
 - SÍ podés ejecutar comandos de solo lectura para explorar (ls, find, cat, rg,
   git log, git diff, git status, pacman -Q) sin pedir permiso.
-- Antes de proponer un cambio: explicá qué hace cada línea con un comentario
-  y dame el bloque completo listo para pegar, indicando archivo y ubicación exacta.
+- Lo haga quien lo haga: explicá qué hace cada línea con un comentario e
+  indicá archivo y ubicación exacta. Si lo escribo yo, dame el bloque
+  completo listo para pegar.
 - Estoy aprendiendo en profundidad: explicaciones detalladas, paso a paso,
   con analogías cuando ayuden. No asumas que ya conozco un concepto.
 - Priorizar simplicidad y soluciones directas; testear en alcance chico
