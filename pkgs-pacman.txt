@@ -63,6 +63,7 @@ netbeans
 
 # --- Apps de escritorio ---
 anki
+obsidian
 obs-studio
 mpv
 imv
