@@ -10,11 +10,12 @@
 !/mpv
 !/foot
 !/wlogout
+!/matugen
 !/Kvantum
+!/kde-material-you-colors
 !/fontconfig
 !/xdg-desktop-portal
 !/yazi
-/yazi/theme.toml
 
 # --- Tuyo, escrito a mano ---
 !/starship.toml
@@ -27,7 +28,7 @@
 # --- Secretos: nunca versionar, aunque /fish esté incluido arriba ---
 /fish/conf.d/secrets.fish
 
-# --- Colores de fábrica de end-4, por máquina (antes los generaba matugen): NO versionar ---
+# --- Generado por matugen desde el wallpaper: NO versionar (ver Paso 0) ---
 /hypr/hyprland/colors.lua
 /hypr/hyprlock/colors.conf
 
@@ -47,12 +48,10 @@
 # --- Claude Code (proyecto raíz) ---
 !/CLAUDE.md
 
-# --- Antes los generaba matugen; hoy por máquina (fábrica o sin archivo): NO versionar ---
+# --- Generados por matugen (colores del wallpaper, cambian solos) ---
 /fuzzel/fuzzel_theme.ini
-/yazi/theme.toml
-/ttyper/config.toml
 
-# --- ttyper: contenido propio (listas/textos de práctica), no la config autogenerada arriba ---
+# --- ttyper: contenido propio (listas/textos de práctica) ---
 !/ttyper
 
 # --- Transcriptor de audio del sistema (solo el código; el venv, los modelos
