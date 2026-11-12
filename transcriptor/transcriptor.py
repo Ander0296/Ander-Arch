@@ -1206,14 +1206,21 @@ def cmd_elegir(_args) -> int:
     if not opciones:
         notify("No hay proyectos", f"No encontre carpetas en ~/Proyectos", "critical")
         return 1
+    actual = leer_materia()  # la materia fijada ahora (None si no hay ninguna)
+    if actual and actual not in opciones:
+        opciones.insert(0, actual)  # si no tiene carpeta en ~/Proyectos igual la mostramos, arriba de todo
+    # Igual que el menú de salida de audio: ● marca la activa, ○ las demás
+    lineas = [("● " if o == actual else "○ ") + o for o in opciones]
     try:
         r = subprocess.run(["fuzzel", "--dmenu", "--prompt", "Materia a transcribir: "],
-                           input="\n".join(opciones), capture_output=True,
+                           input="\n".join(lineas), capture_output=True,
                            text=True, check=False)
     except FileNotFoundError:
         print("falta fuzzel", file=sys.stderr)
         return 1
     elegida = r.stdout.strip()
+    if elegida[:2] in ("● ", "○ "):
+        elegida = elegida[2:].strip()  # saca la marca para quedarnos con el nombre real de la carpeta
     if not elegida:
         return 1  # cancelaste: no se toca nada
     guardar_materia(elegida)
