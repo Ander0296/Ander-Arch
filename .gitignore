@@ -10,9 +10,7 @@
 !/mpv
 !/foot
 !/wlogout
-!/matugen
 !/Kvantum
-!/kde-material-you-colors
 !/fontconfig
 !/xdg-desktop-portal
 !/yazi
@@ -29,7 +27,7 @@
 # --- Secretos: nunca versionar, aunque /fish esté incluido arriba ---
 /fish/conf.d/secrets.fish
 
-# --- Generado por matugen desde el wallpaper: NO versionar (ver Paso 0) ---
+# --- Colores de fábrica de end-4, por máquina (antes los generaba matugen): NO versionar ---
 /hypr/hyprland/colors.lua
 /hypr/hyprlock/colors.conf
 
@@ -49,7 +47,7 @@
 # --- Claude Code (proyecto raíz) ---
 !/CLAUDE.md
 
-# --- Generados por matugen (colores del wallpaper, cambian solos) ---
+# --- Antes los generaba matugen; hoy por máquina (fábrica o sin archivo): NO versionar ---
 /fuzzel/fuzzel_theme.ini
 /yazi/theme.toml
 /ttyper/config.toml

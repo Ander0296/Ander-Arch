@@ -12,11 +12,6 @@ if status is-interactive
         starship init fish | source
         enable_transience
     end
-
-    # Colors
-    if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-        cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-    end
     # Fastfetch con logo random, disparado en el primer prompt (no durante la carga del rc)
     # para evitar la carrera con la negociación del protocolo gráfico de kitty
     function __fastfetch_on_first_prompt --on-event fish_prompt

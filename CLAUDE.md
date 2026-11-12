@@ -26,8 +26,9 @@ cada cambio versionado impacta en todos.
 - Paquete nuevo instalado → agregarlo a pkgs-pacman.txt o pkgs-aur.txt
   + commit. Nunca dejar un paquete sin registrar.
 - NO tocar ni proponer versionar: fish/conf.d/secrets.fish (secretos),
-  hypr/monitors.lua y hypr/workspaces.lua (por máquina), y los colores
-  generados por matugen. Están ignorados a propósito.
+  hypr/monitors.lua y hypr/workspaces.lua (por máquina), y los archivos de
+  colores (hypr colors.lua, hyprlock, fuzzel, yazi/ttyper theme): de fábrica
+  y por máquina. Están ignorados a propósito.
 - El .gitignore es whitelist (/* al inicio): un archivo nuevo en la raíz
   necesita su línea !/archivo para versionarse.
 - En hypr/: la carpeta hyprland/ es la base de end-4; MIS cambios van
@@ -43,8 +44,12 @@ cada cambio versionado impacta en todos.
 - Quickshell: quickshell/ii/panelFamilies/IllogicalImpulseFamily.qml tiene mi fix
   (`extraCondition: false` en el PanelLoader de Background): el fondo lo dibuja
   skwd-wall, no Quickshell. Upstream lo pisa al actualizar end-4.
-- Fondos: skwd-wall v2 (Ctrl+Super+T). Matugen está apagado a propósito
-  (wallpaperTheming en false): colores fijos de fábrica. Pasos por PC en README fase 8.
+- Fondos: skwd-wall v2 (Ctrl+Super+T; en yazi m+w usa `skwd-helm apply`).
+  Matugen QUITADO de toda la config a propósito (wallpaperTheming en false, sin
+  matugen/ ni kde-material-you-colors/, fish y kitty sin colores generados, Qt en
+  BreezeDark): colores por defecto. El paquete matugen sigue instalado porque lo
+  pide illogical-impulse-fonts-themes de end-4: no desinstalarlo. Pasos por PC en
+  README fase 8.
 - Teclado dvorak-alt-intl: tenerlo en cuenta al proponer keybinds.
 - Commits en español, mensaje corto de qué cambié.
 

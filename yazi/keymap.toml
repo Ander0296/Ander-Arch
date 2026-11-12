@@ -21,8 +21,8 @@ prepend_keymap = [
     # m -> d: abre la carpeta donde estás parado en Dolphin (puente terminal -> GUI)
     { on = ["m", "d"], run = 'shell --orphan -- dolphin %d', desc = "Abrir carpeta actual en Dolphin" },
 
-    # m -> w: pone la imagen bajo el cursor como wallpaper (dispara matugen: kitty, GTK, yazi, nvim)
-    { on = ["m", "w"], run = 'shell --orphan -- ~/.config/quickshell/ii/scripts/colors/switchwall.sh --image %h', desc = "Poner como wallpaper" },
+    # m -> w: pone la imagen o video bajo el cursor como fondo con skwd-wall (sin tocar colores)
+    { on = ["m", "w"], run = 'shell --orphan -- skwd-helm apply %h', desc = "Poner como wallpaper (skwd)" },
 
     # m -> e: le pide a Claude Code que explique el archivo bajo el cursor
     { on = ["m", "e"], run = """shell -- kitty --class ai-explain-popup -e bash -c 'claude -p --ax-screen-reader "Explicame el archivo %h"; read -n1 -s'""", desc = "Explicar archivo con Claude (ventana flotante)" },
