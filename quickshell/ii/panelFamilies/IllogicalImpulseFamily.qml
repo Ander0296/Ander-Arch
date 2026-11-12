@@ -25,7 +25,7 @@ import qs.modules.ii.wallpaperSelector
 
 Scope {
     PanelLoader { extraCondition: !Config.options.bar.vertical; component: Bar {} }
-    PanelLoader { component: Background {} }
+    PanelLoader { extraCondition: false; component: Background {} } // fondo de end-4 apagado: lo dibuja skwd-wall
     PanelLoader { component: Cheatsheet {} }
     PanelLoader { extraCondition: Config.options.dock.enable; component: Dock {} }
     PanelLoader { component: Lock {} }

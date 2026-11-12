@@ -40,9 +40,9 @@
       "enable": true
     },
     "wallpaperTheming": {
-      "enableAppsAndShell": true,
-      "enableQtApps": true,
-      "enableTerminal": true,
+      "enableAppsAndShell": false,
+      "enableQtApps": false,
+      "enableTerminal": false,
       "terminalGenerationProps": {
         "forceDarkMode": false,
         "harmonizeThreshold": 100,

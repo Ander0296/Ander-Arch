@@ -40,6 +40,11 @@ cada cambio versionado impacta en todos.
 - Quickshell: quickshell/ii/modules/ii/onScreenKeyboard/layouts.js tiene mi layout
   "Dvorak (alt. intl.)" (etiquetas dvorak, mismos keycodes que el US) y se activa
   desde illogical-impulse/config.json → osk.layout; upstream lo pisa al actualizar end-4.
+- Quickshell: quickshell/ii/panelFamilies/IllogicalImpulseFamily.qml tiene mi fix
+  (`extraCondition: false` en el PanelLoader de Background): el fondo lo dibuja
+  skwd-wall, no Quickshell. Upstream lo pisa al actualizar end-4.
+- Fondos: skwd-wall v2 (Ctrl+Super+T). Matugen está apagado a propósito
+  (wallpaperTheming en false): colores fijos de fábrica. Pasos por PC en README fase 8.
 - Teclado dvorak-alt-intl: tenerlo en cuenta al proponer keybinds.
 - Commits en español, mensaje corto de qué cambié.
 

@@ -73,8 +73,17 @@ zathura-pdf-mupdf
 plasma-browser-integration
 nwg-displays
 
-# --- Wallpaper Engine (requiere repo multilib, lo habilita bootstrap.sh) ---
+# --- Steam (requiere repo multilib, lo habilita bootstrap.sh) ---
+# Descarga los fondos de la Workshop de Wallpaper Engine para skwd-wall, y trae
+# los assets de Wallpaper Engine que las escenas necesitan (no desinstalar WE).
 steam
+
+# --- Decodificación de video por GPU (VA-API) ---
+# intel-media-driver: driver iHD para GPUs Intel Gen8+ (Broadwell en adelante);
+# skwd-wall decodifica videos con la GPU en vez de la CPU. En PCs sin Intel no hace nada.
+# libva-utils: trae vainfo, para comprobar que el driver funciona.
+intel-media-driver
+libva-utils
 
 # --- Virtualización (VMs con virt-manager) ---
 qemu-full
