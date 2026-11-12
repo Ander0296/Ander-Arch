@@ -57,8 +57,9 @@ cada cambio versionado impacta en todos.
 - hypr/ → Hyprland 0.56 en Lua nativo (NO hyprlang/.conf viejo).
 - quickshell/ → shell gráfico illogical-impulse completo (QML).
 - fish/ → config.fish, functions/ y todo conf.d/.
-- nvim/ → LazyVim; tiene su PROPIO CLAUDE.md y project de Engram ("nvim").
-  Para trabajo enfocado en Neovim, abrir claude parado en esa carpeta.
+- nvim/ → LazyVim casi de fábrica (reinstalado de cero, commit c7016a0; ya no
+  tiene CLAUDE.md propio). Lo mío va en nvim/lua/plugins/ (hoy: colorscheme.lua,
+  tokyonight transparente). Engram tiene un project "nvim" con historia de la config vieja.
 - bootstrap.sh + pkgs-*.txt + README.md → sistema de replicación multi-PC.
 - transcriptor/ → transcriptor del audio del sistema (Python + Groq Whisper),
   con su propio README. La clave vive en ~/.local/share/transcriptor/groq.key,
