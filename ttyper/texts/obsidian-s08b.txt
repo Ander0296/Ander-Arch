@@ -1,0 +1,12 @@
+Una
+plantilla
+guarda
+la
+estructura;
+{{title}}
+y
+{{date}}
+se
+reemplazan
+al
+insertarla.

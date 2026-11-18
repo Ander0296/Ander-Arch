@@ -1,0 +1,12 @@
+Un
+enlace
+[[nota]]
+opaco
+apunta
+a
+una
+nota
+que
+todavía
+no
+existe.

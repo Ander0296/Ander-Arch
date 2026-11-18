@@ -1,0 +1,13 @@
+Las
+propiedades
+van
+entre
+dos
+líneas
+---
+al
+principio:
+autor:
+Cervantes,
+tipo:
+libro.

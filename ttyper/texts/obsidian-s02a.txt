@@ -1,0 +1,12 @@
+##
+Título
+con
+espacio;
+#palabra
+sin
+espacio
+es
+una
+etiqueta
+en
+Obsidian.

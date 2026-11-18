@@ -1,0 +1,13 @@
+En
+el
+formato
+de
+fecha,
+el
+texto
+fijo
+va
+entre
+corchetes:
+YYYY-MM-DD
+[diario].

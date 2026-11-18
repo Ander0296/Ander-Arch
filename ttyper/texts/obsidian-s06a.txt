@@ -1,0 +1,13 @@
+Los
+enlaces
+entrantes
+muestran
+qué
+notas
+apuntan
+a
+la
+nota
+que
+tengo
+abierta.

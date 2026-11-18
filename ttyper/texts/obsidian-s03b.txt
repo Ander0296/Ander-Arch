@@ -1,0 +1,15 @@
+Un
+Enter
+suelto
+no
+corta
+el
+renglón:
+separá
+los
+párrafos
+con
+una
+línea
+en
+blanco.

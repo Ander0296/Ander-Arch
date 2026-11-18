@@ -1,0 +1,13 @@
+![[foto.png]]
+incrusta
+la
+imagen;
+el
+archivo
+real
+vive
+en
+la
+carpeta
+de
+adjuntos.

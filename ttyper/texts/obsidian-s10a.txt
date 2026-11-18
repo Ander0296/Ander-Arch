@@ -1,0 +1,15 @@
+Una
+base
+no
+guarda
+datos:
+muestra
+las
+notas
+que
+cumplen
+el
+filtro
+tipo
+es
+grano.

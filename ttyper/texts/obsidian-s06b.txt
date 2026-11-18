@@ -1,0 +1,14 @@
+tag:#pendiente
+busca
+la
+etiqueta;
+un
+mapa
+de
+contenido
+es
+una
+nota
+llena
+de
+[[enlaces]].

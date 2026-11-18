@@ -1,0 +1,11 @@
+[texto
+visible](https://url):
+corchetes
+para
+el
+texto,
+paréntesis
+para
+la
+dirección
+web.

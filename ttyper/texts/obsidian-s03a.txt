@@ -1,0 +1,12 @@
+==resaltado==
+es
+solo
+de
+Obsidian;
+**negrita**
+y
+*cursiva*
+funcionan
+en
+cualquier
+Markdown.

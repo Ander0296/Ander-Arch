@@ -1,0 +1,14 @@
+Archivo
+sobre
+aplicación:
+cada
+nota
+es
+un
+archivo
+.md
+que
+abro
+con
+cualquier
+editor.

@@ -1,0 +1,12 @@
+-
+[x]
+tarea
+hecha,
+*cursiva*
+con
+uno
+y
+**negrita**
+con
+dos
+asteriscos.

@@ -1,0 +1,13 @@
+Un
+callout
+es
+una
+cita
+que
+empieza
+así:
+>
+[!tip]
+Título
+del
+recuadro.

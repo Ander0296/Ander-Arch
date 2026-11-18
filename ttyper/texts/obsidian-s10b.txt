@@ -1,0 +1,16 @@
+Cada
+propiedad
+es
+una
+columna;
+si
+el
+valor
+cambia
+en
+la
+base,
+cambia
+en
+la
+nota.
