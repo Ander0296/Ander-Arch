@@ -1,0 +1,10 @@
+:pwd
+:cd
+:e
+:edit
+:qa
+:pwd
+:cd
+:e
+:pwd
+:qa
